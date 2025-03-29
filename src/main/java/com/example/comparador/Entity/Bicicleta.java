@@ -3,7 +3,6 @@ package com.example.comparador.Entity;
 import com.example.comparador.Entity.ENUM.MaterialCuadro;
 import com.example.comparador.Entity.ENUM.TipoBicicleta;
 import com.example.comparador.Entity.ENUM.TipoCambio;
-import com.example.comparador.Entity.ENUM.TipoFreno;
 import jakarta.persistence.*;
 
 import java.math.BigDecimal;
@@ -25,10 +24,6 @@ public class Bicicleta {
 
     @Enumerated(EnumType.STRING)
     private MaterialCuadro materialCuadro;
-
-    @Enumerated(EnumType.STRING)
-    private TipoFreno tipoFreno;
-
     @Enumerated(EnumType.STRING)
     private TipoCambio tipoCambio;
 
@@ -38,22 +33,20 @@ public class Bicicleta {
 
     private String masInfoUrl;
 
-    @Column
     private String marcaNombre;
 
-    public Bicicleta(Long id, String modelo, BigDecimal precio, TipoBicicleta tipo, MaterialCuadro materialCuadro, TipoFreno tipoFreno, TipoCambio tipoCambio, BigDecimal peso, String imagenUrl, String masInfoUrl, String marcaNombre) {
-        this.id = id;
+    public Bicicleta(String modelo, BigDecimal precio, TipoBicicleta tipo, MaterialCuadro materialCuadro, TipoCambio tipoCambio, BigDecimal peso, String imagenUrl, String masInfoUrl, String marcaNombre) {
         this.modelo = modelo;
         this.precio = precio;
         this.tipo = tipo;
         this.materialCuadro = materialCuadro;
-        this.tipoFreno = tipoFreno;
         this.tipoCambio = tipoCambio;
         this.peso = peso;
         this.imagenUrl = imagenUrl;
         this.masInfoUrl = masInfoUrl;
         this.marcaNombre = marcaNombre;
     }
+
 
     public Bicicleta() {
     }
@@ -96,14 +89,6 @@ public class Bicicleta {
 
     public void setMaterialCuadro(MaterialCuadro materialCuadro) {
         this.materialCuadro = materialCuadro;
-    }
-
-    public TipoFreno getTipoFreno() {
-        return tipoFreno;
-    }
-
-    public void setTipoFreno(TipoFreno tipoFreno) {
-        this.tipoFreno = tipoFreno;
     }
 
     public TipoCambio getTipoCambio() {
