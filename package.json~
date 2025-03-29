@@ -1,0 +1,28 @@
+{
+  "name": "comparador-bicicletas",
+  "version": "1.0.0",
+  "description": "Este proyecto tiene como objetivo crear un comparador de bicicletas que permita a los usuarios filtrar y comparar diferentes modelos basados en varios criterios, como el tipo de cambio (mecánico o electrónico), el tipo de freno (disco o mecánico), el material del cuadro (carbono o aluminio), y el uso de la bicicleta (Carretera, Montaña, Gravel). La información será obtenida a través de **web scraping** de diferentes marcas y sitios web oficiales, lo que permitirá que el comparador esté actualizado con las bicicletas más recientes del mercado.",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/diegobenito2/TFG-Comparador-Bicicletas.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/diegobenito2/TFG-Comparador-Bicicletas/issues"
+  },
+  "homepage": "https://github.com/diegobenito2/TFG-Comparador-Bicicletas#readme",
+  "devDependencies": {
+    "autoprefixer": "^10.4.21",
+    "postcss": "^8.5.3",
+    "tailwindcss": "^4.0.17"
+  },
+  "dependencies": {
+    "@tailwindcss/postcss": "^4.0.17"
+  }
+}
