@@ -11,7 +11,6 @@
             let tipo = document.getElementById("tipo").value;
             let cambio = document.getElementById("cambio").value;
             let ordenar = document.getElementById("ordenar").value;
-            let busqueda = document.getElementById("busqueda").value.toLowerCase();
 
             let items = document.querySelectorAll(".bicicleta");
             items.forEach(item => {
@@ -106,9 +105,7 @@
 <!-- Contenedor principal -->
 <main class="py-8">
     <div>
-
-        <!-- Filtros -->
-        <div class="relative">
+        <div>
             <div class="flex justify-end">
                 <button onclick="toggleMenu()"
                         class="flex justify-center items-center space-x-2 px-4 py-2 border rounded-lg shadow bg-white transform transition-all duration-300">
@@ -120,6 +117,21 @@
                     <span>Filtros</span>
                 </button>
             </div>
+            <div class="flex justify-left items-center mb-6 px-10 ">
+                <button onclick="toggleSearch()" class="p-2 border rounded-full bg-white shadow">
+                    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5"
+                         stroke="currentColor" class="w-6 h-6">
+                        <path stroke-linecap="round" stroke-linejoin="round"
+                              d="M21 21l-4.35-4.35M17 10a7 7 0 1 1-14 0 7 7 0 0 1 14 0z"/>
+                    </svg>
+                </button>
+            </div>
+        </div>
+
+        <!-- Filtros -->
+        <div class="relative">
+
+
 
             <div id="menu" class="absolute right-0 mt-2 w-64 p-6 bg-gray-100 border rounded-lg shadow-lg hidden">
                 <div class="mb-4">
@@ -158,18 +170,9 @@
             </div>
         </div>
         <!-- Buscador -->
-        <div class="flex justify-end items-center mb-6 px- ">
-            <button onclick="toggleSearch()" class="p-2 border rounded-full bg-white shadow">
-                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5"
-                     stroke="currentColor" class="w-6 h-6">
-                    <path stroke-linecap="round" stroke-linejoin="round"
-                          d="M21 21l-4.35-4.35M17 10a7 7 0 1 1-14 0 7 7 0 0 1 14 0z"/>
-                </svg>
-            </button>
-        </div>
-        <div id="search-container" class="hidden mb-4">
+        <div id="search-container" class="hidden mb-4 flex justify-center items-center">
             <input id="busqueda" oninput="filtrar()" type="text" placeholder="Buscar bicicleta..."
-                   class="w-200 p-2 border rounded">
+                   class="w-1000 p-2 border rounded">
         </div>
 
     </div>
@@ -179,234 +182,18 @@
         <!-- Hacer que cuando pulses en la tarjeta de la bicicleta te lleve a una página vista con los detalles de la bicicleta -->
 
             <div class="bg-white rounded-lg shadow-lg overflow-hidden" th:each="bicicleta : ${bicicletas} ">
-                <img th:src="${bicicleta.url}" alt="Bicicleta" class="w-full h-80 p-2 object-cover">
+                <img th:src="${bicicleta.getImagenUrl()}" alt="Bicicleta" class="w-full h-80 p-2 object-cover">
                 <div class="p-4">
-                    <h2 class="text-xl font-semibold" th:text="${bicicleta.marca} + ' ' + ${bicicleta.modelo}"></h2>
-                    <p class="text-gray-600 mt-2" th:text="${bicicleta.type}"></p>
+                    <h2 class="text-xl font-semibold" th:text="${bicicleta.getMarcaNombre()} + ' ' + ${bicicleta.getModelo()}"></h2>
+                    <p class="text-gray-600 mt-2" th:text="${bicicleta.getTipo()}"></p>
                     <div class="mt-4 flex justify-between items-center">
                         <!--   Precio base de la bici-->
-                        <span class="text-lg font-bold text-blue-600" th:text="${bicicleta.precio}"></span>
+                        <span class="text-lg font-bold text-blue-600" th:text="${bicicleta.getPrecio()}+'€'"></span>
                         <!-- Hacer que cuando pulses el botón de comparar te lleve a la vista de comparación -->
                         <button class="bg-blue-600 text-white py-2 px-4 rounded-lg hover:bg-blue-700">Comparar</button>
                     </div>
                 </div>
             </div>
-
-
-        <div class="bg-white rounded-lg shadow-lg overflow-hidden">
-            <img src="https://www.orbea.com/img/products/product/over/large/S241TTCC-KT-SIDE-OIZ_MPRO_over.jpg" alt="Bicicleta Orbea"
-                 class="w-full h-80 p-2 object-cover">
-            <button class="absolute bottom-4 left-1/2 transform -translate-x-1/2 bg-blue-500 text-white px-4 py-2 rounded opacity-0 group-hover:opacity-100 transition-opacity">
-                Ver modelo
-            </button>
-            <div class="p-4">
-                <h2 class="text-xl font-semibold">Orbea Alma 2025</h2>
-                <p class="text-gray-600 mt-2">Montaña - XC</p>
-                <div class="mt-4 flex justify-between items-center">
-                    <!-- Precio base de la bici-->
-                    <span class="text-lg font-bold text-blue-600">$2,100.00</span>
-                    <!-- Botón de comparar -->
-                    <button class="bg-blue-600 text-white py-2 px-4 rounded-lg hover:bg-blue-700">Comparar</button>
-                </div>
-            </div>
-        </div>
-
-        <div class="bg-white rounded-lg shadow-lg overflow-hidden">
-            <img src="https://via.placeholder.com/300x200?text=Orbea+2025" alt="Bicicleta Orbea"
-                 class="w-full h-64 object-cover">
-            <div class="p-4">
-                <h2 class="text-xl font-semibold">Orbea Alma 2025</h2>
-                <p class="text-gray-600 mt-2">Montaña - XC</p>
-                <div class="mt-4 flex justify-between items-center">
-                    <!-- Precio base de la bici-->
-                    <span class="text-lg font-bold text-blue-600">$2,100.00</span>
-                    <!-- Botón de comparar -->
-                    <button class="bg-blue-600 text-white py-2 px-4 rounded-lg hover:bg-blue-700">Comparar</button>
-                </div>
-            </div>
-        </div>
-        <div class="bg-white rounded-lg shadow-lg overflow-hidden">
-            <img src="https://via.placeholder.com/300x200?text=Orbea+2025" alt="Bicicleta Orbea"
-                 class="w-full h-64 object-cover">
-            <div class="p-4">
-                <h2 class="text-xl font-semibold">Orbea Alma 2025</h2>
-                <p class="text-gray-600 mt-2">Montaña - XC</p>
-                <div class="mt-4 flex justify-between items-center">
-                    <!-- Precio base de la bici-->
-                    <span class="text-lg font-bold text-blue-600">$2,100.00</span>
-                    <!-- Botón de comparar -->
-                    <button class="bg-blue-600 text-white py-2 px-4 rounded-lg hover:bg-blue-700">Comparar</button>
-                </div>
-            </div>
-        </div>
-        <div class="bg-white rounded-lg shadow-lg overflow-hidden">
-            <img src="https://via.placeholder.com/300x200?text=Orbea+2025" alt="Bicicleta Orbea"
-                 class="w-full h-64 object-cover">
-            <div class="p-4">
-                <h2 class="text-xl font-semibold">Orbea Alma 2025</h2>
-                <p class="text-gray-600 mt-2">Montaña - XC</p>
-                <div class="mt-4 flex justify-between items-center">
-                    <!-- Precio base de la bici-->
-                    <span class="text-lg font-bold text-blue-600">$2,100.00</span>
-                    <!-- Botón de comparar -->
-                    <button class="bg-blue-600 text-white py-2 px-4 rounded-lg hover:bg-blue-700">Comparar</button>
-                </div>
-            </div>
-        </div>
-        <div class="bg-white rounded-lg shadow-lg overflow-hidden">
-            <img src="https://via.placeholder.com/300x200?text=Orbea+2025" alt="Bicicleta Orbea"
-                 class="w-full h-64 object-cover">
-            <div class="p-4">
-                <h2 class="text-xl font-semibold">Orbea Alma 2025</h2>
-                <p class="text-gray-600 mt-2">Montaña - XC</p>
-                <div class="mt-4 flex justify-between items-center">
-                    <!-- Precio base de la bici-->
-                    <span class="text-lg font-bold text-blue-600">$2,100.00</span>
-                    <!-- Botón de comparar -->
-                    <button class="bg-blue-600 text-white py-2 px-4 rounded-lg hover:bg-blue-700">Comparar</button>
-                </div>
-            </div>
-        </div>
-        <div class="bg-white rounded-lg shadow-lg overflow-hidden">
-            <img src="https://via.placeholder.com/300x200?text=Orbea+2025" alt="Bicicleta Orbea"
-                 class="w-full h-64 object-cover">
-            <div class="p-4">
-                <h2 class="text-xl font-semibold">Orbea Alma 2025</h2>
-                <p class="text-gray-600 mt-2">Montaña - XC</p>
-                <div class="mt-4 flex justify-between items-center">
-                    <!-- Precio base de la bici-->
-                    <span class="text-lg font-bold text-blue-600">$2,100.00</span>
-                    <!-- Botón de comparar -->
-                    <button class="bg-blue-600 text-white py-2 px-4 rounded-lg hover:bg-blue-700">Comparar</button>
-                </div>
-            </div>
-        </div>
-        <div class="bg-white rounded-lg shadow-lg overflow-hidden">
-            <img src="https://via.placeholder.com/300x200?text=Orbea+2025" alt="Bicicleta Orbea"
-                 class="w-full h-64 object-cover">
-            <div class="p-4">
-                <h2 class="text-xl font-semibold">Orbea Alma 2025</h2>
-                <p class="text-gray-600 mt-2">Montaña - XC</p>
-                <div class="mt-4 flex justify-between items-center">
-                    <!-- Precio base de la bici-->
-                    <span class="text-lg font-bold text-blue-600">$2,100.00</span>
-                    <!-- Botón de comparar -->
-                    <button class="bg-blue-600 text-white py-2 px-4 rounded-lg hover:bg-blue-700">Comparar</button>
-                </div>
-            </div>
-        </div>
-        <div class="bg-white rounded-lg shadow-lg overflow-hidden">
-            <img src="https://via.placeholder.com/300x200?text=Orbea+2025" alt="Bicicleta Orbea"
-                 class="w-full h-64 object-cover">
-            <div class="p-4">
-                <h2 class="text-xl font-semibold">Orbea Alma 2025</h2>
-                <p class="text-gray-600 mt-2">Montaña - XC</p>
-                <div class="mt-4 flex justify-between items-center">
-                    <!-- Precio base de la bici-->
-                    <span class="text-lg font-bold text-blue-600">$2,100.00</span>
-                    <!-- Botón de comparar -->
-                    <button class="bg-blue-600 text-white py-2 px-4 rounded-lg hover:bg-blue-700">Comparar</button>
-                </div>
-            </div>
-        </div>
-        <div class="bg-white rounded-lg shadow-lg overflow-hidden">
-            <img src="https://via.placeholder.com/300x200?text=Orbea+2025" alt="Bicicleta Orbea"
-                 class="w-full h-64 object-cover">
-            <div class="p-4">
-                <h2 class="text-xl font-semibold">Orbea Alma 2025</h2>
-                <p class="text-gray-600 mt-2">Montaña - XC</p>
-                <div class="mt-4 flex justify-between items-center">
-                    <!-- Precio base de la bici-->
-                    <span class="text-lg font-bold text-blue-600">$2,100.00</span>
-                    <!-- Botón de comparar -->
-                    <button class="bg-blue-600 text-white py-2 px-4 rounded-lg hover:bg-blue-700">Comparar</button>
-                </div>
-            </div>
-        </div>
-        <div class="bg-white rounded-lg shadow-lg overflow-hidden">
-            <img src="https://via.placeholder.com/300x200?text=Orbea+2025" alt="Bicicleta Orbea"
-                 class="w-full h-64 object-cover">
-            <div class="p-4">
-                <h2 class="text-xl font-semibold">Orbea Alma 2025</h2>
-                <p class="text-gray-600 mt-2">Montaña - XC</p>
-                <div class="mt-4 flex justify-between items-center">
-                    <!-- Precio base de la bici-->
-                    <span class="text-lg font-bold text-blue-600">$2,100.00</span>
-                    <!-- Botón de comparar -->
-                    <button class="bg-blue-600 text-white py-2 px-4 rounded-lg hover:bg-blue-700">Comparar</button>
-                </div>
-            </div>
-        </div>
-        <div class="bg-white rounded-lg shadow-lg overflow-hidden">
-            <img src="https://via.placeholder.com/300x200?text=Orbea+2025" alt="Bicicleta Orbea"
-                 class="w-full h-64 object-cover">
-            <div class="p-4">
-                <h2 class="text-xl font-semibold">Orbea Alma 2025</h2>
-                <p class="text-gray-600 mt-2">Montaña - XC</p>
-                <div class="mt-4 flex justify-between items-center">
-                    <!-- Precio base de la bici-->
-                    <span class="text-lg font-bold text-blue-600">$2,100.00</span>
-                    <!-- Botón de comparar -->
-                    <button class="bg-blue-600 text-white py-2 px-4 rounded-lg hover:bg-blue-700">Comparar</button>
-                </div>
-            </div>
-        </div>
-        <div class="bg-white rounded-lg shadow-lg overflow-hidden">
-            <img src="https://via.placeholder.com/300x200?text=Orbea+2025" alt="Bicicleta Orbea"
-                 class="w-full h-64 object-cover">
-            <div class="p-4">
-                <h2 class="text-xl font-semibold">Orbea Alma 2025</h2>
-                <p class="text-gray-600 mt-2">Montaña - XC</p>
-                <div class="mt-4 flex justify-between items-center">
-                    <!-- Precio base de la bici-->
-                    <span class="text-lg font-bold text-blue-600">$2,100.00</span>
-                    <!-- Botón de comparar -->
-                    <button class="bg-blue-600 text-white py-2 px-4 rounded-lg hover:bg-blue-700">Comparar</button>
-                </div>
-            </div>
-        </div>
-        <div class="bg-white rounded-lg shadow-lg overflow-hidden">
-            <img src="https://via.placeholder.com/300x200?text=Orbea+2025" alt="Bicicleta Orbea"
-                 class="w-full h-64 object-cover">
-            <div class="p-4">
-                <h2 class="text-xl font-semibold">Orbea Alma 2025</h2>
-                <p class="text-gray-600 mt-2">Montaña - XC</p>
-                <div class="mt-4 flex justify-between items-center">
-                    <!-- Precio base de la bici-->
-                    <span class="text-lg font-bold text-blue-600">$2,100.00</span>
-                    <!-- Botón de comparar -->
-                    <button class="bg-blue-600 text-white py-2 px-4 rounded-lg hover:bg-blue-700">Comparar</button>
-                </div>
-            </div>
-        </div>
-        <div class="bg-white rounded-lg shadow-lg overflow-hidden">
-            <img src="https://via.placeholder.com/300x200?text=Orbea+2025" alt="Bicicleta Orbea"
-                 class="w-full h-64 object-cover">
-            <div class="p-4">
-                <h2 class="text-xl font-semibold">Orbea Alma 2025</h2>
-                <p class="text-gray-600 mt-2">Montaña - XC</p>
-                <div class="mt-4 flex justify-between items-center">
-                    <!-- Precio base de la bici-->
-                    <span class="text-lg font-bold text-blue-600">$2,100.00</span>
-                    <!-- Botón de comparar -->
-                    <button class="bg-blue-600 text-white py-2 px-4 rounded-lg hover:bg-blue-700">Comparar</button>
-                </div>
-            </div>
-        </div>
-        <div class="bg-white rounded-lg shadow-lg overflow-hidden">
-            <img src="https://via.placeholder.com/300x200?text=Orbea+2025" alt="Bicicleta Orbea"
-                 class="w-full h-64 object-cover">
-            <div class="p-4">
-                <h2 class="text-xl font-semibold">Orbea Alma 2025</h2>
-                <p class="text-gray-600 mt-2">Montaña - XC</p>
-                <div class="mt-4 flex justify-between items-center">
-                    <!-- Precio base de la bici-->
-                    <span class="text-lg font-bold text-blue-600">$2,100.00</span>
-                    <!-- Botón de comparar -->
-                    <button class="bg-blue-600 text-white py-2 px-4 rounded-lg hover:bg-blue-700">Comparar</button>
-                </div>
-            </div>
-        </div>
     </div>
 </main>
 

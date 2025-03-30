@@ -3,12 +3,10 @@ package com.example.comparador.Service;
 import com.example.comparador.Entity.Bicicleta;
 import com.example.comparador.Entity.ENUM.TipoBicicleta;
 import com.example.comparador.Repository.BicicletaRepository;
-import org.springframework.stereotype.Service;
-
 import java.util.List;
 import java.util.Objects;
 import java.util.Optional;
-@Service
+
 public class BicicletaServiceImpl implements BicicletaService {
 
     private final BicicletaRepository repository;
