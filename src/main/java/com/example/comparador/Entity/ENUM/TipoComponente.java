@@ -4,18 +4,19 @@ public enum TipoComponente {
     Cuadro,
     Horquilla,
     Manillar,
-    Tija_sillin,
+    TijaSillin,
     Sillin,
     Ruedas,
     Cubiertas,
     Frenos,
-    Cambios_mandos,
-    Cambio_trasero,
+    ManetasCambio,
+    CambioTrasero,
     Desviador,
     Bielas,
     Cadena,
     Cassette,
     Bujes,
     Amortiguador,
-    Plato
+    Plato,
+    Pedalier
 }

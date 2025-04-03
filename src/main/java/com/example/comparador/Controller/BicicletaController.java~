@@ -8,7 +8,6 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
-import java.util.Optional;
 
 @Controller
 @RequestMapping("/")
@@ -31,7 +30,7 @@ public class BicicletaController {
     }
     @GetMapping("/bicicletas/{id}")
     public String findById(@PathVariable("id") Long id, Model model) {
-        Optional<Bicicleta> bicicleta = this.service.findById(id);
+        Bicicleta bicicleta = this.service.findById(id);
         model.addAttribute("bicicleta", bicicleta);
         return "view";
     }

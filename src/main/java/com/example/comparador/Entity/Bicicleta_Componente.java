@@ -20,8 +20,7 @@ public class Bicicleta_Componente {
     public Bicicleta_Componente() {
     }
 
-    public Bicicleta_Componente(Long id, Bicicleta bicicleta, Componente componente) {
-        this.id = id;
+    public Bicicleta_Componente(Bicicleta bicicleta, Componente componente) {
         this.bicicleta = bicicleta;
         this.componente = componente;
     }

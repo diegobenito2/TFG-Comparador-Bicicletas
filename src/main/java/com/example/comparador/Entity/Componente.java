@@ -19,9 +19,7 @@ public class Componente {
     @Enumerated(EnumType.STRING)
     private TipoComponente tipo;
 
-    public Componente(Long id, String nombre,String descripcion, TipoComponente tipo) {
-        this.id = id;
-        this.nombre = nombre;
+    public Componente(String descripcion, TipoComponente tipo) {
         this.descripcion = descripcion;
         this.tipo = tipo;
     }
@@ -35,14 +33,6 @@ public class Componente {
 
     public void setId(Long id) {
         this.id = id;
-    }
-
-    public String getNombre() {
-        return nombre;
-    }
-
-    public void setNombre(String nombre) {
-        this.nombre = nombre;
     }
 
     public String getDescripcion() {
