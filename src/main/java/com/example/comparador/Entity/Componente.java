@@ -3,36 +3,45 @@ package com.example.comparador.Entity;
 
 import com.example.comparador.Entity.ENUM.TipoComponente;
 import jakarta.persistence.*;
+import java.util.List;
 
 @Entity
-@Table(name = "componente")
 public class Componente {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
-    private String nombre;
-
     private String descripcion;
-
-    @Enumerated(EnumType.STRING)
     private TipoComponente tipo;
+
+    // Relación inversa con la tabla intermedia (opcional)
+    @OneToMany(mappedBy = "componente")
+    private List<BicicletaComponente> bicicletaComponentes;
+
+    public Componente() {
+    }
 
     public Componente(String descripcion, TipoComponente tipo) {
         this.descripcion = descripcion;
         this.tipo = tipo;
     }
 
-    public Componente() {
-    }
-
+    // Getters y setters
     public Long getId() {
         return id;
     }
 
     public void setId(Long id) {
         this.id = id;
+    }
+
+    public TipoComponente getTipo() {
+        return tipo;
+    }
+
+    public void setTipo(TipoComponente tipo) {
+        this.tipo = tipo;
     }
 
     public String getDescripcion() {
@@ -43,12 +52,16 @@ public class Componente {
         this.descripcion = descripcion;
     }
 
-    public TipoComponente getTipo() {
-        return tipo;
+
+
+    public List<BicicletaComponente> getBicicletaComponentes() {
+        return bicicletaComponentes;
     }
 
-    public void setTipo(TipoComponente tipo) {
-        this.tipo = tipo;
+    public void setBicicletaComponentes(List<BicicletaComponente> bicicletaComponentes) {
+        this.bicicletaComponentes = bicicletaComponentes;
     }
 }
+
+
 

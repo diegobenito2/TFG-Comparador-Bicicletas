@@ -2,28 +2,26 @@ package com.example.comparador.Entity;
 import jakarta.persistence.*;
 
 @Entity
-@Table(name = "bicicleta_componente")
-public class Bicicleta_Componente {
+public class BicicletaComponente {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
     @ManyToOne
+    @MapsId("bicicletaId") // Nombre del campo en la clase Id
     @JoinColumn(name = "bicicleta_id")
     private Bicicleta bicicleta;
 
     @ManyToOne
+    @MapsId("componenteId") // Nombre del campo en la clase Id
     @JoinColumn(name = "componente_id")
     private Componente componente;
 
-    public Bicicleta_Componente() {
-    }
+    // Constructor vacío
+    public BicicletaComponente() {}
 
-    public Bicicleta_Componente(Bicicleta bicicleta, Componente componente) {
-        this.bicicleta = bicicleta;
-        this.componente = componente;
-    }
+    // Getters y setters
 
     public Long getId() {
         return id;
@@ -48,5 +46,22 @@ public class Bicicleta_Componente {
     public void setComponente(Componente componente) {
         this.componente = componente;
     }
+
+    public String getTipoComponente() {
+        return tipoComponente;
+    }
+
+    public void setTipoComponente(String tipoComponente) {
+        this.tipoComponente = tipoComponente;
+    }
+
+    public String getDescripcion() {
+        return descripcion;
+    }
+
+    public void setDescripcion(String descripcion) {
+        this.descripcion = descripcion;
+    }
 }
+
 

@@ -6,6 +6,8 @@ import com.example.comparador.Entity.ENUM.TipoCambio;
 import jakarta.persistence.*;
 
 import java.math.BigDecimal;
+import java.util.ArrayList;
+import java.util.List;
 
 @Entity
 @Table(name = "bicicleta")
@@ -16,7 +18,6 @@ public class Bicicleta {
     private Long id;
 
     private String modelo;
-
     private BigDecimal precio;
 
     @Enumerated(EnumType.STRING)
@@ -24,16 +25,32 @@ public class Bicicleta {
 
     @Enumerated(EnumType.STRING)
     private MaterialCuadro materialCuadro;
+
     @Enumerated(EnumType.STRING)
     private TipoCambio tipoCambio;
 
     private BigDecimal peso;
-
     private String imagenUrl;
-
     private String masInfoUrl;
-
     private String marcaNombre;
+
+    @OneToMany(mappedBy = "bicicleta", cascade = CascadeType.ALL, orphanRemoval = true)
+    private List<BicicletaComponente> componentes = new ArrayList<>();
+
+    // Constructores, getters y setters
+
+    public Bicicleta(String modelo, BigDecimal precio, TipoBicicleta tipo, MaterialCuadro materialCuadro, TipoCambio tipoCambio, BigDecimal peso, String imagenUrl, String masInfoUrl, String marcaNombre, List<BicicletaComponente> componentes) {
+        this.modelo = modelo;
+        this.precio = precio;
+        this.tipo = tipo;
+        this.materialCuadro = materialCuadro;
+        this.tipoCambio = tipoCambio;
+        this.peso = peso;
+        this.imagenUrl = imagenUrl;
+        this.masInfoUrl = masInfoUrl;
+        this.marcaNombre = marcaNombre;
+        this.componentes = componentes;
+    }
 
     public Bicicleta(String modelo, BigDecimal precio, TipoBicicleta tipo, MaterialCuadro materialCuadro, TipoCambio tipoCambio, BigDecimal peso, String imagenUrl, String masInfoUrl, String marcaNombre) {
         this.modelo = modelo;
@@ -47,9 +64,7 @@ public class Bicicleta {
         this.marcaNombre = marcaNombre;
     }
 
-
-    public Bicicleta() {
-    }
+    public Bicicleta() {}
 
     public Long getId() {
         return id;
@@ -130,5 +145,14 @@ public class Bicicleta {
     public void setMarcaNombre(String marcaNombre) {
         this.marcaNombre = marcaNombre;
     }
+
+    public List<BicicletaComponente> getComponentes() {
+        return componentes;
+    }
+
+    public void setComponentes(List<BicicletaComponente> componentes) {
+        this.componentes = componentes;
+    }
 }
+
 
