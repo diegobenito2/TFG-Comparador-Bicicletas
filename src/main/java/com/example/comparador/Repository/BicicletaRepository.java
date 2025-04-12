@@ -13,7 +13,7 @@ import java.util.Optional;
 public interface BicicletaRepository extends JpaRepository<Bicicleta, Long> {
 
     //Para ver los detalles de cada modelo de bici y para el comparador.
-    Optional<Bicicleta> findById(Long id);
+    Optional<Bicicleta> findBicicletasById(Long id);
 
 //    //Filtros
 //    List<Bicicleta> findBicicletasByTipo(TipoBicicleta tipo);

@@ -9,17 +9,22 @@ public class BicicletaComponente {
     private Long id;
 
     @ManyToOne
-    @MapsId("bicicletaId") // Nombre del campo en la clase Id
-    @JoinColumn(name = "bicicleta_id")
+    @JoinColumn(name = "bicicletaid")
     private Bicicleta bicicleta;
 
     @ManyToOne
-    @MapsId("componenteId") // Nombre del campo en la clase Id
-    @JoinColumn(name = "componente_id")
+    @JoinColumn(name = "componenteid")
     private Componente componente;
 
     // Constructor vacío
+
+    public BicicletaComponente(Bicicleta bicicleta, Componente componente) {
+        this.bicicleta = bicicleta;
+        this.componente = componente;
+    }
+
     public BicicletaComponente() {}
+
 
     // Getters y setters
 
@@ -45,22 +50,6 @@ public class BicicletaComponente {
 
     public void setComponente(Componente componente) {
         this.componente = componente;
-    }
-
-    public String getTipoComponente() {
-        return tipoComponente;
-    }
-
-    public void setTipoComponente(String tipoComponente) {
-        this.tipoComponente = tipoComponente;
-    }
-
-    public String getDescripcion() {
-        return descripcion;
-    }
-
-    public void setDescripcion(String descripcion) {
-        this.descripcion = descripcion;
     }
 }
 
