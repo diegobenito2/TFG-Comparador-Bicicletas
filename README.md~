@@ -17,7 +17,7 @@ El proyecto estará basado en un **back-end de Spring Boot** utilizando **Thymel
 ## Tecnologías
 
 - **Back-End**: Spring Boot
-- **Front-End**: Thymeleaf, Tailwind CSS
+- **Front-End**: Thymeleaf, Bootstrap
 - **Web Scraping**: Uso de herramientas específicas de web scraping para obtener los datos de las bicicletas de diferentes webs de marcas.
 - **Base de Datos**: Almacenamiento de los modelos de bicicletas en una base de datos para acceder rápidamente a los datos sin realizar scraping cada vez que se acceda al sitio.
 - **Integración con ChatGPT**: Posibilidad de usar inteligencia artificial para enriquecer los datos de las bicicletas o realizar consultas avanzadas.

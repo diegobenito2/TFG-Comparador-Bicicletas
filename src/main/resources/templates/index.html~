@@ -1,0 +1,194 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bike Comparator</title>
+    <link rel="apple-touch-icon" sizes="180x180" href="/static/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="/static/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="/static/favicon-16x16.png">
+    <link rel="manifest" href="/static/site.webmanifest">
+
+    <script src="https://cdn.tailwindcss.com"></script>
+
+</head>
+<body class="bg-gray-100 font-sans">
+
+<!-- Encabezado -->
+<header class="bg-blue-600">
+    <div class="max-w-7xl mx-auto   text-xl flex justify-left">
+        <!--        <img src="/static/logo.png" alt="Logo de Bike Comparator" class="h-24">-->
+        <a href="http://localhost:8080" class="flex justify-left">
+
+        </a>
+
+    </div>
+    <!-- Botón de Filtros -->
+    <div class="flex justify-end mb-4">
+        <button onclick="toggleMenu()"
+                class="flex items-center space-x-2 px-4 py-2 border rounded-lg shadow bg-white transition-all duration-300">
+            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5"
+                 stroke="currentColor" class="w-5 h-5">
+                <path stroke-linecap="round" stroke-linejoin="round"
+                      d="M3.75 9h16.5m-16.5 6h16.5M3.75 3h16.5M3.75 21h16.5"/>
+            </svg>
+            <span>Filtros</span>
+        </button>
+    </div>
+
+    <!-- Boton Buscador -->
+    <div class="flex justify-end items-center mb-4">
+        <button onclick="toggleSearch()" class="p-2 border rounded-full bg-white shadow">
+            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5"
+                 stroke="currentColor" class="w-6 h-6">
+                <path stroke-linecap="round" stroke-linejoin="round"
+                      d="M21 21l-4.35-4.35M17 10a7 7 0 1 1-14 0 7 7 0 0 1 14 0z"/>
+            </svg>
+        </button>
+    </div>
+
+</header>
+
+<!-- Contenedor principal -->
+<main class="py-8">
+    <div class="max-w-7xl mx-auto px-4">
+
+        <!-- Buscador-->
+        <div id="search-container" class="hidden mb-10 flex justify-center items-center">
+            <input id="search" oninput="find()" type="text" placeholder="Buscar bicicleta..."
+                   class="w-full max-w-lg p-2 border rounded">
+        </div>
+
+        <!-- Filtros -->
+        <div class="relative">
+            <div id="menu" class="absolute right-0 mt-2 w-64 p-6 bg-gray-100 border rounded-lg shadow-lg hidden">
+                <div class="mb-4">
+                    <label class="block text-sm font-medium" for="ordenar">Ordenar por precio:</label>
+                    <select id="ordenar" onchange="filtrar()" class="w-full mt-1 p-2 border rounded">
+                        <option value="">Defecto</option>
+                        <option value="asc">Menor a Mayor</option>
+                        <option value="desc">Mayor a Menor</option>
+                    </select>
+                </div>
+                <div class="mb-4">
+                    <label class="block text-sm font-medium" for="material">Material Cuadro:</label>
+                    <select id="material" onchange="filtrar()" class="w-full mt-1 p-2 border rounded">
+                        <option value="">Todos</option>
+                        <option value="Aluminio">Aluminio</option>
+                        <option value="Carbono">Carbono</option>
+                    </select>
+                </div>
+                <div class="mb-4">
+                    <label class="block text-sm font-medium" for="tipo">Tipo Bicicleta:</label>
+                    <select id="tipo" onchange="filtrar()" class="w-full mt-1 p-2 border rounded">
+                        <option value="">Todos</option>
+                        <option value="Carretera">Carretera</option>
+                        <option value="Montaña">Montaña</option>
+                        <option value="Gravel">Gravel</option>
+                    </select>
+                </div>
+                <div class="mb-4">
+                    <label class="block text-sm font-medium" for="cambio">Tipo Cambio:</label>
+                    <select id="cambio" onchange="filtrar()" class="w-full mt-1 p-2 border rounded">
+                        <option value="">Todos</option>
+                        <option value="Mecánico">Mecánico</option>
+                        <option value="Electrónico">Electrónico</option>
+                    </select>
+                </div>
+            </div>
+        </div>
+
+        <!-- Lista de bicicletas -->
+        <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6" id="lista-bicicletas">
+            <div class="bg-white rounded-lg shadow-lg overflow-hidden" th:each="bicicleta : ${bicicletas}">
+                <a th:href="@{/{id}(id=${bicicleta.id})}">
+
+                    <img th:src="${bicicleta.getImagenUrl()}" alt="Bicicleta"
+                         th:classappend="${bicicleta.getMarcaNombre() == 'Cannondale' ? 'w-full h-80 p-2 object-fill' : 'w-full h-80 p-2 object-cover'}">
+                </a>
+                <div class="p-4">
+                    <h2 class="text-xl font-semibold"
+                        th:text="${bicicleta.getMarcaNombre()} + ' ' + ${bicicleta.getModelo()}"></h2>
+                    <p class="text-gray-600 mt-2" th:text="${bicicleta.getTipo()}"></p>
+                    <div class="mt-4 flex justify-between items-center">
+                        <span class="text-lg font-bold text-blue-600" th:text="${bicicleta.getPrecio()}+'€'"></span>
+                        <button class="bg-blue-600 text-white py-2 px-4 rounded-lg hover:bg-blue-700"
+                                onclick="compararBicicletas()">Comparar
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</main>
+<script>
+    function filtrar() {
+        let material = document.getElementById("material").value;
+        let tipo = document.getElementById("tipo").value;
+        let cambio = document.getElementById("cambio").value;
+        let ordenar = document.getElementById("ordenar").value;
+
+        let items = document.querySelectorAll(".bicicleta");
+        items.forEach(item => {
+            let show = true;
+            if (material && item.dataset.material !== material) show = false;
+            if (tipo && item.dataset.tipo !== tipo) show = false;
+            if (cambio && item.dataset.cambio !== cambio) show = false;
+            item.style.display = show ? "block" : "none";
+        });
+
+        if (ordenar) {
+            let contenedor = document.getElementById("lista-bicicletas");
+            let bicicletas = Array.from(items).filter(item => item.style.display === "block");
+            bicicletas.sort((a, b) => {
+                let precioA = parseFloat(a.dataset.precio);
+                let precioB = parseFloat(b.dataset.precio);
+                return ordenar === "asc" ? precioA - precioB : precioB - precioA;
+            });
+            bicicletas.forEach(b => contenedor.appendChild(b));
+        }
+    }
+    // Buscador
+    document.getElementById("search").addEventListener("input", find); /**Cuando se escriba en el buscador
+     se irá buscando dinámicamente**/
+
+
+    function find() {
+        let search = document.getElementById("search").value.trim();
+        let items = document.querySelectorAll(".bicicleta");
+        items.forEach(item => {
+            let show = item.textContent.toLowerCase().includes(search.toLowerCase());
+            item.style.display = show ? "block" : "none";
+        });
+    }
+
+
+    function toggleMenu() {
+        document.getElementById("menu").classList.toggle("hidden");
+    }
+
+    function toggleSearch() {
+        document.getElementById("search-container").classList.toggle("hidden");
+    }
+
+    // Cerrar el menú si el clic ocurre fuera de él
+    document.addEventListener("click", function (event) {
+        const menu = document.getElementById("menu");
+        const button = document.querySelector("button");
+
+        // Si el clic no fue ni en el menú ni en el botón, cerramos el menú
+        if (!menu.contains(event.target) && !button.contains(event.target)) {
+            menu.classList.add("hidden");
+        }
+    });
+</script>
+
+<!-- Pie de página -->
+<footer class="bg-gray-800 text-white py-4">
+    <div class="max-w-7xl mx-auto px-4 text-center">
+        <p>&copy; 2025 Bike Comparator. Todos los derechos reservados.</p>
+    </div>
+</footer>
+
+</body>
+</html>
