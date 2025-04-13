@@ -50,7 +50,7 @@ public class App {
         componenteRepository.saveAll(componentes);
         List<BicicletaComponente> bicicletaComponentes = new ArrayList<>();
         for (Componente componente : componentes) {
-            bicicletaComponentes.add(new BicicletaComponente(bicicletas.get(0), componente));
+            bicicletaComponentes.add(new BicicletaComponente(bicicletas.get(2), componente));
         }
         bicicletaComponenteRepository.saveAll(bicicletaComponentes);
 
