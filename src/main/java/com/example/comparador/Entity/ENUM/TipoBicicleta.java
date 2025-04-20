@@ -1,7 +1,7 @@
 package com.example.comparador.Entity.ENUM;
 
 public enum TipoBicicleta {
-    CARRETERA("Carretera"), MONTAÑA("Montaña"), GRAVEL("Gravel");
+    CARRETERA("Carretera"), MONTANA("Montaña"), GRAVEL("Gravel");
 
     private String tipo;
 

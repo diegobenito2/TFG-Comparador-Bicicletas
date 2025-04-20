@@ -18,5 +18,6 @@ public enum TipoComponente {
     Bujes,
     Amortiguador,
     Plato,
+    Disco,
     Pedalier
 }
