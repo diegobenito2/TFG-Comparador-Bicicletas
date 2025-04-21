@@ -8,7 +8,7 @@ import com.example.comparador.Entity.ENUM.*;
 
 public class Datos {
     // Lista de componentes comunes
-   public List<Componente> ComponentesList = List.of(
+    public List<Componente> ComponentesList = List.of(
             new Componente("Shimano GRX RX400", TipoComponente.Cambio_Trasero),
             new Componente("Shimano Deore M6100", TipoComponente.Cambio_Trasero),
             new Componente("Shimano SLX M7100", TipoComponente.Cambio_Trasero),
@@ -16,6 +16,7 @@ public class Datos {
             new Componente("Shimano Ultegra Di2", TipoComponente.Cambio_Trasero),
             new Componente("Shimano Dura-Ace Di2", TipoComponente.Cambio_Trasero),
             new Componente("SRAM Force AXS", TipoComponente.Cambio_Trasero),
+            new Componente("SRAM Force XPLR XG-1271, 12-speed, 10-44", TipoComponente.Cassette),
             new Componente("SRAM Red AXS", TipoComponente.Cambio_Trasero),
             new Componente("SRAM X01 Eagle", TipoComponente.Cambio_Trasero),
             new Componente("SRAM XX1 Eagle AXS", TipoComponente.Cambio_Trasero),
@@ -25,7 +26,7 @@ public class Datos {
             new Componente("Fox 32 Float SC Factory", TipoComponente.Horquilla),
             new Componente("Fox Float DPS Performance", TipoComponente.Amortiguador),
             new Componente("Fox Float DPS Factory", TipoComponente.Amortiguador),
-            new Componente("c", TipoComponente.Frenos),
+            new Componente("Shimano GRX RX400", TipoComponente.Frenos),
             new Componente("Shimano SLX M7100", TipoComponente.Frenos),
             new Componente("Shimano Ultegra R8000", TipoComponente.Frenos),
             new Componente("Shimano Dura-Ace R9100", TipoComponente.Frenos),
@@ -57,6 +58,7 @@ public class Datos {
             new Componente("Orbea Orca Carbon OMX Disc", TipoComponente.Cuadro),
             new Componente("Orca OMX Carbon fork", TipoComponente.Horquilla),
             new Componente("Fizik Antares R3", TipoComponente.Sillin),
+            new Componente("Zipp 303 Firecrest Hookless", TipoComponente.Ruedas),
             new Componente("OC Carbon Road", TipoComponente.Manillar),
             new Componente("SRAM Red eTap AXS", TipoComponente.Cambio_Trasero),
             new Componente("SRAM Red eTap AXS", TipoComponente.Frenos),
@@ -82,7 +84,6 @@ public class Datos {
             new Componente("Bontrager Kovee Pro, OCLV Carbon, 31.8mm, 15mm de altura, 750mm de ancho", TipoComponente.Manillar),
             new Componente("Spark RC SL Carbon HMX, Tecnología Integrada de Suspensión, geometría ajustable", TipoComponente.Cuadro),
             new Componente("FOX 32 Float Factory SC, FIT4, 3 posiciones, Kashima, recorrido 100mm", TipoComponente.Horquilla),
-            new Componente("FOX NUDE 5T, SCOTT TwinLoc Tech, 3 modos, recorrido 100mm", TipoComponente.Amortiguador),
             new Componente("SRAM XX Eagle AXS, 12 velocidades", TipoComponente.Cambio_Trasero),
             new Componente("DT Swiss XRC 1200 Spline, carbono, 30mm de ancho interno", TipoComponente.Ruedas),
             new Componente("Shimano XTR M9100 4 pistones", TipoComponente.Frenos),
@@ -102,7 +103,6 @@ public class Datos {
             new Componente("SRAM GX Eagle DUB, 32T", TipoComponente.Bielas),
             new Componente("Spark RC Carbon HMF, IMP technology, BB92, Boost 12x148mm", TipoComponente.Cuadro),
             new Componente("FOX 34 Float Performance, 3 posiciones, recorrido 120mm", TipoComponente.Horquilla),
-            new Componente("FOX Float Performance, SCOTT TwinLoc Tech, 3 modos", TipoComponente.Amortiguador),
             new Componente("SRAM GX Eagle, 12 velocidades", TipoComponente.Cambio_Trasero),
             new Componente("Syncros Silverton 2.0 TR, 30mm de ancho interno", TipoComponente.Ruedas),
             new Componente("Shimano Deore M6120 4 pistones", TipoComponente.Frenos),
@@ -198,7 +198,7 @@ public class Datos {
             new Componente("Shimano Dura-Ace Di2 R9200 Powermeter - 2 platos.", TipoComponente.Bielas),
             new Componente("Shimano CN-M9100 12s", TipoComponente.Cadena),
             new Componente("Shimano Dura-Ace CS-R9200 - 12 piñones, relación 11-30.", TipoComponente.Cassette),
-            new Componente("Shimano Dura-Ace RT-CL900", TipoComponente.Frenos),
+            new Componente("Shimano Dura-Ace RT-CL900", TipoComponente.Disco),
             new Componente("Shimano Pressfit BB92 - PF 86,5, 55 g.", TipoComponente.Pedalier),
             new Componente("Grand Canyon AL SL, cuadro aluminio rígido, eje 12x148 mm, categoría 3.", TipoComponente.Cuadro),
             new Componente("RockShox Judy Silver, 120 mm recorrido, barras 30 mm, eje 15x110 mm, peso 2.280 g.", TipoComponente.Horquilla),
@@ -248,15 +248,132 @@ public class Datos {
             new Componente("SRAM SX EAGLE 12S 118 LINKS", TipoComponente.Cadena),
             new Componente("SRAM EAGLE PG1210, 11-50T", TipoComponente.Cassette),
             new Componente("Sram DUB BB86 Press Fit Wide", TipoComponente.Bujes),
-            new Componente("SRAM APEX D1 Hydraulic Shift-Brake System", TipoComponente.Frenos)
+            new Componente("SRAM APEX D1 Hydraulic Shift-Brake System", TipoComponente.Frenos),
+            new Componente("Orbea Alma Carbon, Boost 12x148, Internal cable routing", TipoComponente.Cuadro),
+            new Componente("RockShox SID SL Ultimate 110 DebonAir+ RL 3-Position 15X110", TipoComponente.Horquilla),
+            new Componente("Sram XX-SL Eagle 12-Speed", TipoComponente.Cadena),
+            new Componente("OC Mountain Performance MP10 Carbon, Cockpit, Width 760", TipoComponente.Manillar),
+            new Componente("Oquo Mountain Performance MP30LTD", TipoComponente.Ruedas),
+            new Componente("Pirelli Scorpion XC RC 2.40\" 120TPI ProWall/TLR", TipoComponente.Cubiertas),
+            new Componente("OC Performance XP10 Carbon Seatpost, 31,6mm, Setback 0", TipoComponente.Tija_Sillin),
+            new Componente("Prologo Nago R4 carbon rails size 137mm", TipoComponente.Sillin),
+            new Componente("RockShox Judy Silver TK 110 Remote 15x110 Boost", TipoComponente.Horquilla),
+            new Componente("Shimano MT512 32t", TipoComponente.Bielas),
+            new Componente("Shimano CS-M6100 10-51t 12-Speed", TipoComponente.Cassette),
+            new Componente("Shimano M6100", TipoComponente.Cadena),
+            new Componente("Alloy, 31.8mm, Flat, 740mm, Sweep 9", TipoComponente.Manillar),
+            new Componente("Shimano MT201 Hydraulic Disc", TipoComponente.Frenos),
+            new Componente("Alloy, 30c, 28H, TLR", TipoComponente.Ruedas),
+            new Componente("Pirelli Scorpion Sport XC H 2.40\" 60TPI ProWall/TLR", TipoComponente.Cubiertas),
+            new Componente("SP04, Alloy, forged head, 31,6mm, Setback 0", TipoComponente.Tija_Sillin),
+            new Componente("Selle Italia Model X FecAlloy Rail 145x248mm", TipoComponente.Sillin), new Componente("Orbea Alma Hydro Alloy, Boost 12x148, BSA BB, Internal cable routing", TipoComponente.Cuadro),
+            new Componente("RockShox Judy Silver TK Remote Solo Air 100 15x110 Boost", TipoComponente.Horquilla),
+            new Componente("Shimano MT511 32t", TipoComponente.Bielas),
+            new Componente("Shimano CS-M6100 10-51t 12-Speed", TipoComponente.Cassette),
+            new Componente("Shimano SLX M7100 SGS Shadow Plus", TipoComponente.Cambio_Trasero),
+            new Componente("Shimano M6100", TipoComponente.Cadena),
+            new Componente("Alloy, 31.8mm, Flat, 740mm, Sweep 9", TipoComponente.Manillar),
+            new Componente("Shimano MT201 Hydraulic Disc", TipoComponente.Frenos),
+            new Componente("Alloy, Tubeless, 25c, 32H", TipoComponente.Ruedas),
+            new Componente("Maxxis Rekon Race 2.35\" 120 TPI Exo TLR", TipoComponente.Cubiertas),
+            new Componente("SP01, Alloy, forged head, 27.2mm, Setback 0", TipoComponente.Tija_Sillin),
+            new Componente("Selle Italia Model X FecAlloy Rail 145x248mm", TipoComponente.Sillin),
+            new Componente("Orbea Orca carbon OMR 2024, HS 1,5\", BB386, powermeter compatible, Thru Axle 12x142mm, M12x2 P1, cableado interno", TipoComponente.Cuadro),
+            new Componente("Orbea Orca OMR ICR 2024, full carbon, dirección 1-1/8 - 1.5\", Thru Axle 12x100mm, M12x2 P1", TipoComponente.Horquilla),
+            new Componente("Shimano R7120", TipoComponente.Manetas_Cambio),
+            new Componente("Shimano R7170 Hydraulic Disc", TipoComponente.Frenos),
+            new Componente("OC Road Performance RP31-R, Rise 15, Reach 70, Drop 125", TipoComponente.Manillar),
+            new Componente("Alloy, Tubeless, 700c, 19c, 28H", TipoComponente.Ruedas),
+            new Componente("Vittoria Zafiro V Rigid bead 700x28c", TipoComponente.Cubiertas),
+            new Componente("Orbea Thru Axle 12x100mm M12x2 P1 Hollow", TipoComponente.Bujes),
+            new Componente("Orbea Thru Axle 12x142mm M12x2 P1 Hollow", TipoComponente.Bujes),
+            new Componente("SP 0.2 Carbon, 27.2mm, Setback 20", TipoComponente.Tija_Sillin),
+            new Componente("Fizik Aliante R5", TipoComponente.Sillin),
+            new Componente("Trek Madone Gen 8 OCLV 900, IsoFlow, BB T47, cableado interno, Thru Axle 12x142", TipoComponente.Cuadro),
+            new Componente("Madone Gen 8 carbono, dirección cónica, cableado interno, Thru Axle 12x100", TipoComponente.Horquilla),
+            new Componente("SRAM RED AXS E1", TipoComponente.Manetas_Cambio),
+            new Componente("SRAM RED AXS E1", TipoComponente.Desviador),
+            new Componente("SRAM RED AXS E1 con potenciómetro, 48/35, DUB", TipoComponente.Bielas),
+            new Componente("SRAM DUB T47 roscado, rodamiento interno", TipoComponente.Pedalier),
+            new Componente("SRAM RED E1, 12 velocidades", TipoComponente.Cadena),
+            new Componente("Bontrager Aeolus RSL 51, carbono OCLV, Tubeless Ready, 51mm perfil", TipoComponente.Ruedas),
+            new Componente("Pirelli P Zero Race 700x28, TLR, 120 tpi", TipoComponente.Cubiertas),
+            new Componente("Aeolus RSL, raíles carbono, 145 mm", TipoComponente.Sillin),
+            new Componente("Tija integrada Madone, carbono aero, retroceso 0 mm", TipoComponente.Tija_Sillin),
+            new Componente("Trek Aero RSL Carretera, carbono OCLV, potencia integrada", TipoComponente.Manillar), new Componente("Shimano Dura-Ace Di2 R9270", TipoComponente.Frenos),
+            new Componente("Shimano Deore M6100", TipoComponente.Manetas_Cambio),
+            new Componente("Shimano Deore M6100 SGS Shadow Plus", TipoComponente.Cambio_Trasero),
+            new Componente("Shimano 105 R7100", TipoComponente.Desviador),
+            new Componente("SRAM RED XG-1290 10-33t", TipoComponente.Cassette)
+
     );
 
     public Componente getComponente(String descripcion, TipoComponente tipoComponente) {
-        return ComponentesList.stream().filter(componente -> componente.getDescripcion().equals(descripcion) && componente.getTipo().equals(tipoComponente)).findFirst().orElse(null);
+        Componente componente = ComponentesList.stream()
+                .filter(c -> c.getDescripcion().contains(descripcion) && c.getTipo().equals(tipoComponente))
+                .findFirst()
+                .orElse(null);
+
+        if (componente == null) {
+            System.out.println("Componente NO ENCONTRADO: \"" + descripcion + "\" (" + tipoComponente + ")");
+        }
+
+        return componente;
     }
+
 
     public List<Bicicleta> bicicletaslist = List.of(
             new Bicicleta(
+                    "Alma H20",
+                    new BigDecimal("1299.00"),
+                    TipoBicicleta.MONTANA,
+                    MaterialCuadro.ALUMINIO,
+                    TipoCambio.MECANICO,
+                    new BigDecimal("11.50"),
+                    "https://www.orbea.com/img/products/product/over/large/R213TTCC-N6-SIDE-ALMA_H20_over.jpg",
+                    "https://www.orbea.com/es-es/bicicletas/montana/alma/cat/alma-h20",
+                    "Orbea"
+            ), new Bicicleta(
+                    "Alma M50",
+                    new BigDecimal("2299.00"),
+                    TipoBicicleta.MONTANA,
+                    MaterialCuadro.CARBONO,
+                    TipoCambio.MECANICO,
+                    new BigDecimal("10.10"),
+                    "https://www.orbea.com/img/products/product/over/large/S217TTCC-F8-SIDE-ALMA_M50_over.jpg",
+                    "https://www.orbea.com/es-es/bicicletas/montana/alma/cat/alma-m50",
+                    "Orbea"
+            ), new Bicicleta(
+                    "Alma M LTD",
+                    new BigDecimal("7999.00"),
+                    TipoBicicleta.MONTANA,
+                    MaterialCuadro.CARBONO,
+                    TipoCambio.ELECTRONICO,
+                    new BigDecimal("8.30"),
+                    "https://www.orbea.com/img/products/product/over/large/S222TTCC-F8-SIDE-ALMA_MLTD_over.jpg",
+                    "https://www.orbea.com/es-es/bicicletas/montana/alma/cat/alma-m-ltd",
+                    "Orbea"
+            ), new Bicicleta(
+                    "Orca M30",
+                    new BigDecimal("2999.00"),
+                    TipoBicicleta.CARRETERA,
+                    MaterialCuadro.CARBONO,
+                    TipoCambio.MECANICO,
+                    new BigDecimal("8.5"),  
+                    "https://www.orbea.com/img/products/product/over/large/S107TTCC-AJ-SIDE-ORCA_M30_DV_M_over.jpg",
+                    "https://www.orbea.com/es-es/bicicletas/carretera/orca/cat/orca-m30",
+                    "Orbea"
+            ), new Bicicleta(
+                    "Orca M20i Team Replica",
+                    new BigDecimal("5299.00"),
+                    TipoBicicleta.CARRETERA,
+                    MaterialCuadro.CARBONO,
+                    TipoCambio.ELECTRONICO,
+                    new BigDecimal("7.9"),  
+                    "https://www.orbea.com/img/products/product/over/large/S729TTCC-UQ-SIDE-ORCA_M20iREPLICA_LOTTO25_over.jpg",
+                    "https://www.orbea.com/es-es/bicicletas/carretera/orca/cat/orca-m20i-replica",
+                    "Orbea"
+            ), new Bicicleta(
                     "Grizl 5",
                     new BigDecimal("1599.00"),
                     TipoBicicleta.GRAVEL,
@@ -276,63 +393,14 @@ public class Datos {
                     "https://www.canyon.com/dw/image/v2/BCML_PRD/on/demandware.static/-/Sites-canyon-master/default/dwf7520706/images/full/full_2023_/2023/full_2023_grail_3580_grail-cf-slx-8-etap_P02_P5.jpg?sw=1300&sfrm=png&q=90&bgcolor=F2F2F2",
                     "https://www.canyon.com/es-es/bicicletas-gravel/performance/grail/cf-slx/grail-cf-slx-8-axs/3580.html",
                     "Canyon"
-            ), new Bicicleta(
-                    "Alma H20",
-                    new BigDecimal("1299.00"),
-                    TipoBicicleta.MONTANA,
-                    MaterialCuadro.ALUMINIO,
-                    TipoCambio.MECANICO,
-                    new BigDecimal("11.50"),
-                    "https://www.orbea.com/img/products/alma-h20-red-black.jpg",
-                    "https://www.orbea.com/es-es/bicicletas/montana/alma/cat/alma-h20",
-                    "Orbea"
-            ), new Bicicleta(
-                    "Alma M50",
-                    new BigDecimal("2299.00"),
-                    TipoBicicleta.MONTANA,
-                    MaterialCuadro.CARBONO,
-                    TipoCambio.MECANICO,
-                    new BigDecimal("10.10"),
-                    "https://www.orbea.com/img/products/alma-m50-green-orange.jpg",
-                    "https://www.orbea.com/es-es/bicicletas/montana/alma/cat/alma-m50",
-                    "Orbea"
-            ), new Bicicleta(
-                    "Alma M LTD",
-                    new BigDecimal("7999.00"),
-                    TipoBicicleta.MONTANA,
-                    MaterialCuadro.CARBONO,
-                    TipoCambio.ELECTRONICO,
-                    new BigDecimal("8.30"),
-                    "https://www.orbea.com/img/products/alma-m-ltd-blue-carbon.jpg",
-                    "https://www.orbea.com/es-es/bicicletas/montana/alma/cat/alma-m-ltd",
-                    "Orbea"
-            ), new Bicicleta(
-                    "Orca M30",
-                    new BigDecimal("2999.00"),
-                    TipoBicicleta.CARRETERA,
-                    MaterialCuadro.CARBONO,
-                    TipoCambio.MECANICO,
-                    new BigDecimal("8.5"),  // peso aproximado en kg
-                    "https://www.orbea.com/img/products/image/median/3korcam30w24-bgv-orbea-orca-m30.jpg",
-                    "https://www.orbea.com/es-es/bicicletas/carretera/orca/cat/orca-m30",
-                    "Orbea"
-            ), new Bicicleta(
-                    "Orca M20i Team Replica",
-                    new BigDecimal("5299.00"),
-                    TipoBicicleta.CARRETERA,
-                    MaterialCuadro.CARBONO,
-                    TipoCambio.ELECTRONICO,
-                    new BigDecimal("7.9"),  // peso aproximado en kg
-                    "https://www.orbea.com/img/products/image/median/1lorcam20itpr24-bgv-orbea-orca-m20i-team-replica.jpg",
-                    "https://www.orbea.com/es-es/bicicletas/carretera/orca/cat/orca-m20i-replica",
-                    "Orbea"
-            ), new Bicicleta(
+            )
+            , new Bicicleta(
                     "Orca M11eLTD PWR",
                     new BigDecimal("9999.00"),
                     TipoBicicleta.CARRETERA,
                     MaterialCuadro.CARBONO,
                     TipoCambio.ELECTRONICO,
-                    new BigDecimal("6.8"),  // peso aproximado en kg
+                    new BigDecimal("6.8"),  
                     "https://www.orbea.com/img/products/image/median/ggorcam11eltdpwr24-plm-orbea-orca-m11eltd-pwr.jpg",
                     "https://www.orbea.com/es-es/bicicletas/carretera/orca/cat/orca-m11eltd-pwr",
                     "Orbea"
@@ -427,66 +495,6 @@ public class Datos {
                     "https://www.trekbikes.com/es/es_ES/bicicletas/bicicletas-de-monta%C3%B1a/bicicletas-de-monta%C3%B1a-de-cross-country/supercaliber/supercaliber-slr-9-8-x0-axs-t-type-gen-2/p/47303/",
                     "Trek"
             ), new Bicicleta(
-                    "Spark RC SL",
-                    new BigDecimal("12499.00"),
-                    TipoBicicleta.MONTANA,
-                    MaterialCuadro.CARBONO,
-                    TipoCambio.ELECTRONICO,
-                    new BigDecimal("9.85"),
-                    "https://img.scott-sports.com/product/bike/2023/4231527961006_t.jpg",
-                    "https://www.scott-sports.com/es/es/product/scott-spark-rc-sl-bike?article=4231527961006",
-                    "Scott"
-            ), new Bicicleta(
-                    "Scale 940 Black",
-                    new BigDecimal("1399.00"),
-                    TipoBicicleta.MONTANA,
-                    MaterialCuadro.ALUMINIO,
-                    TipoCambio.MECANICO,
-                    new BigDecimal("12.90"),
-                    "https://img.scott-sports.com/product/bike/2023/290172010_t.jpg",
-                    "https://www.scott-sports.com/es/es/product/scott-scale-940-black-bike?article=290172010",
-                    "Scott"
-            ), new Bicicleta(
-                    "Scale RC Team",
-                    new BigDecimal("3999.00"),
-                    TipoBicicleta.MONTANA,
-                    MaterialCuadro.CARBONO,
-                    TipoCambio.MECANICO,
-                    new BigDecimal("10.20"),
-                    "https://img.scott-sports.com/product/bike/2023/4230787961006_t.jpg",
-                    "https://www.scott-sports.com/es/es/product/scott-scale-rc-team-bike?article=4230787961006",
-                    "Scott"
-            ), new Bicicleta(
-                    "Spark RC Team",
-                    new BigDecimal("4299.00"),
-                    TipoBicicleta.MONTANA,
-                    MaterialCuadro.CARBONO,
-                    TipoCambio.MECANICO,
-                    new BigDecimal("11.70"),
-                    "https://img.scott-sports.com/product/bike/2023/4231613020006_t.jpg",
-                    "https://www.scott-sports.com/es/es/product/scott-spark-rc-team-bike?article=4231613020006",
-                    "Scott"
-            ), new Bicicleta(
-                    "Addict Gravel RC",
-                    new BigDecimal("7999.00"),
-                    TipoBicicleta.GRAVEL,
-                    MaterialCuadro.CARBONO,
-                    TipoCambio.ELECTRONICO,
-                    new BigDecimal("8.30"),
-                    "https://img.scott-sports.com/product/bike/2023/293248056_t.jpg",
-                    "https://www.scott-sports.com/es/es/product/scott-addict-gravel-rc-bike?article=293248056",
-                    "Scott"
-            ), new Bicicleta(
-                    "Addict Gravel RC 2",
-                    new BigDecimal("5599.00"),
-                    TipoBicicleta.GRAVEL,
-                    MaterialCuadro.CARBONO,
-                    TipoCambio.ELECTRONICO,
-                    new BigDecimal("8.65"),
-                    "https://img.scott-sports.com/product/bike/2023/4232047969004_t.jpg",
-                    "https://www.scott-sports.com/es/es/product/scott-addict-gravel-rc-bike?article=4232047969004",
-                    "Scott"
-            ), new Bicicleta(
                     "Orca M30",
                     new BigDecimal("2599.00"),
                     TipoBicicleta.CARRETERA,
@@ -526,16 +534,6 @@ public class Datos {
                     "https://www.giant-bicycles.com/images/products/24/Revolt-Advanced-2_Color-B.jpg",
                     "https://www.giant-bicycles.com/es/revolt-advanced-2-2024",
                     "Giant"
-            ), new Bicicleta(
-                    "Synapse Carbon 4",
-                    new BigDecimal("2699.00"),
-                    TipoBicicleta.CARRETERA,
-                    MaterialCuadro.CARBONO,
-                    TipoCambio.MECANICO,
-                    new BigDecimal("9.10"),
-                    "https://www.cannondale.com/-/media/bike/product-images/bikes/road-bikes/endurance/synapse-carbon/c24/c24_c_synapse_crb_4_mrc_pd",
-                    "https://www.cannondale.com/es-es/bikes/road/endurance/synapse-carbon/synapse-carbon-4",
-                    "Cannondale"
             ), new Bicicleta(
                     "Belador BR RED AXS PWM",
                     new BigDecimal("10990"),
@@ -592,5 +590,6 @@ public class Datos {
     public Bicicleta getBicicleta(String modelo, String marca) {
         return bicicletaslist.stream().filter(bicicleta -> bicicleta.getModelo().equals(modelo) && bicicleta.getMarcaNombre().equals(marca)).findFirst().orElse(null);
     }
+
 
 }
