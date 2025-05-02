@@ -8,6 +8,7 @@ import org.springframework.stereotype.Service;
 import java.util.List;
 import java.util.Objects;
 import java.util.Optional;
+
 @Service
 public class BicicletaServiceImpl implements BicicletaService {
 
@@ -41,11 +42,21 @@ public class BicicletaServiceImpl implements BicicletaService {
 
     }
 
-//    @Override
-//    public List<Bicicleta> findByTipo(TipoBicicleta tipoBicicleta) {
-//        Objects.requireNonNull(tipoBicicleta);
-//        return this.repository.findBicicletasByTipo(tipoBicicleta);
-//    }
+    @Override
+    public List<Bicicleta> findByTipo(String tipoBicicleta) {
+        Objects.requireNonNull(tipoBicicleta);
+        if (tipoBicicleta.equals("Montaña")) {
+            return this.repository.findBicicletasByTipo(TipoBicicleta.MONTANA);
+        } else if (tipoBicicleta.equals("Carretera")) {
+            return this.repository.findBicicletasByTipo(TipoBicicleta.CARRETERA);
+        } else return this.repository.findBicicletasByTipo(TipoBicicleta.GRAVEL);
+    }
+
+    @Override
+    public List<Bicicleta> findBicicletasByModeloContaining(String modelo) {
+        Objects.requireNonNull(modelo);
+        return this.repository.findBicicletasByModeloContaining(modelo);
+    }
 
 
 }

@@ -9,7 +9,4 @@ import java.util.List;
 
 @Repository
 public interface BicicletaComponenteRepository extends JpaRepository<BicicletaComponente, Long> {
-
-
-
 }

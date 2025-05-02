@@ -39,15 +39,21 @@
 
         <!--        Tipos de bicis-->
         <div class="flex items-center justify-between mb-2 gap-2 px-4 py-2 border rounded-xl shadow-lg bg-white/90 backdrop-blur-md transition-all duration-300 w-fit space-x-3 mx-auto">
-            <button class="px-3 py-1.5 bg-blue-100 text-blue-800 font-medium rounded-lg hover:bg-blue-200 transition">
-                <span>Montaña</span>
-            </button>
-            <button class="px-3 py-1.5 bg-blue-100 text-blue-800 font-medium rounded-lg hover:bg-blue-200 transition">
-                <span>Carretera</span>
-            </button>
-            <button class="px-3 py-1.5 bg-blue-100 text-blue-800 font-medium rounded-lg hover:bg-blue-200 transition">
-                <span>Gravel</span>
-            </button>
+            <a th:href="@{/categoria/Montaña}">
+                <button class="px-3 py-1.5 bg-blue-100 text-blue-800 font-medium rounded-lg hover:bg-blue-200 transition">
+                    <span>Montaña</span>
+                </button>
+            </a>
+            <a th:href="@{/categoria/Carretera}">
+                <button class="px-3 py-1.5 bg-blue-100 text-blue-800 font-medium rounded-lg hover:bg-blue-200 transition">
+                    <span>Carretera</span>
+                </button>
+            </a>
+            <a th:href="@{/categoria/Gravel}">
+                <button class="px-3 py-1.5 bg-blue-100 text-blue-800 font-medium rounded-lg hover:bg-blue-200 transition">
+                    <span>Gravel</span>
+                </button>
+            </a>
         </div>
 
 
@@ -70,7 +76,7 @@
 <main class="py-10 mt-10">
     <!-- Buscador-->
     <div id="search-container" class="hidden mb-10 flex justify-center items-center">
-        <input id="search" oninput="find()" type="text" placeholder="Buscar bicicleta..."
+        <input id="search" type="text" placeholder="Buscar bicicleta..."
                class="w-full max-w-lg p-2 border rounded">
     </div>
 
@@ -79,15 +85,15 @@
         <div id="menu" class="absolute left-0  w-80 p-6 bg-gray-100 border rounded-lg shadow-lg hidden">
             <div class="mb-4">
                 <label class="block text-sm font-medium" for="ordenar">Ordenar por precio:</label>
-                <select id="ordenar" onchange="filtrar()" class="w-full mt-1 p-2 border rounded">
-                    <option value="">Defecto</option>
+                <select id="ordenar" class="w-full mt-1 p-2 border rounded" onchange="filtrar()">
+                    <option value="desc">Defecto</option>
                     <option value="asc">Menor a Mayor</option>
                     <option value="desc">Mayor a Menor</option>
                 </select>
             </div>
             <div class="mb-4">
                 <label class="block text-sm font-medium" for="material">Material Cuadro:</label>
-                <select id="material" onchange="filtrar()" class="w-full mt-1 p-2 border rounded">
+                <select id="material" class="w-full mt-1 p-2 border rounded" onchange="filtrar()">
                     <option value="">Todos</option>
                     <option value="Aluminio">Aluminio</option>
                     <option value="Carbono">Carbono</option>
@@ -95,7 +101,7 @@
             </div>
             <div class="mb-4">
                 <label class="block text-sm font-medium" for="cambio">Tipo Cambio:</label>
-                <select id="cambio" onchange="filtrar()" class="w-full mt-1 p-2 border rounded">
+                <select id="cambio" class="w-full mt-1 p-2 border rounded" onchange="filtrar()">
                     <option value="">Todos</option>
                     <option value="Mecánico">Mecánico</option>
                     <option value="Electrónico">Electrónico</option>
@@ -103,73 +109,142 @@
             </div>
         </div>
     </div>
+
     <div class="max-w-7xl mx-auto px-4">
         <!-- Lista de bicicletas -->
         <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6" id="lista-bicicletas">
-            <div class="bg-white rounded-lg shadow-lg overflow-hidden" th:each="bicicleta : ${bicicletas}">
+            <div class="bg-white rounded-lg shadow-lg overflow-hidden" th:each="bicicleta : ${bicicletas}"
+                 th:attr="data-precio=${bicicleta.getPrecio()},data-material=${bicicleta.getMaterialCuadro()},data-cambio=${bicicleta.getTipoCambio()},data-tipo=${bicicleta.getTipo()}">
+                <!-- Se crean los atributos data-* para poder acceder a ellos desde JavaScript.-->
                 <a th:href="@{/{id}(id=${bicicleta.id})}">
 
                     <img th:src="${bicicleta.getImagenUrl()}" alt="Bicicleta"
-                         th:classappend="${bicicleta.getMarcaNombre() == 'Canyon' ? 'w-full h-80 p-2 object-fill' : 'w-full h-80 p-2 object-cover'}">
+                         th:classappend="${bicicleta.getMarcaNombre() == 'Canyon' || bicicleta.getMarcaNombre() == 'Trek' ? 'w-full h-80 p-2 object-fill' : 'w-full h-80 p-2 object-cover'}">
                 </a>
                 <div class="p-4">
-                    <h2 class="text-xl font-semibold"
-                        th:text="${bicicleta.getMarcaNombre()} + ' ' + ${bicicleta.getModelo()}"></h2>
+                    <a th:href="@{/{id}(id=${bicicleta.id})}">
+                        <h2 class="text-xl font-semibold"
+                            th:text="${bicicleta.getMarcaNombre()} + ' ' + ${bicicleta.getModelo()}"></h2>
+                    </a>
                     <p class="text-gray-600 mt-2" th:text="${bicicleta.getTipo()}"></p>
                     <div class="mt-4 flex justify-between items-center">
                         <span class="text-lg font-bold text-blue-600"
-                              th:text="${#strings.contains(bicicleta.getPrecio(),'.00') ? #strings.replace(bicicleta.getPrecio(), '.00', '') : bicicleta.getPrecio()}+'€'"></span>
-                        <button class="bg-blue-600 text-white py-2 px-4 rounded-lg hover:bg-blue-700"
-                                onclick="compararBicicletas()">Comparar
+                              th:text="${#strings.contains(bicicleta.getPrecio(),'.00') ? #strings.replace(bicicleta.getPrecio(), '.00', '') : bicicleta.getPrecio()}+'€'">
+                        </span>
+                        <button class="bg-blue-600 text-white py-2 px-4 rounded-lg hover:bg-blue-700">
+                            <a th:href="@{/comparar/{id}(id=${bicicleta.id})}">
+                                Comparar
+                            </a>
                         </button>
                     </div>
                 </div>
+
             </div>
         </div>
     </div>
 </main>
 <script>
     function filtrar() {
-        let material = document.getElementById("material").value;
-        let cambio = document.getElementById("cambio").value;
-        let ordenar = document.getElementById("ordenar").value;
+        // Obtener valores de los filtros
+        const material = document.getElementById("material").value;
+        const cambio = document.getElementById("cambio").value;
+        const ordenar = document.getElementById("ordenar").value;
 
-        let items = document.querySelectorAll(".bicicleta");
-        items.forEach(item => {
-            let show = true;
-            if (material && item.dataset.material !== material) show = false;
-            if (cambio && item.dataset.cambio !== cambio) show = false;
-            item.style.display = show ? "block" : "none";
-        });
-
-        if (ordenar) {
-            let contenedor = document.getElementById("lista-bicicletas");
-            let bicicletas = Array.from(items).filter(item => item.style.display === "block");
-            bicicletas.sort((a, b) => {
-                let precioA = parseFloat(a.dataset.precio);
-                let precioB = parseFloat(b.dataset.precio);
-                return ordenar === "asc" ? precioA - precioB : precioB - precioA;
-            });
-            bicicletas.forEach(b => contenedor.appendChild(b));
+        // Guardar filtros en un objeto
+        const datosBusqueda = {
+            material: material,
+            cambio: cambio,
+            ordenar: ordenar
         }
-    }
-
-    // Buscador
-    document.getElementById("search").addEventListener("input", find);
-
-    /**Cuando se escriba en el buscador
-     se irá buscando dinámicamente**/
 
 
-    function find() {
-        let search = document.getElementById("search").value.trim();
-        let items = document.querySelectorAll(".bicicleta");
-        items.forEach(item => {
-            let show = item.textContent.toLowerCase().includes(search.toLowerCase());
-            item.style.display = show ? "block" : "none";
+        // Seleccionar el contenedor y todas las bicicletas
+        const contenedor = document.getElementById('lista-bicicletas');
+        const bicicletas = Array.from(document.querySelectorAll('#lista-bicicletas > div'));
+
+        // Eliminar mensaje de "no hay resultados" si existe previamente
+        const mensajeAnterior = document.getElementById('mensaje-sin-resultados');
+        if (mensajeAnterior) {
+            mensajeAnterior.remove();
+        }
+
+        // Filtrar bicicletas
+        const bicicletasFiltradas = bicicletas.filter(bicicleta => {
+            const materialBici = bicicleta.getAttribute('data-material');
+            const cambioBici = bicicleta.getAttribute('data-cambio');
+
+            // Solo filtrar si el filtro tiene un valor seleccionado
+            if (datosBusqueda.material && datosBusqueda.material !== '' && materialBici !== datosBusqueda.material) {
+                return false;
+            }
+
+            if (datosBusqueda.cambio && datosBusqueda.cambio !== '' && cambioBici !== datosBusqueda.cambio) {
+                return false;
+            }
+
+            return true;
+        });
+
+        // Mostrar u ocultar según los filtros
+        bicicletas.forEach(bicicleta => {
+            bicicleta.style.display = 'none'; // Ocultar todas
+        });
+
+        // Comprobar si hay resultados
+        if (bicicletasFiltradas.length === 0) {
+            // Crear mensaje de "no hay resultados"
+            const mensajeSinResultados = document.createElement('div');
+            mensajeSinResultados.id = 'mensaje-sin-resultados';
+            mensajeSinResultados.className = 'text-center py-4 w-full';
+            mensajeSinResultados.innerHTML = `
+            <p class="text-xl text-gray-600">No se encontraron bicicletas con los filtros seleccionados.</p>
+            <button onclick="resetearFiltros()" class="mt-2 bg-blue-500 hover:bg-blue-600 text-white px-4 py-2 rounded">
+                Resetear filtros
+            </button>
+        `;
+            contenedor.appendChild(mensajeSinResultados);
+            return; // Salir de la función
+        }
+
+        // Ordenar si es necesario
+        if (ordenar === 'asc' || ordenar === 'desc') {
+            bicicletasFiltradas.sort((a, b) => {
+                const precioA = parseFloat(a.getAttribute('data-precio'));
+                const precioB = parseFloat(b.getAttribute('data-precio'));
+
+                return ordenar === 'asc' ? precioA - precioB : precioB - precioA;
+            });
+        }
+
+        // Mostrar y reorganizar las bicicletas filtradas
+        bicicletasFiltradas.forEach(bicicleta => {
+            bicicleta.style.display = ''; // Mostrar las filtradas
+            contenedor.appendChild(bicicleta); // Reordenar en el DOM
         });
     }
 
+    // Función para resetear todos los filtros
+    function resetearFiltros() {
+        // Resetear los valores de los selectores
+        document.getElementById('material').value = '';
+        document.getElementById('cambio').value = '';
+        document.getElementById('ordenar').value = '';
+
+        // Eliminar el mensaje sin resultados
+        const mensajeSinResultados = document.getElementById('mensaje-sin-resultados');
+        if (mensajeSinResultados) {
+            mensajeSinResultados.remove();
+        }
+
+        // Mostrar todas las bicicletas
+        const bicicletas = document.querySelectorAll('#lista-bicicletas > div');
+        bicicletas.forEach(bicicleta => {
+            // Verificar que no sea el mensaje sin resultados
+            if (bicicleta.id !== 'mensaje-sin-resultados') {
+                bicicleta.style.display = '';
+            }
+        });
+    };
 
     function toggleMenu() {
         document.getElementById("menu").classList.toggle("hidden");

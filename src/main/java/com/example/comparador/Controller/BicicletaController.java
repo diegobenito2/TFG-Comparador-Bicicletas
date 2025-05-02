@@ -1,6 +1,7 @@
 package com.example.comparador.Controller;
 
 import com.example.comparador.Entity.Bicicleta;
+import com.example.comparador.Entity.ENUM.TipoBicicleta;
 import com.example.comparador.Service.BicicletaService;
 import com.example.comparador.Service.BicicletaServiceImpl;
 import org.springframework.stereotype.Controller;
@@ -8,11 +9,11 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
+import java.util.Comparator;
 import java.util.List;
 import java.util.Optional;
 
 @Controller
-@RequestMapping("/")
 public class BicicletaController {
     private BicicletaService service;
 
@@ -23,6 +24,7 @@ public class BicicletaController {
     @GetMapping
     public String findAll(Model model) {
         List<Bicicleta> bicicletas = this.service.findAll();
+        bicicletas.sort(Comparator.comparing(Bicicleta::getPrecio).reversed());
         model.addAttribute("bicicletas", bicicletas);
         return "index";
     }
@@ -32,7 +34,7 @@ public class BicicletaController {
     }
 
     // Ver detalles de una bicicleta específica
-    // GET http://localhost:8080/bicicleta/{id}
+    // GET http://localhost:8080/{id}
     @GetMapping("/{id}")
     public String getBicicleta(@PathVariable Long id, Model model, RedirectAttributes redirectAttributes) {
         Optional<Bicicleta> bicicleta = service.findById(id);
@@ -42,8 +44,21 @@ public class BicicletaController {
         } else {
             redirectAttributes.addFlashAttribute("message", "Bicicleta no encontrada");
             redirectAttributes.addFlashAttribute("alert", "warning");
-            return "redirect:/bicicleta";
+            return "redirect:/";
         }
+    }
+    @GetMapping("/categoria/{tipo}")
+    public String findByTipo(@PathVariable String tipo, Model model) {
+        List<Bicicleta> bicicletas = service.findByTipo(tipo);
+        bicicletas.sort(Comparator.comparing(Bicicleta::getPrecio).reversed());
+        model.addAttribute("bicicletas", bicicletas);
+        return "index";
+    }
+    @GetMapping("/search")
+    public String findBicicletasByModeloContaining(@RequestParam String modelo, Model model) {
+        List<Bicicleta> bicicletas = service.findBicicletasByModeloContaining(modelo);
+        model.addAttribute("bicicletas", bicicletas);
+        return "index";
     }
 
 }

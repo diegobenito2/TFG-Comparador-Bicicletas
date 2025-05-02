@@ -14,6 +14,9 @@ public interface BicicletaService {
     Bicicleta save(Bicicleta bicicleta);
 
     void deleteById(Long id);
-//    List<Bicicleta> findByTipo(TipoBicicleta tipoBicicleta);
+
+    List<Bicicleta> findByTipo(String tipoBicicleta);
+
+    List<Bicicleta> findBicicletasByModeloContaining(String modelo);
 
 }

@@ -13,8 +13,5 @@ public class BicicletaComponenteController {
     @Autowired
     private BicicletaComponenteService service;
 
-
-
-
 }
 
