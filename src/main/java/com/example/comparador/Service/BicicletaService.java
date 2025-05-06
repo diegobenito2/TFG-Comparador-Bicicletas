@@ -1,7 +1,6 @@
 package com.example.comparador.Service;
 
 import com.example.comparador.Entity.Bicicleta;
-import com.example.comparador.Entity.ENUM.TipoBicicleta;
 
 import java.util.List;
 import java.util.Optional;
@@ -17,6 +16,6 @@ public interface BicicletaService {
 
     List<Bicicleta> findByTipo(String tipoBicicleta);
 
-    List<Bicicleta> findBicicletasByModeloContaining(String modelo);
+    List<Bicicleta> findByNombreCompletoContainingIgnoreCase(String marcaymodelo);
 
 }

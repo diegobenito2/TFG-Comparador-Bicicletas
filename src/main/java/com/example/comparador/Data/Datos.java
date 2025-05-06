@@ -331,9 +331,21 @@ public class Datos {
             new Componente("Shimano Deore M6100", TipoComponente.Manetas_Cambio),
             new Componente("Shimano Deore M6100 SGS Shadow Plus", TipoComponente.Cambio_Trasero),
             new Componente("Shimano 105 R7100", TipoComponente.Desviador),
-            new Componente("SRAM RED XG-1290 10-33t", TipoComponente.Cassette)
+            new Componente("SRAM RED XG-1290 10-33t", TipoComponente.Cassette),
+            new Componente("OC Performance XP10-S Carbon, 27.2mm, Setback 20", TipoComponente.Tija_Sillin),
+            new Componente("Fox Transfer Factory, 30.9/31.6/34.9mm, Recorrido 100-200mm", TipoComponente.Tija_Sillin),
+            new Componente("Fox Transfer Performance, 30.9/31.6/34.9mm, Recorrido 100-200mm", TipoComponente.Tija_Sillin),
+            new Componente("Fox Transfer SL Factory, 27.2/30.9/31.6mm, Recorrido 50-125mm", TipoComponente.Tija_Sillin),
+            new Componente("Fox Transfer SL Performance, 27.2/30.9/31.6mm, Recorrido 50-125mm", TipoComponente.Tija_Sillin),
+            new Componente("RockShox Reverb AXS, 30.9/31.6/34.9mm, Recorrido 100-200mm", TipoComponente.Tija_Sillin),
+            new Componente("RockShox Reverb Stealth C1, 30.9/31.6/34.9mm, Recorrido 100-200mm", TipoComponente.Tija_Sillin),
+            new Componente("RockShox Reverb AXS XPLR, 27.2mm, Recorrido 50mm", TipoComponente.Tija_Sillin),
+            new Componente("RockShox Reverb Air C1, 30.9/31.6mm, Recorrido 100-150mm", TipoComponente.Tija_Sillin),
+            new Componente("Fox Transfer Factory Kashima, 30.9/31.6/34.9mm, Recorrido 100-200mm", TipoComponente.Tija_Sillin),
+            new Componente("Fox Transfer SL Factory Kashima, 27.2/30.9/31.6mm, Recorrido 50-125mm", TipoComponente.Tija_Sillin)
 
-    );
+
+            );
 
     public Componente getComponente(String descripcion, TipoComponente tipoComponente) {
         Componente componente = ComponentesList.stream()

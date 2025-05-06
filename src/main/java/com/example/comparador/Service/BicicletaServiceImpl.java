@@ -39,7 +39,6 @@ public class BicicletaServiceImpl implements BicicletaService {
     public void deleteById(Long id) {
         Objects.requireNonNull(id);
         this.repository.deleteById(id);
-
     }
 
     @Override
@@ -53,9 +52,9 @@ public class BicicletaServiceImpl implements BicicletaService {
     }
 
     @Override
-    public List<Bicicleta> findBicicletasByModeloContaining(String modelo) {
-        Objects.requireNonNull(modelo);
-        return this.repository.findBicicletasByModeloContaining(modelo);
+    public List<Bicicleta> findByNombreCompletoContainingIgnoreCase(String marcaymodelo) {
+        Objects.requireNonNull(marcaymodelo);
+        return this.repository.findByNombreCompletoContainingIgnoreCase(marcaymodelo);
     }
 
 

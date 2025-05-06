@@ -76,8 +76,7 @@
 <main class="py-10 mt-10">
     <!-- Buscador -->
     <div id="search-container" class="hidden mb-10 flex justify-center items-center">
-        <form th:action="@{/search}" method="get"
-              class="flex w-full max-w-lg bg-white shadow-lg rounded-full overflow-hidden">
+        <form th:action="@{/search}" method="get" class="flex w-full max-w-lg bg-white shadow-lg rounded-full overflow-hidden">
             <input id="search" type="text" name="marcaymodelo" placeholder="Buscar bicicleta..."
                    class="w-full px-4 py-2 text-gray-700 focus:outline-none focus:ring-2 focus:ring-blue-400"
                    required>
@@ -125,6 +124,17 @@
     </div>
 
     <div class="max-w-7xl mx-auto px-4">
+        <!-- Mensaje si no hay resultados -->
+        <div th:if="${mensaje}"
+             class="flex items-center p-4 mb-6 text-red-700 bg-red-100 rounded-lg shadow">
+            <!-- Icono de alerta  -->
+            <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 mr-2 flex-shrink-0" fill="none"
+                 viewBox="0 0 24 24" stroke="currentColor">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                      d="M12 9v2m0 4h.01m-6.938 4h13.856c1.054 0 1.918-.816 1.995-1.85L21 18V6c0-1.054-.816-1.918-1.85-1.995L18 4H6c-1.054 0-1.918.816-1.995 1.85L4 6v12c0 1.054.816 1.918 1.85 1.995L6 20z" />
+            </svg>
+            <p class="text-sm" th:text="${mensaje}"></p>
+        </div>
         <!-- Lista de bicicletas -->
         <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6" id="lista-bicicletas">
             <div class="bg-white rounded-lg shadow-lg overflow-hidden" th:each="bicicleta : ${bicicletas}"
@@ -157,6 +167,7 @@
         </div>
     </div>
 </main>
+
 <script>
     function filtrar() {
         // Obtener valores de los filtros
@@ -209,13 +220,13 @@
             // Crear mensaje de "no hay resultados"
             const mensajeSinResultados = document.createElement('div');
             mensajeSinResultados.id = 'mensaje-sin-resultados';
-            mensajeSinResultados.className = 'col-start-2 col-end-3 flex flex-col items-center justify-center w-full h-full';
+            mensajeSinResultados.className = 'text-center py-4 w-full';
             mensajeSinResultados.innerHTML = `
-                <p class="text-xl text-gray-600">No se encontraron bicicletas con los filtros seleccionados.</p>
-                <button onclick="resetearFiltros()" class="mt-2 bg-blue-500 hover:bg-blue-600 text-white px-4 py-2 rounded">
-                    Resetear filtros
-                </button>
-            `;
+            <p class="text-xl text-gray-600">No se encontraron bicicletas con los filtros seleccionados.</p>
+            <button onclick="resetearFiltros()" class="mt-2 bg-blue-500 hover:bg-blue-600 text-white px-4 py-2 rounded">
+                Resetear filtros
+            </button>
+        `;
             contenedor.appendChild(mensajeSinResultados);
             return; // Salir de la función
         }
@@ -242,6 +253,7 @@
         // Resetear los valores de los selectores
         document.getElementById('material').value = '';
         document.getElementById('cambio').value = '';
+        document.getElementById('ordenar').value = '';
 
         // Eliminar el mensaje sin resultados
         const mensajeSinResultados = document.getElementById('mensaje-sin-resultados');

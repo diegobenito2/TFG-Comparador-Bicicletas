@@ -34,6 +34,8 @@ public class Bicicleta {
     private String masInfoUrl;
     private String marcaNombre;
 
+    private String nombreCompleto;
+
     @OneToMany(mappedBy = "bicicleta", cascade = CascadeType.ALL, orphanRemoval = true)
     private List<BicicletaComponente> componentes = new ArrayList<>();
 
@@ -50,6 +52,7 @@ public class Bicicleta {
         this.masInfoUrl = masInfoUrl;
         this.marcaNombre = marcaNombre;
         this.componentes = componentes;
+        this.nombreCompleto = getMarcaNombre() + " " + getModelo();
     }
 
     public Bicicleta(String modelo, BigDecimal precio, TipoBicicleta tipo, MaterialCuadro materialCuadro, TipoCambio tipoCambio, BigDecimal peso, String imagenUrl, String masInfoUrl, String marcaNombre) {
@@ -62,9 +65,11 @@ public class Bicicleta {
         this.imagenUrl = imagenUrl;
         this.masInfoUrl = masInfoUrl;
         this.marcaNombre = marcaNombre;
+        this.nombreCompleto = getMarcaNombre() + " " + getModelo();
     }
 
-    public Bicicleta() {}
+    public Bicicleta() {
+    }
 
     public Long getId() {
         return id;
@@ -152,6 +157,13 @@ public class Bicicleta {
 
     public void setComponentes(List<BicicletaComponente> componentes) {
         this.componentes = componentes;
+    }
+
+    public void setNombreCompleto(String nombreCompleto) {
+        this.nombreCompleto = nombreCompleto;
+    }
+    public String getNombreCompleto() {
+        return nombreCompleto;
     }
 }
 
