@@ -17,8 +17,15 @@ public class Bicicleta {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
+    private String marcaNombre;
+
     private String modelo;
+
+    private String nombreCompleto;
+
     private BigDecimal precio;
+
+    private String familia;
 
     @Enumerated(EnumType.STRING)
     private TipoBicicleta tipo;
@@ -32,9 +39,7 @@ public class Bicicleta {
     private BigDecimal peso;
     private String imagenUrl;
     private String masInfoUrl;
-    private String marcaNombre;
 
-    private String nombreCompleto;
 
     @OneToMany(mappedBy = "bicicleta", cascade = CascadeType.ALL, orphanRemoval = true)
     private List<BicicletaComponente> componentes = new ArrayList<>();
@@ -53,6 +58,7 @@ public class Bicicleta {
         this.marcaNombre = marcaNombre;
         this.componentes = componentes;
         this.nombreCompleto = getMarcaNombre() + " " + getModelo();
+        obtenerFamilia();
     }
 
     public Bicicleta(String modelo, BigDecimal precio, TipoBicicleta tipo, MaterialCuadro materialCuadro, TipoCambio tipoCambio, BigDecimal peso, String imagenUrl, String masInfoUrl, String marcaNombre) {
@@ -66,6 +72,7 @@ public class Bicicleta {
         this.masInfoUrl = masInfoUrl;
         this.marcaNombre = marcaNombre;
         this.nombreCompleto = getMarcaNombre() + " " + getModelo();
+        obtenerFamilia();
     }
 
     public Bicicleta() {
@@ -162,8 +169,26 @@ public class Bicicleta {
     public void setNombreCompleto(String nombreCompleto) {
         this.nombreCompleto = nombreCompleto;
     }
+
     public String getNombreCompleto() {
         return nombreCompleto;
+    }
+
+    public String getFamilia() {
+        return familia;
+    }
+
+    public void setFamilia(String familia) {
+        this.familia = familia;
+    }
+
+    private void obtenerFamilia() {
+        int indiceEspacio = getModelo().indexOf(' '); // Coge el índice del primer espacio
+        if (indiceEspacio != -1) { // Comprueba que la cadena no está vacía.
+            this.familia = getModelo().substring(0, indiceEspacio); // Coge el texto de antes del primer espacio.
+        } else {
+            this.familia = getModelo();
+        }
     }
 }
 

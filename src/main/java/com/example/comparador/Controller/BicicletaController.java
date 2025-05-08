@@ -77,4 +77,20 @@ public class BicicletaController {
 
         return "search";
     }
+
+    // Comparador de bicicletas
+    // GET http://localhost:8080/comparar/{id}
+        @GetMapping("/comparar/{id}")
+        public String getBicicletaComparador(@PathVariable Long id, Model model, RedirectAttributes redirectAttributes) {
+            Optional<Bicicleta> bicicleta = service.findById(id);
+            if (bicicleta.isPresent()) {
+                model.addAttribute("bicicleta", bicicleta.get());
+                return "comparador";
+            } else {
+                redirectAttributes.addFlashAttribute("message", "Bicicleta no encontrada");
+                redirectAttributes.addFlashAttribute("alert", "warning");
+                return "redirect:/";
+            }
+        }
+
 }

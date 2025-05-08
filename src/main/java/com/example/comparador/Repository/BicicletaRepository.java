@@ -15,8 +15,5 @@ public interface BicicletaRepository extends JpaRepository<Bicicleta, Long> {
 
     List<Bicicleta> findByNombreCompletoContainingIgnoreCase(String nombreCompleto);
 
-
     void deleteById(Long id);
-
-
 }
