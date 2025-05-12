@@ -41,7 +41,6 @@
             <th></th>
             <th class="p-2 text-center" id="bicicleta1">
                 <img class=" shadow-lg   max-w-sm"
-                     onclick="openImage(this.src)"
                      th:src="${bicicleta.getImagenUrl()}"
                      alt="${bicicleta.getMarcaNombre()}"
                 >
@@ -49,16 +48,14 @@
 
             <th class="p-2 text-center" id="bicicleta2">
                 <img class=" shadow-lg   max-w-sm"
-                     onclick="openImage(this.src)"
                      th:src="${bicicleta.getImagenUrl()}"
                      alt="${bicicleta.getMarcaNombre()}"
                 >
             </th>
             <th class="p-2 text-center" id="bicicleta3">
                 <img class=" shadow-lg   max-w-sm"
-                                 onclick="openImage(this.src)"
-                                 th:src="${bicicleta.getImagenUrl()}"
-                                 alt="${bicicleta.getMarcaNombre()}"
+                     th:src="${bicicleta.getImagenUrl()}"
+                     alt="${bicicleta.getMarcaNombre()}"
                 >
             </th>
             </thead>

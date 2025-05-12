@@ -342,10 +342,58 @@ public class Datos {
             new Componente("RockShox Reverb AXS XPLR, 27.2mm, Recorrido 50mm", TipoComponente.Tija_Sillin),
             new Componente("RockShox Reverb Air C1, 30.9/31.6mm, Recorrido 100-150mm", TipoComponente.Tija_Sillin),
             new Componente("Fox Transfer Factory Kashima, 30.9/31.6/34.9mm, Recorrido 100-200mm", TipoComponente.Tija_Sillin),
-            new Componente("Fox Transfer SL Factory Kashima, 27.2/30.9/31.6mm, Recorrido 50-125mm", TipoComponente.Tija_Sillin)
+            new Componente("Fox Transfer SL Factory Kashima, 27.2/30.9/31.6mm, Recorrido 50-125mm", TipoComponente.Tija_Sillin),
+            new Componente("Rock Shox SID Ultimate Flight Attendant", TipoComponente.Horquilla),
+            new Componente("FOX 34 SC Factory, Kashima Coat", TipoComponente.Horquilla),
+            new Componente("Rock Shox SID Select RL", TipoComponente.Horquilla),
+            new Componente("RockShox SIDLuxe Ultimate Flight Attendant", TipoComponente.Amortiguador),
+            new Componente("FOX Factory FLOAT DPS", TipoComponente.Amortiguador),
+            new Componente("RockShox SIDLuxe Ultimate", TipoComponente.Amortiguador),
+            new Componente("ZIPP 1ZERO HITOP SW 29\"", TipoComponente.Ruedas),
+            new Componente("DT Swiss X1900 Spline 29\"", TipoComponente.Ruedas),
+            new Componente("Mavic Crossride 29\"", TipoComponente.Ruedas),
+            new Componente("Avanforce Assym 29\"", TipoComponente.Ruedas),
+            new Componente("Pirelli Scorpion XC RC 29x2,40\"", TipoComponente.Cubiertas),
+            new Componente("Vittoria Barzo 29x2,25\"", TipoComponente.Cubiertas),
+            new Componente("EC AXS POD Ultimate Right/Left Bridge W/MMX", TipoComponente.Manetas_Cambio),
+            new Componente("EC AXS POD Left Discrete Clamp", TipoComponente.Manetas_Cambio),
+            new Componente("Shimano SL-M7100-R Trigger 12V Rapidfire Plus", TipoComponente.Manetas_Cambio),
+            new Componente("SRAM XX SL AXS Eagle T-TYPE", TipoComponente.Cambio_Trasero),
+            new Componente("SRAM GX AXS Eagle T-TYPE", TipoComponente.Cambio_Trasero),
+            new Componente("Shimano XT RD-M8100", TipoComponente.Cambio_Trasero),
+            new Componente("SRAM XX SL T-TYPE w/ Spider Power Meter", TipoComponente.Bielas),
+            new Componente("SRAM GX T-TYPE", TipoComponente.Bielas),
+            new Componente("Shimano FC-MT510-1", TipoComponente.Bielas),
+            new Componente("SRAM XX SL T-TYPE Flattop", TipoComponente.Cadena),
+            new Componente("SRAM GX T-TYPE Flattop", TipoComponente.Cadena),
+            new Componente("Shimano CN-M6100", TipoComponente.Cadena),
+            new Componente("SRAM XS 1299 Eagle, T-TYPE", TipoComponente.Cassette),
+            new Componente("SRAM XS 1275 Eagle, T-TYPE", TipoComponente.Cassette),
+            new Componente("Shimano SLX CS-M7100-12", TipoComponente.Cassette),
+            new Componente("SRAM Reverb AXS Dropper post", TipoComponente.Tija_Sillin),
+            new Componente("Crank Brothers HIGHLINE 3 Dropper post", TipoComponente.Tija_Sillin),
+            new Componente("Avanforce AF2", TipoComponente.Tija_Sillin),
+            new Componente("Fizik Vento Argo R1", TipoComponente.Sillin),
+            new Componente("Fizik Vento Argo X5", TipoComponente.Sillin),
+            new Componente("Fizik Terra Aidon X5", TipoComponente.Sillin),
+            new Componente("Selle Royal 2058HRN", TipoComponente.Sillin),
+            new Componente("SRAM Level Ultimate Stealth 4 Piston", TipoComponente.Frenos),
+            new Componente("Shimano Deore XT BL-M8100", TipoComponente.Frenos),
+            new Componente("SRAM Level Bronze Stealth 2 Piston", TipoComponente.Frenos),
+            new Componente("SRAM Level Black 2 Piston", TipoComponente.Frenos),
+            new Componente("Avanforce Aguila BR", TipoComponente.Manillar),
+            new Componente("Avanforce Aguila", TipoComponente.Manillar),
+            new Componente("Avanforce AF3", TipoComponente.Manillar),
+            new Componente("Mako 4 BR, XCO WC Racing Geometry", TipoComponente.Cuadro),
+            new Componente("Mako 4, XCO Geometry BGC", TipoComponente.Cuadro),
+            new Componente("Bravo 6, XCO WC Racing Geometry BGC", TipoComponente.Cuadro),
+            new Componente("Bravo 5 EVO, XCO Racing Geometry BGC", TipoComponente.Cuadro),
+            new Componente("Bravo BR 6, XCO WC Racing Geometry BGC", TipoComponente.Cuadro),
+            new Componente("Bottom Bracket PF92 DUB WIDE MTB", TipoComponente.Bujes),
+            new Componente("Bottom Bracket PF92 SH MTB", TipoComponente.Bujes)
 
 
-            );
+    );
 
     public Componente getComponente(String descripcion, TipoComponente tipoComponente) {
         Componente componente = ComponentesList.stream()
@@ -398,7 +446,7 @@ public class Datos {
                     TipoBicicleta.CARRETERA,
                     MaterialCuadro.CARBONO,
                     TipoCambio.MECANICO,
-                    new BigDecimal("8.5"),  
+                    new BigDecimal("8.5"),
                     "https://www.orbea.com/img/products/product/over/large/S107TTCC-AJ-SIDE-ORCA_M30_DV_M_over.jpg",
                     "https://www.orbea.com/es-es/bicicletas/carretera/orca/cat/orca-m30",
                     "Orbea"
@@ -429,7 +477,7 @@ public class Datos {
                     TipoBicicleta.CARRETERA,
                     MaterialCuadro.CARBONO,
                     TipoCambio.ELECTRONICO,
-                    new BigDecimal("6.8"),  
+                    new BigDecimal("6.8"),
                     "https://www.orbea.com/img/products/product/over/large/S123TTCC-AN-SIDE-ORCA_M11eLTD_PWR_over.jpg",
                     "https://www.orbea.com/es-es/bicicletas/carretera/orca/cat/orca-m11eltd-pwr",
                     "Orbea"
@@ -563,7 +611,74 @@ public class Datos {
                     "https://berriabikes.com/cdn/shop/files/ALLROAD_HPR_ELITE_APEX_1FRONTAL_bd39722c-0196-4ba1-a50c-9cb3c20bcc1b.jpg?v=1721255333&width=823",
                     "https://berriabikes.com/products/allroad-hpr-elite-apex",
                     "Berria"
+            ),
+            new Bicicleta(
+                    "MAKO BR XX-SL",
+                    new BigDecimal("11999.00"),
+                    TipoBicicleta.MONTANA,
+                    MaterialCuadro.CARBONO,
+                    TipoCambio.ELECTRONICO,
+                    new BigDecimal("9.95"),
+                    "https://berriabikes.com/cdn/shop/files/MAKO_BR_XX-SL_FA_C1_1FRONTAL_NAKEDCARBON-WHITEPEARL.jpg?v=1721125110",
+                    "https://berriabikes.com/products/mako-br-xx-sl",
+                    "Berria"
+            ),
+            new Bicicleta(
+                    "MAKO PRO GX AXS",
+                    new BigDecimal("5499.00"),
+                    TipoBicicleta.MONTANA,
+                    MaterialCuadro.CARBONO,
+                    TipoCambio.ELECTRONICO,
+                    new BigDecimal("10.43"),
+                    "https://berriabikes.com/cdn/shop/files/download_8fbfe946-5116-431f-bd04-1017d800c07b.jpg?v=1721117600",
+                    "https://berriabikes.com/products/mako-pro-gx-axs",
+                    "Berria"
+            ),
+            new Bicicleta(
+                    "MAKO ELITE XT",
+                    new BigDecimal("3699.00"),
+                    TipoBicicleta.MONTANA,
+                    MaterialCuadro.CARBONO,
+                    TipoCambio.MECANICO,
+                    new BigDecimal("11.11"),
+                    "https://berriabikes.com/cdn/shop/files/download_d8d13538-a0e0-4433-9640-6507dd90491d.jpg?v=1721117599",
+                    "https://berriabikes.com/products/mako-elite-xt",
+                    "Berria"
+            ),
+            new Bicicleta(
+                    "BRAVO PRO GX AXS",
+                    new BigDecimal("4299.00"),
+                    TipoBicicleta.MONTANA,
+                    MaterialCuadro.CARBONO,
+                    TipoCambio.ELECTRONICO,
+                    new BigDecimal("10.05"),
+                    "https://berriabikes.com/cdn/shop/files/download_723a8afc-81e0-4434-bf85-5d882aa11f29.jpg?v=1721117599",
+                    "https://berriabikes.com/products/bravo-pro-gx-axs",
+                    "Berria"
+            ),
+            new Bicicleta(
+                    "BRAVO ELITE XT",
+                    new BigDecimal("1999.00"),
+                    TipoBicicleta.MONTANA,
+                    MaterialCuadro.CARBONO,
+                    TipoCambio.MECANICO,
+                    new BigDecimal("11.40"),
+                    "https://berriabikes.com/cdn/shop/files/download_2ef0e5f5-0f8f-4716-88bf-b4a17b4da537.jpg?v=1721117600",
+                    "https://berriabikes.com/products/bravo-elite-xt",
+                    "Berria"
+            ),
+            new Bicicleta(
+                    "BRAVO BR XX SL",
+                    new BigDecimal("7999.00"),
+                    TipoBicicleta.MONTANA,
+                    MaterialCuadro.CARBONO,
+                    TipoCambio.ELECTRONICO,
+                    new BigDecimal("9.20"),
+                    "https://berriabikes.com/cdn/shop/files/download_f75ef6bf-5d8e-44cd-86a7-651ff957feec.jpg?v=1721117599",
+                    "https://berriabikes.com/products/bravo-br-xx-sl",
+                    "Berria"
             )
+
     );
 
     public Bicicleta getBicicleta(String modelo, String marca) {

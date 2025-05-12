@@ -156,7 +156,7 @@ public class App {
         componentesOrcaM11eLTDPWR.add(new BicicletaComponente(orcaM11eLTDPWR, datos.getComponente("SRAM Red XG-1290 10-33t", TipoComponente.Cassette)));
         componentesOrcaM11eLTDPWR.add(new BicicletaComponente(orcaM11eLTDPWR, datos.getComponente("Fizik Antares R3", TipoComponente.Sillin)));
         componentesOrcaM11eLTDPWR.add(new BicicletaComponente(orcaM11eLTDPWR, datos.getComponente("OC Performance XP10-S Carbon, 27.2mm, Setback 20", TipoComponente.Tija_Sillin)));
-        componentesOrcaM11eLTDPWR.add(new BicicletaComponente(orcaM11eLTDPWR,datos.getComponente("SRAM RED AXS E1, sistema de cambio electrónico.", TipoComponente.Desviador)));
+        componentesOrcaM11eLTDPWR.add(new BicicletaComponente(orcaM11eLTDPWR, datos.getComponente("SRAM RED AXS E1, sistema de cambio electrónico.", TipoComponente.Desviador)));
         bicicletaComponenteRepository.saveAll(componentesOrcaM11eLTDPWR);
 
 //  Orbea Oiz M LTD
@@ -169,8 +169,8 @@ public class App {
         componentesOizMLTD.add(new BicicletaComponente(oizMLTD, datos.getComponente("SRAM Red", TipoComponente.Frenos)));
         componentesOizMLTD.add(new BicicletaComponente(oizMLTD, datos.getComponente("DT Swiss XRC 1200", TipoComponente.Ruedas)));
         componentesOizMLTD.add(new BicicletaComponente(oizMLTD, datos.getComponente("OC Mountain Performance MP10 Carbon, Cockpit, Width 760", TipoComponente.Manillar)));
-        componentesOizMLTD.add(new BicicletaComponente(oizMLTD,datos.getComponente("",TipoComponente.Tija_Sillin)));
-        componentesOizMLTD.add(new BicicletaComponente(oizMLTD,datos.getComponente("",TipoComponente.Sillin)));
+        componentesOizMLTD.add(new BicicletaComponente(oizMLTD, datos.getComponente("", TipoComponente.Tija_Sillin)));
+        componentesOizMLTD.add(new BicicletaComponente(oizMLTD, datos.getComponente("", TipoComponente.Sillin)));
         bicicletaComponenteRepository.saveAll(componentesOizMLTD);
 
 //  Orbea Oiz M PRO
@@ -182,8 +182,8 @@ public class App {
         componentesOizMPRO.add(new BicicletaComponente(oizMPRO, datos.getComponente("SRAM X01 Eagle", TipoComponente.Cambio_Trasero)));
         componentesOizMPRO.add(new BicicletaComponente(oizMPRO, datos.getComponente("SRAM Level", TipoComponente.Frenos)));
         componentesOizMPRO.add(new BicicletaComponente(oizMPRO, datos.getComponente("OC Mountain Performance MP10 Carbon, Cockpit, Width 760", TipoComponente.Manillar)));
-        componentesOizMPRO.add(new BicicletaComponente(oizMPRO,datos.getComponente("",TipoComponente.Tija_Sillin)));
-        componentesOizMPRO.add(new BicicletaComponente(oizMPRO,datos.getComponente("",TipoComponente.Sillin)));
+        componentesOizMPRO.add(new BicicletaComponente(oizMPRO, datos.getComponente("", TipoComponente.Tija_Sillin)));
+        componentesOizMPRO.add(new BicicletaComponente(oizMPRO, datos.getComponente("", TipoComponente.Sillin)));
         bicicletaComponenteRepository.saveAll(componentesOizMPRO);
 
 // Orbea Oiz M21
@@ -349,6 +349,121 @@ public class App {
         componentesGrailCFSLX8AXS.add(new BicicletaComponente(grailCFSLX8AXS, datos.getComponente("", TipoComponente.Tija_Sillin)));
         bicicletaComponenteRepository.saveAll(componentesGrailCFSLX8AXS);
 
+        // Berria Mako BR XX-SL
+        Bicicleta makoBrXxSl = datos.getBicicleta("MAKO BR XX-SL", "Berria");
+        List<BicicletaComponente> componentesMakoBrXxSl = new ArrayList<>();
+        componentesMakoBrXxSl.add(new BicicletaComponente(makoBrXxSl, datos.getComponente("Mako 4 BR", TipoComponente.Cuadro)));
+        componentesMakoBrXxSl.add(new BicicletaComponente(makoBrXxSl, datos.getComponente("Rock Shox SID Ultimate Flight Attendant", TipoComponente.Horquilla)));
+        componentesMakoBrXxSl.add(new BicicletaComponente(makoBrXxSl, datos.getComponente("RockShox SIDLuxe Ultimate Flight Attendant", TipoComponente.Amortiguador)));
+        componentesMakoBrXxSl.add(new BicicletaComponente(makoBrXxSl, datos.getComponente("Avanforce Aguila BR", TipoComponente.Manillar)));
+        componentesMakoBrXxSl.add(new BicicletaComponente(makoBrXxSl, datos.getComponente("SRAM Reverb AXS Dropper post", TipoComponente.Tija_Sillin)));
+        componentesMakoBrXxSl.add(new BicicletaComponente(makoBrXxSl, datos.getComponente("Fizik Vento Argo R1", TipoComponente.Sillin)));
+        componentesMakoBrXxSl.add(new BicicletaComponente(makoBrXxSl, datos.getComponente("ZIPP 1ZERO HITOP SW 29\"", TipoComponente.Ruedas)));
+        componentesMakoBrXxSl.add(new BicicletaComponente(makoBrXxSl, datos.getComponente("Pirelli Scorpion XC RC 29x2,40\"", TipoComponente.Cubiertas)));
+        componentesMakoBrXxSl.add(new BicicletaComponente(makoBrXxSl, datos.getComponente("EC AXS POD Ultimate Right/Left Bridge W/MMX", TipoComponente.Manetas_Cambio)));
+        componentesMakoBrXxSl.add(new BicicletaComponente(makoBrXxSl, datos.getComponente("SRAM XX SL AXS Eagle T-TYPE", TipoComponente.Cambio_Trasero)));
+        componentesMakoBrXxSl.add(new BicicletaComponente(makoBrXxSl, datos.getComponente("SRAM XX SL T-TYPE w/ Spider Power Meter", TipoComponente.Bielas)));
+        componentesMakoBrXxSl.add(new BicicletaComponente(makoBrXxSl, datos.getComponente("SRAM XX SL T-TYPE Flattop", TipoComponente.Cadena)));
+        componentesMakoBrXxSl.add(new BicicletaComponente(makoBrXxSl, datos.getComponente("SRAM XS 1299 Eagle", TipoComponente.Cassette)));
+        componentesMakoBrXxSl.add(new BicicletaComponente(makoBrXxSl, datos.getComponente("Bottom Bracket PF92 DUB WIDE MTB", TipoComponente.Bujes)));
+        componentesMakoBrXxSl.add(new BicicletaComponente(makoBrXxSl, datos.getComponente("SRAM Level Ultimate Stealth 4 Piston", TipoComponente.Frenos)));
+        bicicletaComponenteRepository.saveAll(componentesMakoBrXxSl);
+
+        // Berria MAKO PRO GX AXS
+        Bicicleta makoProGxAxs = datos.getBicicleta("MAKO PRO GX AXS", "Berria");
+        List<BicicletaComponente> componentesMakoProGxAxs = new ArrayList<>();
+        componentesMakoProGxAxs.add(new BicicletaComponente(makoProGxAxs, datos.getComponente("Mako 4", TipoComponente.Cuadro)));
+        componentesMakoProGxAxs.add(new BicicletaComponente(makoProGxAxs, datos.getComponente("FOX 34 SC Factory", TipoComponente.Horquilla)));
+        componentesMakoProGxAxs.add(new BicicletaComponente(makoProGxAxs, datos.getComponente("FOX Factory FLOAT DPS", TipoComponente.Amortiguador)));
+        componentesMakoProGxAxs.add(new BicicletaComponente(makoProGxAxs, datos.getComponente("Avanforce Aguila", TipoComponente.Manillar)));
+        componentesMakoProGxAxs.add(new BicicletaComponente(makoProGxAxs, datos.getComponente("Crank Brothers HIGHLINE 3 Dropper post", TipoComponente.Tija_Sillin)));
+        componentesMakoProGxAxs.add(new BicicletaComponente(makoProGxAxs, datos.getComponente("Fizik Vento Argo X5", TipoComponente.Sillin)));
+        componentesMakoProGxAxs.add(new BicicletaComponente(makoProGxAxs, datos.getComponente("DT Swiss X1900 Spline 29\"", TipoComponente.Ruedas)));
+        componentesMakoProGxAxs.add(new BicicletaComponente(makoProGxAxs, datos.getComponente("Vittoria Barzo 29x2,25\"", TipoComponente.Cubiertas)));
+        componentesMakoProGxAxs.add(new BicicletaComponente(makoProGxAxs, datos.getComponente("EC AXS POD Left Discrete Clamp", TipoComponente.Manetas_Cambio)));
+        componentesMakoProGxAxs.add(new BicicletaComponente(makoProGxAxs, datos.getComponente("SRAM GX AXS Eagle T-TYPE", TipoComponente.Cambio_Trasero)));
+        componentesMakoProGxAxs.add(new BicicletaComponente(makoProGxAxs, datos.getComponente("SRAM GX T-TYPE", TipoComponente.Bielas)));
+        componentesMakoProGxAxs.add(new BicicletaComponente(makoProGxAxs, datos.getComponente("SRAM GX T-TYPE Flattop", TipoComponente.Cadena)));
+        componentesMakoProGxAxs.add(new BicicletaComponente(makoProGxAxs, datos.getComponente("SRAM XS 1275 Eagle", TipoComponente.Cassette)));
+        componentesMakoProGxAxs.add(new BicicletaComponente(makoProGxAxs, datos.getComponente("Bottom Bracket PF92 DUB WIDE MTB", TipoComponente.Bujes)));
+        componentesMakoProGxAxs.add(new BicicletaComponente(makoProGxAxs, datos.getComponente("Shimano Deore XT BL-M8100", TipoComponente.Frenos)));
+        bicicletaComponenteRepository.saveAll(componentesMakoProGxAxs);
+
+        // Berria MAKO ELITE XT
+        Bicicleta makoEliteXt = datos.getBicicleta("MAKO ELITE XT", "Berria");
+        List<BicicletaComponente> componentesMakoEliteXt = new ArrayList<>();
+        componentesMakoEliteXt.add(new BicicletaComponente(makoEliteXt, datos.getComponente("Mako 4", TipoComponente.Cuadro)));
+        componentesMakoEliteXt.add(new BicicletaComponente(makoEliteXt, datos.getComponente("Rock Shox SID Select RL", TipoComponente.Horquilla)));
+        componentesMakoEliteXt.add(new BicicletaComponente(makoEliteXt, datos.getComponente("RockShox SIDLuxe Ultimate", TipoComponente.Amortiguador)));
+        componentesMakoEliteXt.add(new BicicletaComponente(makoEliteXt, datos.getComponente("Avanforce AF3", TipoComponente.Manillar)));
+        componentesMakoEliteXt.add(new BicicletaComponente(makoEliteXt, datos.getComponente("Avanforce AF2", TipoComponente.Tija_Sillin)));
+        componentesMakoEliteXt.add(new BicicletaComponente(makoEliteXt, datos.getComponente("Fizik Vento Argo X5", TipoComponente.Sillin)));
+        componentesMakoEliteXt.add(new BicicletaComponente(makoEliteXt, datos.getComponente("Mavic Crossride 29\"", TipoComponente.Ruedas)));
+        componentesMakoEliteXt.add(new BicicletaComponente(makoEliteXt, datos.getComponente("Vittoria Barzo 29x2,25\"", TipoComponente.Cubiertas)));
+        componentesMakoEliteXt.add(new BicicletaComponente(makoEliteXt, datos.getComponente("Shimano SL-M7100-R Trigger 12V Rapidfire Plus", TipoComponente.Manetas_Cambio)));
+        componentesMakoEliteXt.add(new BicicletaComponente(makoEliteXt, datos.getComponente("Shimano XT RD-M8100", TipoComponente.Cambio_Trasero)));
+        componentesMakoEliteXt.add(new BicicletaComponente(makoEliteXt, datos.getComponente("Shimano FC-MT510-1", TipoComponente.Bielas)));
+        componentesMakoEliteXt.add(new BicicletaComponente(makoEliteXt, datos.getComponente("Shimano CN-M6100", TipoComponente.Cadena)));
+        componentesMakoEliteXt.add(new BicicletaComponente(makoEliteXt, datos.getComponente("Shimano SLX CS-M7100-12", TipoComponente.Cassette)));
+        componentesMakoEliteXt.add(new BicicletaComponente(makoEliteXt, datos.getComponente("Bottom Bracket PF92 SH MTB", TipoComponente.Bujes)));
+        componentesMakoEliteXt.add(new BicicletaComponente(makoEliteXt, datos.getComponente("Shimano Deore XT BL-M8100", TipoComponente.Frenos)));
+        bicicletaComponenteRepository.saveAll(componentesMakoEliteXt);
+        // Berria BRAVO PRO GX AXS
+        Bicicleta bravoProGxAxs = datos.getBicicleta("BRAVO PRO GX AXS", "Berria");
+        List<BicicletaComponente> componentesBravoProGxAxs = new ArrayList<>();
+        componentesBravoProGxAxs.add(new BicicletaComponente(bravoProGxAxs, datos.getComponente("Bravo 6", TipoComponente.Cuadro)));
+        componentesBravoProGxAxs.add(new BicicletaComponente(bravoProGxAxs, datos.getComponente("FOX 34 SC Factory", TipoComponente.Horquilla)));
+        componentesBravoProGxAxs.add(new BicicletaComponente(bravoProGxAxs, datos.getComponente("Avanforce AF3", TipoComponente.Manillar)));
+        componentesBravoProGxAxs.add(new BicicletaComponente(bravoProGxAxs, datos.getComponente("Avanforce AF2", TipoComponente.Tija_Sillin)));
+        componentesBravoProGxAxs.add(new BicicletaComponente(bravoProGxAxs, datos.getComponente("Fizik Vento Argo X5", TipoComponente.Sillin)));
+        componentesBravoProGxAxs.add(new BicicletaComponente(bravoProGxAxs, datos.getComponente("DT Swiss X1900 Spline 29\"", TipoComponente.Ruedas)));
+        componentesBravoProGxAxs.add(new BicicletaComponente(bravoProGxAxs, datos.getComponente("Vittoria Barzo 29x2,25\"", TipoComponente.Cubiertas)));
+        componentesBravoProGxAxs.add(new BicicletaComponente(bravoProGxAxs, datos.getComponente("EC AXS POD Left Discrete Clamp", TipoComponente.Manetas_Cambio)));
+        componentesBravoProGxAxs.add(new BicicletaComponente(bravoProGxAxs, datos.getComponente("SRAM GX AXS Eagle T-TYPE", TipoComponente.Cambio_Trasero)));
+        componentesBravoProGxAxs.add(new BicicletaComponente(bravoProGxAxs, datos.getComponente("SRAM GX T-TYPE", TipoComponente.Bielas)));
+        componentesBravoProGxAxs.add(new BicicletaComponente(bravoProGxAxs, datos.getComponente("SRAM GX T-TYPE Flattop", TipoComponente.Cadena)));
+        componentesBravoProGxAxs.add(new BicicletaComponente(bravoProGxAxs, datos.getComponente("SRAM XS 1275 Eagle", TipoComponente.Cassette)));
+        componentesBravoProGxAxs.add(new BicicletaComponente(bravoProGxAxs, datos.getComponente("Bottom Bracket PF92 DUB WIDE MTB", TipoComponente.Bujes)));
+        componentesBravoProGxAxs.add(new BicicletaComponente(bravoProGxAxs, datos.getComponente("Shimano Deore XT BL-M8100", TipoComponente.Frenos)));
+        bicicletaComponenteRepository.saveAll(componentesBravoProGxAxs);
+
+// Berria BRAVO ELITE XT
+        Bicicleta bravoEliteXt = datos.getBicicleta("BRAVO ELITE XT", "Berria");
+        List<BicicletaComponente> componentesBravoEliteXt = new ArrayList<>();
+        componentesBravoEliteXt.add(new BicicletaComponente(bravoEliteXt, datos.getComponente("Bravo 5 EVO", TipoComponente.Cuadro)));
+        componentesBravoEliteXt.add(new BicicletaComponente(bravoEliteXt, datos.getComponente("Rock Shox SID Select RL", TipoComponente.Horquilla)));
+        componentesBravoEliteXt.add(new BicicletaComponente(bravoEliteXt, datos.getComponente("Avanforce AF3", TipoComponente.Manillar)));
+        componentesBravoEliteXt.add(new BicicletaComponente(bravoEliteXt, datos.getComponente("Avanforce AF2", TipoComponente.Tija_Sillin)));
+        componentesBravoEliteXt.add(new BicicletaComponente(bravoEliteXt, datos.getComponente("Fizik Vento Argo X5", TipoComponente.Sillin)));
+        componentesBravoEliteXt.add(new BicicletaComponente(bravoEliteXt, datos.getComponente("Mavic Crossride 29\"", TipoComponente.Ruedas)));
+        componentesBravoEliteXt.add(new BicicletaComponente(bravoEliteXt, datos.getComponente("Vittoria Barzo 29x2,25\"", TipoComponente.Cubiertas)));
+        componentesBravoEliteXt.add(new BicicletaComponente(bravoEliteXt, datos.getComponente("Shimano SL-M7100-R Trigger 12V Rapidfire Plus", TipoComponente.Manetas_Cambio)));
+        componentesBravoEliteXt.add(new BicicletaComponente(bravoEliteXt, datos.getComponente("Shimano XT RD-M8100", TipoComponente.Cambio_Trasero)));
+        componentesBravoEliteXt.add(new BicicletaComponente(bravoEliteXt, datos.getComponente("Shimano FC-MT510-1", TipoComponente.Bielas)));
+        componentesBravoEliteXt.add(new BicicletaComponente(bravoEliteXt, datos.getComponente("Shimano CN-M6100", TipoComponente.Cadena)));
+        componentesBravoEliteXt.add(new BicicletaComponente(bravoEliteXt, datos.getComponente("Shimano SLX CS-M7100-12", TipoComponente.Cassette)));
+        componentesBravoEliteXt.add(new BicicletaComponente(bravoEliteXt, datos.getComponente("Bottom Bracket PF92 SH MTB", TipoComponente.Bujes)));
+        componentesBravoEliteXt.add(new BicicletaComponente(bravoEliteXt, datos.getComponente("Shimano Deore XT BL-M8100", TipoComponente.Frenos)));
+        bicicletaComponenteRepository.saveAll(componentesBravoEliteXt);
+
+// Berria BRAVO BR XX SL
+        Bicicleta bravoBrXxSl = datos.getBicicleta("BRAVO BR XX SL", "Berria");
+        List<BicicletaComponente> componentesBravoBrXxSl = new ArrayList<>();
+        componentesBravoBrXxSl.add(new BicicletaComponente(bravoBrXxSl, datos.getComponente("Bravo BR 6", TipoComponente.Cuadro)));
+        componentesBravoBrXxSl.add(new BicicletaComponente(bravoBrXxSl, datos.getComponente("Rock Shox SID Ultimate Flight Attendant", TipoComponente.Horquilla)));
+        componentesBravoBrXxSl.add(new BicicletaComponente(bravoBrXxSl, datos.getComponente("Avanforce AF3", TipoComponente.Manillar)));
+        componentesBravoBrXxSl.add(new BicicletaComponente(bravoBrXxSl, datos.getComponente("SRAM Reverb AXS Dropper post", TipoComponente.Tija_Sillin)));
+        componentesBravoBrXxSl.add(new BicicletaComponente(bravoBrXxSl, datos.getComponente("Fizik Vento Argo R1", TipoComponente.Sillin)));
+        componentesBravoBrXxSl.add(new BicicletaComponente(bravoBrXxSl, datos.getComponente("ZIPP 1ZERO HITOP SW 29\"", TipoComponente.Ruedas)));
+        componentesBravoBrXxSl.add(new BicicletaComponente(bravoBrXxSl, datos.getComponente("Pirelli Scorpion XC RC 29x2,40\"", TipoComponente.Cubiertas)));
+        componentesBravoBrXxSl.add(new BicicletaComponente(bravoBrXxSl, datos.getComponente("EC AXS POD Ultimate Right/Left Bridge W/MMX", TipoComponente.Manetas_Cambio)));
+        componentesBravoBrXxSl.add(new BicicletaComponente(bravoBrXxSl, datos.getComponente("SRAM XX SL AXS Eagle T-TYPE", TipoComponente.Cambio_Trasero)));
+        componentesBravoBrXxSl.add(new BicicletaComponente(bravoBrXxSl, datos.getComponente("SRAM XX SL T-TYPE w/ Spider Power Meter", TipoComponente.Bielas)));
+        componentesBravoBrXxSl.add(new BicicletaComponente(bravoBrXxSl, datos.getComponente("SRAM XX SL T-TYPE Flattop", TipoComponente.Cadena)));
+        componentesBravoBrXxSl.add(new BicicletaComponente(bravoBrXxSl, datos.getComponente("SRAM XS 1299 Eagle", TipoComponente.Cassette)));
+        componentesBravoBrXxSl.add(new BicicletaComponente(bravoBrXxSl, datos.getComponente("Bottom Bracket PF92 DUB WIDE MTB", TipoComponente.Bujes)));
+        componentesBravoBrXxSl.add(new BicicletaComponente(bravoBrXxSl, datos.getComponente("SRAM Level Ultimate Stealth 4 Piston", TipoComponente.Frenos)));
+        bicicletaComponenteRepository.saveAll(componentesBravoBrXxSl);
     }
 
 
