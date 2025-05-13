@@ -348,7 +348,6 @@ public class App {
         componentesGrailCFSLX8AXS.add(new BicicletaComponente(grailCFSLX8AXS, datos.getComponente("", TipoComponente.Sillin)));
         componentesGrailCFSLX8AXS.add(new BicicletaComponente(grailCFSLX8AXS, datos.getComponente("", TipoComponente.Tija_Sillin)));
         bicicletaComponenteRepository.saveAll(componentesGrailCFSLX8AXS);
-
         // Berria Mako BR XX-SL
         Bicicleta makoBrXxSl = datos.getBicicleta("MAKO BR XX-SL", "Berria");
         List<BicicletaComponente> componentesMakoBrXxSl = new ArrayList<>();
@@ -464,6 +463,8 @@ public class App {
         componentesBravoBrXxSl.add(new BicicletaComponente(bravoBrXxSl, datos.getComponente("Bottom Bracket PF92 DUB WIDE MTB", TipoComponente.Bujes)));
         componentesBravoBrXxSl.add(new BicicletaComponente(bravoBrXxSl, datos.getComponente("SRAM Level Ultimate Stealth 4 Piston", TipoComponente.Frenos)));
         bicicletaComponenteRepository.saveAll(componentesBravoBrXxSl);
+
+
     }
 
 

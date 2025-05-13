@@ -343,6 +343,7 @@ public class Datos {
             new Componente("RockShox Reverb Air C1, 30.9/31.6mm, Recorrido 100-150mm", TipoComponente.Tija_Sillin),
             new Componente("Fox Transfer Factory Kashima, 30.9/31.6/34.9mm, Recorrido 100-200mm", TipoComponente.Tija_Sillin),
             new Componente("Fox Transfer SL Factory Kashima, 27.2/30.9/31.6mm, Recorrido 50-125mm", TipoComponente.Tija_Sillin),
+            new Componente("Fox Transfer SL Factory Kashima, 27.2/30.9/31.6mm, Recorrido 50-125mm", TipoComponente.Tija_Sillin),
             new Componente("Rock Shox SID Ultimate Flight Attendant", TipoComponente.Horquilla),
             new Componente("FOX 34 SC Factory, Kashima Coat", TipoComponente.Horquilla),
             new Componente("Rock Shox SID Select RL", TipoComponente.Horquilla),
@@ -390,10 +391,11 @@ public class Datos {
             new Componente("Bravo 5 EVO, XCO Racing Geometry BGC", TipoComponente.Cuadro),
             new Componente("Bravo BR 6, XCO WC Racing Geometry BGC", TipoComponente.Cuadro),
             new Componente("Bottom Bracket PF92 DUB WIDE MTB", TipoComponente.Bujes),
-            new Componente("Bottom Bracket PF92 SH MTB", TipoComponente.Bujes)
+            new Componente("Bottom Bracket PF92 SH MTB", TipoComponente.Bujes),
+            new Componente("Fox Transfer SL Factory Kashima, 27.2/30.9/31.6mm, Recorrido 50-125mm", TipoComponente.Tija_Sillin)
 
 
-    );
+            );
 
     public Componente getComponente(String descripcion, TipoComponente tipoComponente) {
         Componente componente = ComponentesList.stream()
@@ -446,7 +448,7 @@ public class Datos {
                     TipoBicicleta.CARRETERA,
                     MaterialCuadro.CARBONO,
                     TipoCambio.MECANICO,
-                    new BigDecimal("8.5"),
+                    new BigDecimal("8.5"),  
                     "https://www.orbea.com/img/products/product/over/large/S107TTCC-AJ-SIDE-ORCA_M30_DV_M_over.jpg",
                     "https://www.orbea.com/es-es/bicicletas/carretera/orca/cat/orca-m30",
                     "Orbea"
@@ -477,7 +479,7 @@ public class Datos {
                     TipoBicicleta.CARRETERA,
                     MaterialCuadro.CARBONO,
                     TipoCambio.ELECTRONICO,
-                    new BigDecimal("6.8"),
+                    new BigDecimal("6.8"),  
                     "https://www.orbea.com/img/products/product/over/large/S123TTCC-AN-SIDE-ORCA_M11eLTD_PWR_over.jpg",
                     "https://www.orbea.com/es-es/bicicletas/carretera/orca/cat/orca-m11eltd-pwr",
                     "Orbea"
@@ -678,7 +680,6 @@ public class Datos {
                     "https://berriabikes.com/products/bravo-br-xx-sl",
                     "Berria"
             )
-
     );
 
     public Bicicleta getBicicleta(String modelo, String marca) {
