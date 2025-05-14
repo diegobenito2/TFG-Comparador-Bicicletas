@@ -37,192 +37,212 @@
     <div class="max-w-7xl mx-auto px-4">
         <!-- Tabla Comparador -->
         <table class="mx-auto table-auto">
-            <thead>
+                        <thead>
             <th></th>
             <th class="p-2 text-center" id="bicicleta1">
-                <img class=" shadow-lg   max-w-sm"
-                     onclick="openImage(this.src)"
+                <img class=" w-[300px] h-[250px] object-contain shadow-lg mx-auto"
                      th:src="${bicicleta.getImagenUrl()}"
-                     alt="${bicicleta.getMarcaNombre()}"
+                     th:alt="${bicicleta.getNombreCompleto()}"
+                     th:data-id="${bicicleta.getId()}"
                 >
             </th>
 
-            <th class="p-2 text-center" id="bicicleta2">
-                <img class=" shadow-lg   max-w-sm"
-                     onclick="openImage(this.src)"
-                     th:src="${bicicleta.getImagenUrl()}"
-                     alt="${bicicleta.getMarcaNombre()}"
-                >
+            <th class="p-2 text-center align-top relative" id="bicicleta2">
+                <!-- SELECT -->
+                <select id="select2"
+                        class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg block w-full p-2.5"
+                        onchange="mostrarBici('2')">
+                    <option selected disabled>Selecciona una bicicleta</option>
+                    <option th:each="bicicleta, i : ${bicicletas}"
+                            th:value="${i.index}"
+                            th:text="${bicicleta.getNombreCompleto()}"
+                            th:data-id="${bicicleta.getId()}"
+                    >
+                    </option>
+                </select>
+
+                <!-- BOTÓN X -->
+                <button id="btn-cerrar-2"
+                        onclick="quitarBici('2')"
+                        class="absolute top-2 right-2 bg-red-600 text-white rounded-full w-8 h-8 flex items-center justify-center hover:bg-red-700 z-10 hidden">
+                    ✕
+                </button>
+
+                <!-- CONTENEDOR DE IMÁGENES -->
+                <div id="imagenes2" class="relative mt-2">
+                    <img th:each="bicicleta, i : ${bicicletas}"
+                         th:id="'img-bici-2-' + ${i.index}"
+                         th:src="${bicicleta.getImagenUrl()}"
+                         th:data-id="${bicicleta.getId()}"
+                         class="w-[300px] h-[250px] object-contain shadow-lg mx-auto hidden"
+                         alt="Bicicleta"
+                         th:classappend="${bicicleta.getMarcaNombre() == 'Canyon' || bicicleta.getMarcaNombre() == 'Trek' ? 'object-fill' : 'object-cover'}">
+                </div>
             </th>
-            <th class="p-2 text-center" id="bicicleta3">
-                <img class=" shadow-lg   max-w-sm"
-                                 onclick="openImage(this.src)"
-                                 th:src="${bicicleta.getImagenUrl()}"
-                                 alt="${bicicleta.getMarcaNombre()}"
-                >
+
+            <th class="p-2 text-center align-top relative" id="bicicleta3">
+                <!-- SELECT -->
+                <select id="select3"
+                        class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg block w-full p-2.5"
+                        onchange="mostrarBici('3')">
+                    <option selected disabled>Selecciona una bicicleta</option>
+                    <option th:each="bicicleta, i : ${bicicletas}"
+                            th:value="${i.index}"
+                            th:text="${bicicleta.getNombreCompleto()}">
+                    </option>
+                </select>
+
+                <!-- BOTÓN X -->
+                <button id="btn-cerrar-3"
+                        onclick="quitarBici('3')"
+                        class="absolute top-2 right-2 bg-red-600 text-white rounded-full w-8 h-8 flex items-center justify-center hover:bg-red-700 z-10 hidden">
+                    ✕
+                </button>
+
+                <!-- CONTENEDOR DE IMÁGENES -->
+                <div id="imagenes3" class="relative mt-2">
+                    <img th:each="bicicleta, i : ${bicicletas}"
+                         th:id="'img-bici-3-' + ${i.index}"
+                         th:src="${bicicleta.getImagenUrl()}"
+                         class="w-[300px] h-[250px] object-contain shadow-lg mx-auto hidden"
+                         alt="Bicicleta"
+                         th:classappend="${bicicleta.getMarcaNombre() == 'Canyon' || bicicleta.getMarcaNombre() == 'Trek' ? 'object-fill' : 'object-cover'}">
+                </div>
             </th>
-            </thead>
+                        </thead>
             <tbody class="text-center pt-6 bg-white">
             <tr class="hover:bg-gray-100 transition-colors duration-300">
                 <td></td>
                 <td th:text="${bicicleta.getModelo()} + ' / ' + ${bicicleta.getPrecio()} + '€'">Modelo y Precio</td>
-                <td></td>
-                <td></td>
+                <td id="modelo2"></td>
+                <td id="modelo3"></td>
             </tr>
 
             <tr class="hover:bg-gray-100 transition-colors duration-300">
                 <td class="font-inter text-lg font-medium text-gray-900">Categoría</td>
                 <td th:text="${bicicleta.getTipo()}"></td>
-                <td></td>
-                <td></td>
+                <td id="tipo2"></td>
+                <td id="tipo3"></td>
             </tr>
 
             <tr class="hover:bg-gray-100 transition-colors duration-300">
                 <td class="font-inter text-lg font-medium text-gray-900">Familia</td>
                 <td th:text="${bicicleta.getFamilia()}"></td>
-                <td></td>
-                <td></td>
+                <td id="familia2"></td>
+                <td id="familia3"></td>
             </tr>
-            <tr id="Campo_Cuadro">
-                <td class="font-poppins">Cuadro</td>
-                <td></td>
-                <td></td>
-                <td></td>
+
+            <!-- Filas dinámicas de componentes -->
+            <tr th:each="nombreComponente : ${componentesOrdenados}"
+                class="hover:bg-gray-100 transition-colors duration-300">
+                <td class="font-inter text-lg font-medium text-gray-900" th:text="${nombreComponente}"></td>
+                <td>
+            <span th:each="comp : ${componentes}"
+                  th:if="${comp.componente.tipo} == ${nombreComponente}"
+                  th:text="${comp.componente.nombre}">Nombre</span>
+                </td>
+                <td id="componente2-[[${nombreComponente}]]"></td>
+                <td id="componente3-[[${nombreComponente}]]"></td>
             </tr>
 
             <tr class="hover:bg-gray-100 transition-colors duration-300">
-                <td>Horquilla</td>
                 <td></td>
-                <td></td>
-                <td></td>
+                <td>
+                    <a th:href="${bicicleta.getMasInfoUrl()}"
+                       class="inline-block px-4 py-2 text-white bg-blue-600 rounded-lg hover:bg-blue-700 transition duration-200 shadow"
+                       target="_blank">Más Info</a>
+                </td>
+                <td id="masinfo2"></td>
+                <td id="masinfo3"></td>
             </tr>
+            <script>
+                const bicicletasData = /*[[${bicicletas}]]*/ [];
 
-            <tr class="hover:bg-gray-100 transition-colors duration-300">
-                <td>Amortiguador</td>
-                <td></td>
-                <td></td>
-                <td></td>
-            </tr>
+                function mostrarBici(slotId) {
+                    const select = document.getElementById("select" + slotId);
+                    const selectedIndex = select.value;
+                    const bici = bicicletasData[selectedIndex];
 
-            <tr class="hover:bg-gray-100 transition-colors duration-300">
-                <td>Ruedas</td>
-                <td></td>
-                <td></td>
-                <td></td>
-            </tr>
+                    // Mostrar imagen
+                    document.querySelectorAll(`#img-bici-${slotId} img`).forEach(img => img.classList.add("hidden"));
+                    document.getElementById("img-bici-" + slotId + "-" + selectedIndex).classList.remove("hidden");
 
-            <tr class="hover:bg-gray-100 transition-colors duration-300">
-                <td>Cubiertas</td>
-                <td></td>
-                <td></td>
-                <td></td>
-            </tr>
+                    // Mostrar botón cerrar
+                    document.getElementById("btn-cerrar-" + slotId).classList.remove("hidden");
 
-            <tr class="hover:bg-gray-100 transition-colors duration-300">
-                <td>Frenos</td>
-                <td></td>
-                <td></td>
-                <td></td>
-            </tr>
+                    // Ocultar select
+                    select.classList.add("hidden");
 
-            <tr class="hover:bg-gray-100 transition-colors duration-300">
-                <td>Disco</td>
-                <td></td>
-                <td></td>
-                <td></td>
-            </tr>
+                    // Llenar datos básicos
+                    document.getElementById("modelo" + slotId).innerText = bici.modelo + " / " + bici.precio + "€";
+                    document.getElementById("tipo" + slotId).innerText = bici.tipo;
+                    document.getElementById("familia" + slotId).innerText = bici.familia;
+                    document.getElementById("masinfo" + slotId).innerHTML = `<a href="${bici.masInfoUrl}" class="inline-block px-4 py-2 text-white bg-blue-600 rounded-lg hover:bg-blue-700 transition duration-200 shadow" target="_blank">Más Info</a>`;
 
-            <tr class="hover:bg-gray-100 transition-colors duration-300">
-                <td>Cambio Trasero</td>
-                <td></td>
-                <td></td>
-                <td></td>
-            </tr>
+                    // Quita de la lista de bicicletas disponibles las que ya están seleccionadas
+                    actualizarOpcionesDisponibles(slotId, selectedIndex);
 
-            <tr class="hover:bg-gray-100 transition-colors duration-300">
-                <td>Desviador</td>
-                <td></td>
-                <td></td>
-                <td></td>
-            </tr>
+                    // Llenar componentes
+                    bici.componentes.forEach(comp => {
+                        const td = document.getElementById(`componente${slotId}-${comp.componente.tipo}`);
+                        if (td) {
+                            td.innerText = comp.componente.nombre;
+                        }
+                    });
+                }
 
-            <tr class="hover:bg-gray-100 transition-colors duration-300">
-                <td>Cassette</td>
-                <td></td>
-                <td></td>
-                <td></td>
-            </tr>
+                function quitarBici(slotId) {
+                    //Busca la imagen y el boton con ese id y los oculta
+                    document.querySelectorAll(`#imagenes${slotId} img`).forEach(img => img.classList.add("hidden"));
+                    document.getElementById("btn-cerrar-" + slotId).classList.add("hidden");
 
-            <tr class="hover:bg-gray-100 transition-colors duration-300">
-                <td>Cadena</td>
-                <td></td>
-                <td></td>
-                <td></td>
-            </tr>
+                    const select = document.getElementById("select" + slotId);
+                    select.classList.remove("hidden");
+                    select.selectedIndex = 0;
 
-            <tr class="hover:bg-gray-100 transition-colors duration-300">
-                <td>Bielas</td>
-                <td></td>
-                <td></td>
-                <td></td>
-            </tr>
+                    document.getElementById("modelo" + slotId).innerText = "";
+                    document.getElementById("tipo" + slotId).innerText = "";
+                    document.getElementById("familia" + slotId).innerText = "";
+                    document.getElementById("masinfo" + slotId).innerHTML = "";
 
-            <tr class="hover:bg-gray-100 transition-colors duration-300">
-                <td>Plato</td>
-                <td></td>
-                <td></td>
-                <td></td>
-            </tr>
+                    document.querySelectorAll(`[id^=componente${slotId}-]`).forEach(td => td.innerText = "");
+                    restaurarOpcion(slotId, select.value);
 
-            <tr class="hover:bg-gray-100 transition-colors duration-300">
-                <td>Pedalier</td>
-                <td></td>
-                <td></td>
-                <td></td>
-            </tr>
+                }
+                function actualizarOpcionesDisponibles(slotId, selectedIndex) {
+                    document.addEventListener("DOMContentLoaded", () => {
+                        const bicicleta1Nombre = document.querySelector("#bicicleta1 img").alt;
+                        ['2', '3'].forEach(id => {
+                            const select = document.getElementById("select" + id);
+                            const options = Array.from(select.options);
+                            options.forEach(option => {
+                                if (option.text === bicicleta1Nombre) {
+                                    option.remove();
+                                }
+                            });
+                        });
+                    });
+                }
+                function restaurarOpcion(slotId, selectedIndex) {
+                    const bici = bicicletasData[selectedIndex];
+                    ['2', '3'].forEach(id => {
+                        if (id !== slotId) {
+                            const select = document.getElementById("select" + id);
+                            const exists = Array.from(select.options).some(opt => opt.value === selectedIndex);
+                            if (!exists) {
+                                const option = document.createElement("option");
+                                option.value = selectedIndex;
+                                option.text = bici.nombreCompleto || bici.modelo; // Usa lo que tengas
+                                select.appendChild(option);
+                            }
+                        }
+                    });
+                }
 
-            <tr class="hover:bg-gray-100 transition-colors duration-300">
-                <td>Manillar</td>
-                <td></td>
-                <td></td>
-                <td></td>
-            </tr>
 
-            <tr class="hover:bg-gray-100 transition-colors duration-300">
-                <td>Manetas Cambio</td>
-                <td></td>
-                <td></td>
-                <td></td>
-            </tr>
-
-            <tr class="hover:bg-gray-100 transition-colors duration-300">
-                <td>Tija Sillin</td>
-                <td></td>
-                <td></td>
-                <td></td>
-            </tr>
-
-            <tr class="hover:bg-gray-100 transition-colors duration-300">
-                <td>Sillin</td>
-                <td></td>
-                <td></td>
-                <td></td>
-            </tr>
-            <tr class="hover:bg-gray-100 transition-colors duration-300">
-                <td>Bujes</td>
-                <td></td>
-                <td></td>
-                <td></td>
-            </tr>
-            <tr class="hover:bg-gray-100 transition-colors duration-300">
-                <td></td>
-                <td>Más Info</td>
-                <td>Más Info</td>
-                <td>Más Info</td>
-            </tr>
+            </script>
 
             </tbody>
-
         </table>
     </div>
 </main>

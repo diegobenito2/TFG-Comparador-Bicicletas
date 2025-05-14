@@ -1,16 +1,19 @@
 package com.example.comparador.Controller;
 
 import com.example.comparador.Entity.Bicicleta;
+import com.example.comparador.Entity.BicicletaComponente;
+import com.example.comparador.Entity.Componente;
 import com.example.comparador.Service.BicicletaService;
 import com.example.comparador.Service.BicicletaServiceImpl;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
-
+import java.util.Arrays;
 import java.util.Comparator;
 import java.util.List;
 import java.util.Optional;
+import java.util.stream.Collectors;
 
 @Controller
 public class BicicletaController {
@@ -70,7 +73,7 @@ public class BicicletaController {
 
         if (resultados.isEmpty()) {
             model.addAttribute("mensaje", "No hay bicicletas con la búsqueda: " + marcaymodelo);
-        }else{
+        } else {
             resultados.sort(Comparator.comparing(Bicicleta::getPrecio).reversed());
         }
         model.addAttribute("bicicletas", resultados);
@@ -80,17 +83,29 @@ public class BicicletaController {
 
     // Comparador de bicicletas
     // GET http://localhost:8080/comparar/{id}
-        @GetMapping("/comparar/{id}")
-        public String getBicicletaComparador(@PathVariable Long id, Model model, RedirectAttributes redirectAttributes) {
-            Optional<Bicicleta> bicicleta = service.findById(id);
-            if (bicicleta.isPresent()) {
-                model.addAttribute("bicicleta", bicicleta.get());
-                return "comparador";
-            } else {
-                redirectAttributes.addFlashAttribute("message", "Bicicleta no encontrada");
-                redirectAttributes.addFlashAttribute("alert", "warning");
-                return "redirect:/";
+    @GetMapping("/comparar/{id}")
+    public String getBicicletaComparador(@PathVariable Long id, Model model, RedirectAttributes redirectAttributes) {
+        Optional<Bicicleta> bicicleta = service.findById(id);
+        if (bicicleta.isPresent() && !bicicleta.get().getComponentes().isEmpty()) {
+            List<String> ordenDeseado = Arrays.asList(
+                    "Cuadro", "Horquilla", "Amortiguador", "Ruedas", "Cubiertas",
+                    "Frenos", "Disco", "Cambio Trasero", "Desviador", "Cassette",
+                    "Cadena", "Bielas", "Plato", "Pedalier", "Manillar",
+                    "Manetas Cambio", "Tija Sillin", "Sillin", "Bujes"
+            );
+            List<Bicicleta> listaBicicletas = service.findByTipo(bicicleta.get().getTipo().toString());
+            model.addAttribute("componentesOrdenados", ordenDeseado);
+            model.addAttribute("componentes", bicicleta.get().getComponentes());
+            model.addAttribute("bicicleta", bicicleta.get());
+            if (!listaBicicletas.isEmpty()) {
+                model.addAttribute("bicicletas", listaBicicletas);
             }
+            return "comparador";
+        } else {
+            redirectAttributes.addFlashAttribute("message", "Bicicleta no encontrada");
+            redirectAttributes.addFlashAttribute("alert", "warning");
+            return "redirect:/";
         }
+    }
 
 }

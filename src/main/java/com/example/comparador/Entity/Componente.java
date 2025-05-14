@@ -27,6 +27,7 @@ public class Componente {
         this.tipo = tipo;
     }
 
+
     // Getters y setters
     public Long getId() {
         return id;

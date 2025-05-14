@@ -23,8 +23,9 @@ public class BicicletaComponente {
         this.componente = componente;
     }
 
-    public BicicletaComponente() {}
+    public BicicletaComponente() {
 
+    }
 
     // Getters y setters
 
