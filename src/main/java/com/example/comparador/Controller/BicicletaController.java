@@ -9,6 +9,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
+
 import java.util.Arrays;
 import java.util.Comparator;
 import java.util.List;
@@ -87,17 +88,13 @@ public class BicicletaController {
     public String getBicicletaComparador(@PathVariable Long id, Model model, RedirectAttributes redirectAttributes) {
         Optional<Bicicleta> bicicleta = service.findById(id);
         if (bicicleta.isPresent() && !bicicleta.get().getComponentes().isEmpty()) {
-            List<String> ordenDeseado = Arrays.asList(
-                    "Cuadro", "Horquilla", "Amortiguador", "Ruedas", "Cubiertas",
-                    "Frenos", "Disco", "Cambio Trasero", "Desviador", "Cassette",
-                    "Cadena", "Bielas", "Plato", "Pedalier", "Manillar",
-                    "Manetas Cambio", "Tija Sillin", "Sillin", "Bujes"
-            );
+
             List<Bicicleta> listaBicicletas = service.findByTipo(bicicleta.get().getTipo().toString());
-            model.addAttribute("componentesOrdenados", ordenDeseado);
+            model.addAttribute("componentesOrdenados", ordenDeseado(bicicleta.get().getTipo().toString()));
             model.addAttribute("componentes", bicicleta.get().getComponentes());
             model.addAttribute("bicicleta", bicicleta.get());
             if (!listaBicicletas.isEmpty()) {
+                listaBicicletas.remove(bicicleta.get()); // Elimina de la lista la bici por la que has entrado en el comparador.
                 model.addAttribute("bicicletas", listaBicicletas);
             }
             return "comparador";
@@ -106,6 +103,36 @@ public class BicicletaController {
             redirectAttributes.addFlashAttribute("alert", "warning");
             return "redirect:/";
         }
+    }
+    public static List<String> ordenDeseado(String tipoBicicleta) {
+        List<String> ordenDeseado = null;
+        switch (tipoBicicleta) {
+            case "Carretera":
+                ordenDeseado = Arrays.asList(
+                        "Cuadro", "Horquilla", "Ruedas", "Cubiertas",
+                        "Frenos", "Disco", "Cambio Trasero", "Desviador", "Cassette",
+                        "Cadena", "Bielas", "Plato", "Manillar",
+                        "Manetas Cambio", "Tija Sillin", "Sillin", "Bujes", "Pedalier"
+                );
+                break;
+            case "Montaña":
+                ordenDeseado = Arrays.asList(
+                        "Cuadro", "Horquilla", "Amortiguador", "Ruedas", "Cubiertas",
+                        "Frenos", "Disco", "Cambio Trasero", "Cassette",
+                        "Cadena", "Bielas", "Plato", "Manillar",
+                        "Manetas Cambio", "Tija Sillin", "Sillin", "Bujes", "Pedalier"
+                );
+                break;
+            case "Gravel":
+                ordenDeseado = Arrays.asList(
+                        "Cuadro", "Horquilla", "Ruedas", "Cubiertas",
+                        "Frenos", "Disco", "Cambio Trasero", "Cassette",
+                        "Cadena", "Bielas", "Plato", "Manillar",
+                        "Manetas Cambio", "Tija Sillin", "Sillin", "Bujes", "Pedalier"
+                );
+                break;
+        }
+        return ordenDeseado;
     }
 
 }
