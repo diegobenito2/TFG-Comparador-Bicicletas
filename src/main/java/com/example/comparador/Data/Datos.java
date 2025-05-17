@@ -484,26 +484,6 @@ public class Datos {
                     "https://www.orbea.com/es-es/bicicletas/carretera/orca/cat/orca-m11eltd-pwr",
                     "Orbea"
             ), new Bicicleta(
-                    "Orca M20i Team",
-                    new BigDecimal("5799.00"),
-                    TipoBicicleta.CARRETERA,
-                    MaterialCuadro.CARBONO,
-                    TipoCambio.ELECTRONICO,
-                    new BigDecimal("7.50"),
-                    "https://www.orbea.com/img/products/product/over/large/S114TTCC-CB-SIDE-ORCA_M20iTEAM_DV_M_over.jpg",
-                    "https://www.orbea.com/es-es/bicicletas/carretera/orca/cat/orca-m20iteam",
-                    "Orbea"
-            ), new Bicicleta(
-                    "Orca M20i Réplica",
-                    new BigDecimal("6999.00"),
-                    TipoBicicleta.CARRETERA,
-                    MaterialCuadro.CARBONO,
-                    TipoCambio.ELECTRONICO,
-                    new BigDecimal("7.10"),
-                    "https://www.orbea.com/img/products/product/over/large/S729TTCC-UQ-SIDE-ORCA_M20iREPLICA_LOTTO25_over.jpg",
-                    "https://www.orbea.com/es-es/bicicletas/carretera/orca/cat/orca-m20i-replica",
-                    "Orbea"
-            ), new Bicicleta(
                     "Oiz M LTD",
                     new BigDecimal("10499.00"),
                     TipoBicicleta.MONTANA,

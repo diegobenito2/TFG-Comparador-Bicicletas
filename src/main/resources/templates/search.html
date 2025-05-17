@@ -137,7 +137,7 @@
         </div>
         <!-- Lista de bicicletas -->
         <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6" id="lista-bicicletas">
-            <div class="bg-white rounded-lg shadow-lg overflow-hidden" th:each="bicicleta : ${bicicletas}"
+            <div class="bg-white rounded-lg shadow-lg overflow-hidden motion-safe:hover:scale-110" th:each="bicicleta : ${bicicletas}"
                  th:attr="data-precio=${bicicleta.getPrecio()},data-material=${bicicleta.getMaterialCuadro()},data-cambio=${bicicleta.getTipoCambio()},data-tipo=${bicicleta.getTipo()}">
                 <!-- Se crean los atributos data-* para poder acceder a ellos desde JavaScript.-->
                 <a th:href="@{/{id}(id=${bicicleta.id})}">
@@ -155,7 +155,7 @@
                         <span class="text-lg font-bold text-blue-600"
                               th:text="${#strings.contains(bicicleta.getPrecio(),'.00') ? #strings.replace(bicicleta.getPrecio(), '.00', '') : bicicleta.getPrecio()}+'€'">
                         </span>
-                        <button class="bg-blue-600 text-white py-2 px-4 rounded-lg hover:bg-blue-700">
+                        <button class="bg-blue-600 text-white py-2 px-4 rounded-lg motion-safe:hover:animate-pulse hover:bg-blue-700">
                             <a th:href="@{/comparar/{id}(id=${bicicleta.id})}">
                                 Comparar
                             </a>

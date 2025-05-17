@@ -10,7 +10,7 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 import java.util.ArrayList;
 import java.util.List;
 
-@SpringBootApplication(scanBasePackages = "com.example.comparador")
+@SpringBootApplication
 public class App {
 
     public static void main(String[] args) {
@@ -28,7 +28,6 @@ public class App {
 
         // Canyon Grizl 5
         Bicicleta grizl5 = datos.getBicicleta("Grizl 5", "Canyon");
-
         List<BicicletaComponente> componentesGrizl5 = new ArrayList<>();
         componentesGrizl5.add(new BicicletaComponente(grizl5, datos.getComponente("Canyon Grizl AL", TipoComponente.Cuadro)));
         componentesGrizl5.add(new BicicletaComponente(grizl5, datos.getComponente("Canyon FK0087 CF", TipoComponente.Horquilla)));
@@ -42,6 +41,7 @@ public class App {
         componentesGrizl5.add(new BicicletaComponente(grizl5, datos.getComponente("Shimano Dura-Ace CS-R9200 - 12 piñones, relación 11-30.", TipoComponente.Cassette)));
         componentesGrizl5.add(new BicicletaComponente(grizl5, datos.getComponente("Canyon SP0064 - Tija de sillín aerodinámica de carbono con retroceso de 20 mm y peso de 70 g.", TipoComponente.Tija_Sillin)));
         componentesGrizl5.add(new BicicletaComponente(grizl5, datos.getComponente("Fizik Antares R3", TipoComponente.Sillin)));
+
         bicicletaComponenteRepository.saveAll(componentesGrizl5);
 
         // Canyon Ultimate CFR Di2 Aero
@@ -61,12 +61,12 @@ public class App {
         componentesUltimateCfrDi2Aero.add(new BicicletaComponente(ultimateCfrDi2Aero, datos.getComponente("Selle Italia SLR", TipoComponente.Sillin)));
         componentesUltimateCfrDi2Aero.add(new BicicletaComponente(ultimateCfrDi2Aero, datos.getComponente("Shimano Dura-Ace Di2 R9270, 12-speed - 2 pistones, 332 g.", TipoComponente.Manetas_Cambio)));
         componentesUltimateCfrDi2Aero.add(new BicicletaComponente(ultimateCfrDi2Aero, datos.getComponente("Shimano Dura-Ace Di2 ", TipoComponente.Desviador)));
+
         bicicletaComponenteRepository.saveAll(componentesUltimateCfrDi2Aero);
 
         //  Orbea Alma H20
         Bicicleta almaH20 = datos.getBicicleta("Alma H20", "Orbea");
         List<BicicletaComponente> componentesAlmaH20 = new ArrayList<>();
-
         componentesAlmaH20.add(new BicicletaComponente(almaH20, datos.getComponente("Orbea Alma Hydro Alloy, Boost 12x148, BSA BB, Internal cable routing", TipoComponente.Cuadro)));
         componentesAlmaH20.add(new BicicletaComponente(almaH20, datos.getComponente("RockShox Judy Silver TK Remote Solo Air 100 15x110 Boost", TipoComponente.Horquilla)));
         componentesAlmaH20.add(new BicicletaComponente(almaH20, datos.getComponente("Shimano MT511 32t", TipoComponente.Bielas)));
@@ -100,6 +100,7 @@ public class App {
         componentesAlmaM50.add(new BicicletaComponente(almaM50, datos.getComponente("Pirelli Scorpion Sport XC H 2.40\" 60TPI ProWall/TLR", TipoComponente.Cubiertas)));
         componentesAlmaM50.add(new BicicletaComponente(almaM50, datos.getComponente("SP04, Alloy, forged head, 31,6mm, Setback 0", TipoComponente.Tija_Sillin)));
         componentesAlmaM50.add(new BicicletaComponente(almaM50, datos.getComponente("Selle Italia Model X FecAlloy Rail 145x248mm", TipoComponente.Sillin)));
+
         bicicletaComponenteRepository.saveAll(componentesAlmaM50);
 
 
@@ -119,6 +120,7 @@ public class App {
         componentesAlmaMLTD.add(new BicicletaComponente(almaMLTD, datos.getComponente("Pirelli Scorpion XC RC 2.40\" 120TPI ProWall/TLR", TipoComponente.Cubiertas)));
         componentesAlmaMLTD.add(new BicicletaComponente(almaMLTD, datos.getComponente("OC Performance XP10 Carbon Seatpost, 31,6mm, Setback 0", TipoComponente.Tija_Sillin)));
         componentesAlmaMLTD.add(new BicicletaComponente(almaMLTD, datos.getComponente("Prologo Nago R4 carbon rails size 137mm", TipoComponente.Sillin)));
+
         bicicletaComponenteRepository.saveAll(componentesAlmaMLTD);
 
 
@@ -141,6 +143,7 @@ public class App {
         componentesOrcaM30.add(new BicicletaComponente(orcaM30, datos.getComponente("Orbea Thru Axle 12x142mm M12x2 P1 Hollow", TipoComponente.Bujes)));
         componentesOrcaM30.add(new BicicletaComponente(orcaM30, datos.getComponente("SP 0.2 Carbon, 27.2mm, Setback 20", TipoComponente.Tija_Sillin)));
         componentesOrcaM30.add(new BicicletaComponente(orcaM30, datos.getComponente("Fizik Aliante R5", TipoComponente.Sillin)));
+
         bicicletaComponenteRepository.saveAll(componentesOrcaM30);
 
 
@@ -157,9 +160,10 @@ public class App {
         componentesOrcaM11eLTDPWR.add(new BicicletaComponente(orcaM11eLTDPWR, datos.getComponente("Fizik Antares R3", TipoComponente.Sillin)));
         componentesOrcaM11eLTDPWR.add(new BicicletaComponente(orcaM11eLTDPWR, datos.getComponente("OC Performance XP10-S Carbon, 27.2mm, Setback 20", TipoComponente.Tija_Sillin)));
         componentesOrcaM11eLTDPWR.add(new BicicletaComponente(orcaM11eLTDPWR, datos.getComponente("SRAM RED AXS E1, sistema de cambio electrónico.", TipoComponente.Desviador)));
+
         bicicletaComponenteRepository.saveAll(componentesOrcaM11eLTDPWR);
 
-//  Orbea Oiz M LTD
+        //  Orbea Oiz M LTD
         Bicicleta oizMLTD = datos.getBicicleta("Oiz M LTD", "Orbea");
         List<BicicletaComponente> componentesOizMLTD = new ArrayList<>();
         componentesOizMLTD.add(new BicicletaComponente(oizMLTD, datos.getComponente("Orbea Oiz Carbon OMX", TipoComponente.Cuadro)));
@@ -171,9 +175,10 @@ public class App {
         componentesOizMLTD.add(new BicicletaComponente(oizMLTD, datos.getComponente("OC Mountain Performance MP10 Carbon, Cockpit, Width 760", TipoComponente.Manillar)));
         componentesOizMLTD.add(new BicicletaComponente(oizMLTD, datos.getComponente("", TipoComponente.Tija_Sillin)));
         componentesOizMLTD.add(new BicicletaComponente(oizMLTD, datos.getComponente("", TipoComponente.Sillin)));
+
         bicicletaComponenteRepository.saveAll(componentesOizMLTD);
 
-//  Orbea Oiz M PRO
+        //  Orbea Oiz M PRO
         Bicicleta oizMPRO = datos.getBicicleta("Oiz M PRO", "Orbea");
         List<BicicletaComponente> componentesOizMPRO = new ArrayList<>();
         componentesOizMPRO.add(new BicicletaComponente(oizMPRO, datos.getComponente("Orbea Oiz Carbon OMR", TipoComponente.Cuadro)));
@@ -184,9 +189,10 @@ public class App {
         componentesOizMPRO.add(new BicicletaComponente(oizMPRO, datos.getComponente("OC Mountain Performance MP10 Carbon, Cockpit, Width 760", TipoComponente.Manillar)));
         componentesOizMPRO.add(new BicicletaComponente(oizMPRO, datos.getComponente("", TipoComponente.Tija_Sillin)));
         componentesOizMPRO.add(new BicicletaComponente(oizMPRO, datos.getComponente("", TipoComponente.Sillin)));
+
         bicicletaComponenteRepository.saveAll(componentesOizMPRO);
 
-// Orbea Oiz M21
+        // Orbea Oiz M21
         Bicicleta oizM21 = datos.getBicicleta("Oiz M21", "Orbea");
         List<BicicletaComponente> componentesOizM21 = new ArrayList<>();
         componentesOizM21.add(new BicicletaComponente(oizM21, datos.getComponente("Orbea Oiz Carbon OMR", TipoComponente.Cuadro)));
@@ -197,10 +203,11 @@ public class App {
         componentesOizM21.add(new BicicletaComponente(oizM21, datos.getComponente("OC Mountain Performance MP10 Carbon, Cockpit, Width 760", TipoComponente.Manillar)));
         componentesOizM21.add(new BicicletaComponente(oizM21, datos.getComponente("", TipoComponente.Sillin)));
         componentesOizM21.add(new BicicletaComponente(oizM21, datos.getComponente("", TipoComponente.Tija_Sillin)));
+
         bicicletaComponenteRepository.saveAll(componentesOizM21);
 
 
-// Trek Supercaliber SLR 9.9 XX AXS Gen 2
+        // Trek Supercaliber SLR 9.9 XX AXS Gen 2
         Bicicleta supercaliberSLR99 = datos.getBicicleta("Supercaliber SLR 9.9 XX AXS Gen 2", "Trek");
         List<BicicletaComponente> componentesSupercaliberSLR99 = new ArrayList<>();
         componentesSupercaliberSLR99.add(new BicicletaComponente(supercaliberSLR99, datos.getComponente("Cuadro de carbono OCLV Mountain Carbon, IsoStrut, boost148, tubo de dirección cónico E2", TipoComponente.Cuadro)));
@@ -212,6 +219,7 @@ public class App {
         componentesSupercaliberSLR99.add(new BicicletaComponente(supercaliberSLR99, datos.getComponente("Bontrager RSL, OCLV Carbon, 31.8mm, 15mm de altura, 750mm de ancho", TipoComponente.Manillar)));
         componentesSupercaliberSLR99.add(new BicicletaComponente(supercaliberSLR99, datos.getComponente("", TipoComponente.Sillin)));
         componentesSupercaliberSLR99.add(new BicicletaComponente(supercaliberSLR99, datos.getComponente("", TipoComponente.Tija_Sillin)));
+
         bicicletaComponenteRepository.saveAll(componentesSupercaliberSLR99);
 
 
@@ -232,6 +240,7 @@ public class App {
         componentesMadoneSLR9.add(new BicicletaComponente(madoneSLR9, datos.getComponente("Aeolus RSL, raíles carbono", TipoComponente.Sillin)));
         componentesMadoneSLR9.add(new BicicletaComponente(madoneSLR9, datos.getComponente("Tija integrada Madone", TipoComponente.Tija_Sillin)));
         componentesMadoneSLR9.add(new BicicletaComponente(madoneSLR9, datos.getComponente("Trek Aero RSL Carretera", TipoComponente.Manillar)));
+
         bicicletaComponenteRepository.saveAll(componentesMadoneSLR9);
 
         // Canyon Grand Canyon 7
@@ -251,10 +260,11 @@ public class App {
         componentesGrandCanyon7.add(new BicicletaComponente(grandCanyon7, datos.getComponente("Iridium Flatbar", TipoComponente.Manillar)));
         componentesGrandCanyon7.add(new BicicletaComponente(grandCanyon7, datos.getComponente("Iridium Trail", TipoComponente.Sillin)));
         componentesGrandCanyon7.add(new BicicletaComponente(grandCanyon7, datos.getComponente("Iridium Dropper", TipoComponente.Tija_Sillin)));
+
         bicicletaComponenteRepository.saveAll(componentesGrandCanyon7);
 
 
-// Canyon Lux World Cup CFR AXS
+        // Canyon Lux World Cup CFR AXS
         Bicicleta luxWorldCupCfrAxs = datos.getBicicleta("Lux World Cup CFR AXS", "Canyon");
         List<BicicletaComponente> componentesLuxWorldCupCfrAxs = new ArrayList<>();
         componentesLuxWorldCupCfrAxs.add(new BicicletaComponente(luxWorldCupCfrAxs, datos.getComponente("Canyon Lux WC CFR", TipoComponente.Cuadro)));
@@ -275,10 +285,11 @@ public class App {
         componentesLuxWorldCupCfrAxs.add(new BicicletaComponente(luxWorldCupCfrAxs, datos.getComponente("Canyon CP0036", TipoComponente.Manillar)));
         componentesLuxWorldCupCfrAxs.add(new BicicletaComponente(luxWorldCupCfrAxs, datos.getComponente("Ergon SR10", TipoComponente.Sillin)));
         componentesLuxWorldCupCfrAxs.add(new BicicletaComponente(luxWorldCupCfrAxs, datos.getComponente("FOX Transfer SL", TipoComponente.Tija_Sillin)));
+
         bicicletaComponenteRepository.saveAll(componentesLuxWorldCupCfrAxs);
 
 
-// Giant Revolt Advanced 2
+        // Giant Revolt Advanced 2
         Bicicleta revoltAdvanced2 = datos.getBicicleta("Revolt Advanced 2", "Giant");
         List<BicicletaComponente> componentesRevoltAdvanced2 = new ArrayList<>();
         componentesRevoltAdvanced2.add(new BicicletaComponente(revoltAdvanced2, datos.getComponente("Advanced Grade Composite", TipoComponente.Cuadro)));
@@ -294,7 +305,6 @@ public class App {
         componentesRevoltAdvanced2.add(new BicicletaComponente(revoltAdvanced2, datos.getComponente("Giant Contact XR D-Fuse", TipoComponente.Manillar)));
         componentesRevoltAdvanced2.add(new BicicletaComponente(revoltAdvanced2, datos.getComponente("Giant D-Fuse SL", TipoComponente.Tija_Sillin)));
         componentesRevoltAdvanced2.add(new BicicletaComponente(revoltAdvanced2, datos.getComponente("", TipoComponente.Sillin)));
-
 
         bicicletaComponenteRepository.saveAll(componentesRevoltAdvanced2);
 
@@ -315,9 +325,10 @@ public class App {
         componentesBeladorRedAxs.add(new BicicletaComponente(beladorRedAxs, datos.getComponente("CS XG 1290 E1 10-36", TipoComponente.Cassette)));
         componentesBeladorRedAxs.add(new BicicletaComponente(beladorRedAxs, datos.getComponente("SRAM RED AXS E1", TipoComponente.Frenos)));
         componentesBeladorRedAxs.add(new BicicletaComponente(beladorRedAxs, datos.getComponente("Ceramic Speed SRAM DUB T47 Bottom Bracket", TipoComponente.Pedalier)));
+
         bicicletaComponenteRepository.saveAll(componentesBeladorRedAxs);
 
-// Berria ALLROAD HPR ELITE APEX
+        // Berria ALLROAD HPR ELITE APEX
         Bicicleta allroadHprEliteApex = datos.getBicicleta("ALLROAD HPR ELITE APEX", "Berria");
         List<BicicletaComponente> componentesAllroadHprEliteApex = new ArrayList<>();
         componentesAllroadHprEliteApex.add(new BicicletaComponente(allroadHprEliteApex, datos.getComponente("Allroad HPR", TipoComponente.Cuadro)));
@@ -334,9 +345,10 @@ public class App {
         componentesAllroadHprEliteApex.add(new BicicletaComponente(allroadHprEliteApex, datos.getComponente("SRAM EAGLE PG1210", TipoComponente.Cassette)));
         componentesAllroadHprEliteApex.add(new BicicletaComponente(allroadHprEliteApex, datos.getComponente("Sram DUB BB86 Press Fit Wide", TipoComponente.Bujes)));
         componentesAllroadHprEliteApex.add(new BicicletaComponente(allroadHprEliteApex, datos.getComponente("SRAM APEX D1 Hydraulic Shift-Brake System", TipoComponente.Frenos)));
+
         bicicletaComponenteRepository.saveAll(componentesAllroadHprEliteApex);
 
-// Canyon Grail CF SLX 8 AXS
+        // Canyon Grail CF SLX 8 AXS
         Bicicleta grailCFSLX8AXS = datos.getBicicleta("Grail CF SLX 8 AXS", "Canyon");
         List<BicicletaComponente> componentesGrailCFSLX8AXS = new ArrayList<>();
         componentesGrailCFSLX8AXS.add(new BicicletaComponente(grailCFSLX8AXS, datos.getComponente("Canyon Grail CF SLX", TipoComponente.Cuadro)));
@@ -347,7 +359,9 @@ public class App {
         componentesGrailCFSLX8AXS.add(new BicicletaComponente(grailCFSLX8AXS, datos.getComponente("Canyon CP07 Gravelcockpit CF", TipoComponente.Manillar)));
         componentesGrailCFSLX8AXS.add(new BicicletaComponente(grailCFSLX8AXS, datos.getComponente("", TipoComponente.Sillin)));
         componentesGrailCFSLX8AXS.add(new BicicletaComponente(grailCFSLX8AXS, datos.getComponente("", TipoComponente.Tija_Sillin)));
+
         bicicletaComponenteRepository.saveAll(componentesGrailCFSLX8AXS);
+
         // Berria Mako BR XX-SL
         Bicicleta makoBrXxSl = datos.getBicicleta("MAKO BR XX-SL", "Berria");
         List<BicicletaComponente> componentesMakoBrXxSl = new ArrayList<>();
@@ -366,6 +380,7 @@ public class App {
         componentesMakoBrXxSl.add(new BicicletaComponente(makoBrXxSl, datos.getComponente("SRAM XS 1299 Eagle", TipoComponente.Cassette)));
         componentesMakoBrXxSl.add(new BicicletaComponente(makoBrXxSl, datos.getComponente("Bottom Bracket PF92 DUB WIDE MTB", TipoComponente.Bujes)));
         componentesMakoBrXxSl.add(new BicicletaComponente(makoBrXxSl, datos.getComponente("SRAM Level Ultimate Stealth 4 Piston", TipoComponente.Frenos)));
+
         bicicletaComponenteRepository.saveAll(componentesMakoBrXxSl);
 
         // Berria MAKO PRO GX AXS
@@ -386,6 +401,7 @@ public class App {
         componentesMakoProGxAxs.add(new BicicletaComponente(makoProGxAxs, datos.getComponente("SRAM XS 1275 Eagle", TipoComponente.Cassette)));
         componentesMakoProGxAxs.add(new BicicletaComponente(makoProGxAxs, datos.getComponente("Bottom Bracket PF92 DUB WIDE MTB", TipoComponente.Bujes)));
         componentesMakoProGxAxs.add(new BicicletaComponente(makoProGxAxs, datos.getComponente("Shimano Deore XT BL-M8100", TipoComponente.Frenos)));
+
         bicicletaComponenteRepository.saveAll(componentesMakoProGxAxs);
 
         // Berria MAKO ELITE XT
@@ -406,6 +422,7 @@ public class App {
         componentesMakoEliteXt.add(new BicicletaComponente(makoEliteXt, datos.getComponente("Shimano SLX CS-M7100-12", TipoComponente.Cassette)));
         componentesMakoEliteXt.add(new BicicletaComponente(makoEliteXt, datos.getComponente("Bottom Bracket PF92 SH MTB", TipoComponente.Bujes)));
         componentesMakoEliteXt.add(new BicicletaComponente(makoEliteXt, datos.getComponente("Shimano Deore XT BL-M8100", TipoComponente.Frenos)));
+
         bicicletaComponenteRepository.saveAll(componentesMakoEliteXt);
         // Berria BRAVO PRO GX AXS
         Bicicleta bravoProGxAxs = datos.getBicicleta("BRAVO PRO GX AXS", "Berria");
@@ -424,9 +441,10 @@ public class App {
         componentesBravoProGxAxs.add(new BicicletaComponente(bravoProGxAxs, datos.getComponente("SRAM XS 1275 Eagle", TipoComponente.Cassette)));
         componentesBravoProGxAxs.add(new BicicletaComponente(bravoProGxAxs, datos.getComponente("Bottom Bracket PF92 DUB WIDE MTB", TipoComponente.Bujes)));
         componentesBravoProGxAxs.add(new BicicletaComponente(bravoProGxAxs, datos.getComponente("Shimano Deore XT BL-M8100", TipoComponente.Frenos)));
+
         bicicletaComponenteRepository.saveAll(componentesBravoProGxAxs);
 
-// Berria BRAVO ELITE XT
+        // Berria BRAVO ELITE XT
         Bicicleta bravoEliteXt = datos.getBicicleta("BRAVO ELITE XT", "Berria");
         List<BicicletaComponente> componentesBravoEliteXt = new ArrayList<>();
         componentesBravoEliteXt.add(new BicicletaComponente(bravoEliteXt, datos.getComponente("Bravo 5 EVO", TipoComponente.Cuadro)));
@@ -443,9 +461,10 @@ public class App {
         componentesBravoEliteXt.add(new BicicletaComponente(bravoEliteXt, datos.getComponente("Shimano SLX CS-M7100-12", TipoComponente.Cassette)));
         componentesBravoEliteXt.add(new BicicletaComponente(bravoEliteXt, datos.getComponente("Bottom Bracket PF92 SH MTB", TipoComponente.Bujes)));
         componentesBravoEliteXt.add(new BicicletaComponente(bravoEliteXt, datos.getComponente("Shimano Deore XT BL-M8100", TipoComponente.Frenos)));
+
         bicicletaComponenteRepository.saveAll(componentesBravoEliteXt);
 
-// Berria BRAVO BR XX SL
+        // Berria BRAVO BR XX SL
         Bicicleta bravoBrXxSl = datos.getBicicleta("BRAVO BR XX SL", "Berria");
         List<BicicletaComponente> componentesBravoBrXxSl = new ArrayList<>();
         componentesBravoBrXxSl.add(new BicicletaComponente(bravoBrXxSl, datos.getComponente("Bravo BR 6", TipoComponente.Cuadro)));
@@ -462,6 +481,7 @@ public class App {
         componentesBravoBrXxSl.add(new BicicletaComponente(bravoBrXxSl, datos.getComponente("SRAM XS 1299 Eagle", TipoComponente.Cassette)));
         componentesBravoBrXxSl.add(new BicicletaComponente(bravoBrXxSl, datos.getComponente("Bottom Bracket PF92 DUB WIDE MTB", TipoComponente.Bujes)));
         componentesBravoBrXxSl.add(new BicicletaComponente(bravoBrXxSl, datos.getComponente("SRAM Level Ultimate Stealth 4 Piston", TipoComponente.Frenos)));
+
         bicicletaComponenteRepository.saveAll(componentesBravoBrXxSl);
 
 
