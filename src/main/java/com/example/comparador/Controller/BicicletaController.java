@@ -122,9 +122,9 @@ public class BicicletaController {
             case "Carretera":
                 ordenDeseado = Arrays.asList(
                         "Cuadro", "Horquilla", "Ruedas", "Cubiertas",
-                        "Frenos", "Disco", "Cambio Trasero", "Desviador", "Cassette",
-                        "Cadena", "Bielas", "Plato", "Manillar",
-                        "Manetas Cambio", "Tija Sillin", "Sillin", "Bujes", "Pedalier"
+                        "Frenos","Cambio Trasero", "Desviador", "Cassette",
+                        "Cadena", "Bielas","Manillar",
+                        "Manetas Cambio", "Tija Sillin", "Sillin"
                 );
                 break;
             case "Montaña":

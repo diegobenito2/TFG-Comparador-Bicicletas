@@ -162,11 +162,11 @@
                 </td>
 
                 <!-- Descripción para bicicleta 2 -->
-                <td th:attr="id='componente2-' + ${nombreComponente}"
+                <td th:attr="id='componente2-' + ${#strings.replace(nombreComponente, ' ', '_')}"
                     class="align-top max-w-xs whitespace-normal break-words"></td>
 
                 <!-- Descripción para bicicleta 3 -->
-                <td th:attr="id='componente3-' + ${nombreComponente}"
+                <td th:attr="id='componente3-' + ${#strings.replace(nombreComponente, ' ', '_')}"
                     class="align-top max-w-xs whitespace-normal break-words"></td>
             </tr>
 
@@ -183,6 +183,7 @@
             </tr>
             <script th:inline="javascript">
                 const bicicletasData = JSON.parse(/*[[${bicicletasJson}]]*/ "[]");
+                console.log(bicicletasData)
             </script>
 
             <script>
