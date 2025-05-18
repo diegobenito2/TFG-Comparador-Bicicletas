@@ -9,6 +9,7 @@ import java.util.stream.Collectors;
 
 public class BicicletaComparadorDTO {
     public Long id;
+    public String marca;
     public String modelo;
     public String tipo;
     public String familia;
@@ -16,10 +17,12 @@ public class BicicletaComparadorDTO {
     public String imagenUrl;
     public String masInfoUrl;
     public String nombreCompleto;
+    public BigDecimal peso;
     public List<ComponenteDTO> componentes;
 
     public BicicletaComparadorDTO(Bicicleta bici) {
         this.id = bici.getId();
+        this.marca = bici.getMarcaNombre();
         this.modelo = bici.getModelo();
         this.tipo = bici.getTipo().toString();
         this.familia = bici.getFamilia();
@@ -31,6 +34,7 @@ public class BicicletaComparadorDTO {
         this.imagenUrl = bici.getImagenUrl();
         this.masInfoUrl = bici.getMasInfoUrl();
         this.nombreCompleto = bici.getNombreCompleto();
+        this.peso = bici.getPeso();
         this.componentes = bici.getComponentes().stream()
                 .map(ComponenteDTO::new)
                 .collect(Collectors.toList());
@@ -41,7 +45,7 @@ public class BicicletaComparadorDTO {
         public String descripcion;
 
         public ComponenteDTO(BicicletaComponente bc) {
-            this.tipo = bc.getComponente().getTipo().getNombre();
+            this.tipo = bc.getComponente().getTipo().getNombre().replace(" ", "_");
             this.descripcion = bc.getComponente().getDescripcion();
         }
     }

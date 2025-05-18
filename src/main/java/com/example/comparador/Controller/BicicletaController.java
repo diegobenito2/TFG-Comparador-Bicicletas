@@ -96,7 +96,7 @@ public class BicicletaController {
             model.addAttribute("componentes", bicicleta.get().getComponentes());
             model.addAttribute("bicicleta", bicicleta.get());
             if (!listaBicicletas.isEmpty()) {
-                listaBicicletas.remove(bicicleta.get()); // Elimina de la lista la bici por la que has entrado en el comparador.
+                listaBicicletas.remove(bicicleta.get()); // Elimina de la lista la bici con la que has entrado en el comparador.
                 model.addAttribute("bicicletas", listaBicicletas);
                 // Código para poder tener acceso a las bicicletas desde el JS para los selects.
 

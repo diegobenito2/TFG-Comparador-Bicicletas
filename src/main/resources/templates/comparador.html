@@ -113,9 +113,15 @@
             </thead>
             <tbody class="text-center pt-6 bg-white">
             <tr class="hover:bg-gray-100 transition-colors duration-300">
-                <td></td>
-                <td th:text="${bicicleta.getModelo()} + ' / ' + ${bicicleta.getPrecio()} + '€'" class="p-2">Modelo y
-                    Precio
+                <td class="font-inter text-lg font-medium text-gray-900">Marca</td>
+                <td th:text="${bicicleta.getMarcaNombre()}" class="p-2">
+                </td>
+                <td id="marca2"></td>
+                <td id="marca3"></td>
+            </tr>
+            <tr class="hover:bg-gray-100 transition-colors duration-300">
+                <td class="font-inter text-lg font-medium text-gray-900">Modelo / Precio</td>
+                <td th:text="${bicicleta.getModelo()} + ' / ' + ${bicicleta.getPrecio()} + '€'" class="p-2">
                 </td>
                 <td id="modelo2"></td>
                 <td id="modelo3"></td>
@@ -134,11 +140,18 @@
                 <td id="familia2"></td>
                 <td id="familia3"></td>
             </tr>
+            <tr class="hover:bg-gray-100 transition-colors duration-300">
+                <td class="font-inter text-lg font-medium text-gray-900">Peso</td>
+                <td th:text="${bicicleta.getPeso()}"></td>
+                <td id="peso2"></td>
+                <td id="peso3"></td>
+            </tr>
 
             <!-- Filas dinámicas de componentes -->
-            <tr th:each="nombreComponente : ${componentesOrdenados}" class="hover:bg-gray-100 transition-colors duration-300">
+            <tr th:each="nombreComponente : ${componentesOrdenados}"
+                class="hover:bg-gray-100 transition-colors duration-300">
                 <!-- Nombre del componente -->
-                <td class="w-40 align-top font-inter text-lg font-medium text-gray-900"
+                <td id="nombreComponente" class="w-40 align-top font-inter text-lg font-medium text-gray-900"
                     th:text="${nombreComponente}"></td>
 
                 <!-- Descripción de la bicicleta 1 -->
@@ -149,11 +162,11 @@
                 </td>
 
                 <!-- Descripción para bicicleta 2 -->
-                <td id="componente2-[[${nombreComponente}]]"
+                <td th:attr="id='componente2-' + ${nombreComponente}"
                     class="align-top max-w-xs whitespace-normal break-words"></td>
 
                 <!-- Descripción para bicicleta 3 -->
-                <td id="componente3-[[${nombreComponente}]]"
+                <td th:attr="id='componente3-' + ${nombreComponente}"
                     class="align-top max-w-xs whitespace-normal break-words"></td>
             </tr>
 
@@ -177,10 +190,7 @@
                 function mostrarBici(slotId) {  // Se le pasa la columna de la bici ya sea la 2 o la 3
                     const select = document.getElementById("select" + slotId);
                     const selectedOption = select.options[select.selectedIndex];
-                    console.log("SelectedOption: " + selectedOption);
                     const selectedId = selectedOption.getAttribute("data-id");
-                    console.log("SelectedID:" + selectedId)
-
 
                     const bici = buscarBicicletaPorId(selectedId);
                     if (!bici) {
@@ -202,19 +212,24 @@
                     actualizarOpcionesDisponibles(slotId, selectedId);
 
                     // // Llenar datos básicos
+                    document.getElementById("marca" + slotId).innerText = bici.marca;
                     document.getElementById("modelo" + slotId).innerText = bici.modelo + " / " + bici.precio + "€";
                     document.getElementById("tipo" + slotId).innerText = bici.tipo;
                     document.getElementById("familia" + slotId).innerText = bici.familia;
+                    document.getElementById("peso"+slotId).innerText=bici.peso;
+
                     document.getElementById("masinfo" + slotId).innerHTML = `<a href="${bici.masInfoUrl}" class="inline-block px-4 py-2 text-white bg-blue-600 rounded-lg hover:bg-blue-700 transition duration-200 shadow" target="_blank">Más Info</a>`;
 
 
                     // // Llenar componentes
                     bici.componentes.forEach(comp => {
-                        const td = document.getElementById(`componente${slotId}-${comp.tipo}`);
+                        const id = `componente${slotId}-${comp.tipo}`;
+                        const td = document.getElementById(id);
                         if (td) {
                             td.innerText = comp.descripcion;
                         }
                     });
+
                 }
 
                 function quitarBici(slotId) {
@@ -225,13 +240,14 @@
                     const select = document.getElementById("select" + slotId);
                     select.classList.remove("hidden");
                     select.selectedIndex = 0;
-
+                    document.getElementById("marca" + slotId).innerText = "";
                     document.getElementById("modelo" + slotId).innerText = "";
                     document.getElementById("tipo" + slotId).innerText = "";
                     document.getElementById("familia" + slotId).innerText = "";
+                    document.getElementById("peso" + slotId).innerText = "";
                     document.getElementById("masinfo" + slotId).innerHTML = "";
 
-                    document.querySelectorAll(`[id^=componente${slotId}-]`).forEach(td => td.innerText = "");
+                    document.querySelectorAll(`[id^=componente${slotId}-]`).forEach(td => td.innerText = ""); //Obtiene el id de todos los componentes por ejemplo //^= significa empieza con
                     restaurarOpcion(slotId, select.value);
 
                 }
