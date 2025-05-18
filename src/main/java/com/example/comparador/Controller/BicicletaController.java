@@ -98,6 +98,9 @@ public class BicicletaController {
             if (!listaBicicletas.isEmpty()) {
                 listaBicicletas.remove(bicicleta.get()); // Elimina de la lista la bici con la que has entrado en el comparador.
                 model.addAttribute("bicicletas", listaBicicletas);
+                //Orden alfabeticamente
+                listaBicicletas.sort(Comparator.comparing(Bicicleta::getNombreCompleto, String.CASE_INSENSITIVE_ORDER));
+
                 // Código para poder tener acceso a las bicicletas desde el JS para los selects.
 
                 List<BicicletaComparadorDTO> bicicletaDTOs = listaBicicletas.stream()
@@ -130,17 +133,17 @@ public class BicicletaController {
             case "Montaña":
                 ordenDeseado = Arrays.asList(
                         "Cuadro", "Horquilla", "Amortiguador", "Ruedas", "Cubiertas",
-                        "Frenos", "Disco", "Cambio Trasero", "Cassette",
-                        "Cadena", "Bielas", "Plato", "Manillar",
-                        "Manetas Cambio", "Tija Sillin", "Sillin", "Bujes", "Pedalier"
+                        "Frenos","Cambio Trasero", "Cassette",
+                        "Cadena", "Bielas", "Manillar",
+                        "Manetas Cambio", "Tija Sillin", "Sillin"
                 );
                 break;
             case "Gravel":
                 ordenDeseado = Arrays.asList(
                         "Cuadro", "Horquilla", "Ruedas", "Cubiertas",
-                        "Frenos", "Disco", "Cambio Trasero", "Cassette",
-                        "Cadena", "Bielas", "Plato", "Manillar",
-                        "Manetas Cambio", "Tija Sillin", "Sillin", "Bujes", "Pedalier"
+                        "Frenos",  "Cambio Trasero", "Cassette",
+                        "Cadena", "Bielas", "Manillar",
+                        "Manetas Cambio", "Tija Sillin", "Sillin"
                 );
                 break;
         }

@@ -142,7 +142,7 @@
             </tr>
             <tr class="hover:bg-gray-100 transition-colors duration-300">
                 <td class="font-inter text-lg font-medium text-gray-900">Peso</td>
-                <td th:text="${bicicleta.getPeso()}"></td>
+                <td th:text="${bicicleta.getPeso()} + ' kg'"></td>
                 <td id="peso2"></td>
                 <td id="peso3"></td>
             </tr>
@@ -173,13 +173,13 @@
 
             <tr class="hover:bg-gray-100 transition-colors duration-300">
                 <td></td>
-                <td>
+                <td class="py-4">
                     <a th:href="${bicicleta.getMasInfoUrl()}"
                        class="inline-block px-4 py-2 text-white bg-blue-600 rounded-lg hover:bg-blue-700 transition duration-200 shadow"
-                       target="_blank">Más Info</a>
+                       target="_blank">Comprar</a>
                 </td>
-                <td id="masinfo2"></td>
-                <td id="masinfo3"></td>
+                <td id="masinfo2" class="py-4"></td>
+                <td id="masinfo3" class="py-4"></td>
             </tr>
             <script th:inline="javascript">
                 const bicicletasData = JSON.parse(/*[[${bicicletasJson}]]*/ "[]");
@@ -217,9 +217,9 @@
                     document.getElementById("modelo" + slotId).innerText = bici.modelo + " / " + bici.precio + "€";
                     document.getElementById("tipo" + slotId).innerText = bici.tipo;
                     document.getElementById("familia" + slotId).innerText = bici.familia;
-                    document.getElementById("peso"+slotId).innerText=bici.peso;
+                    document.getElementById("peso" + slotId).innerText = bici.peso + " kg";
 
-                    document.getElementById("masinfo" + slotId).innerHTML = `<a href="${bici.masInfoUrl}" class="inline-block px-4 py-2 text-white bg-blue-600 rounded-lg hover:bg-blue-700 transition duration-200 shadow" target="_blank">Más Info</a>`;
+                    document.getElementById("masinfo" + slotId).innerHTML = `<a href="${bici.masInfoUrl}" class="inline-block px-4 py-2 text-white bg-blue-600 rounded-lg hover:bg-blue-700 transition duration-200 shadow" target="_blank">Comprar</a>`;
 
 
                     // // Llenar componentes
@@ -249,40 +249,61 @@
                     document.getElementById("masinfo" + slotId).innerHTML = "";
 
                     document.querySelectorAll(`[id^=componente${slotId}-]`).forEach(td => td.innerText = ""); //Obtiene el id de todos los componentes por ejemplo //^= significa empieza con
-                    restaurarOpcion(slotId, select.value);
+                    const selectedOption = select.querySelector("option:checked");
+                    if (selectedOption && selectedOption.value) {
+                        restaurarOpcion(slotId, selectedOption.value);
+                    }
 
                 }
 
-                function actualizarOpcionesDisponibles(slotId, selectedIndex) {
-
-                    const bicicleta1Nombre = document.querySelector("#bicicleta1 img").alt;
-                    ['2', '3'].forEach(id => {
-                        const select = document.getElementById("select" + id);
-                        const options = Array.from(select.options);
-                        options.forEach(option => {
-                            if (option.text === bicicleta1Nombre) {
-                                option.remove();
-                            }
-                        });
-                    });
-
-                }
-
-                function restaurarOpcion(slotId, selectedIndex) {
-                    const bici = bicicletasData[selectedIndex];
+                function actualizarOpcionesDisponibles(slotId, selectedId) {
                     ['2', '3'].forEach(id => {
                         if (id !== slotId) {
                             const select = document.getElementById("select" + id);
-                            const exists = Array.from(select.options).some(opt => opt.value === selectedIndex);
-                            if (!exists) {
-                                const option = document.createElement("option");
-                                option.value = selectedIndex;
-                                option.text = bici.nombreCompleto; // Usa lo que tengas
-                                select.appendChild(option);
-                            }
+                            const options = Array.from(select.options);
+                            options.forEach(option => {
+                                if (option.value === selectedId) {
+                                    option.remove();  // Remueve la opción con mismo ID
+                                }
+                            });
                         }
                     });
                 }
+
+                function restaurarOpcion(slotId, removedId) {
+                    const bici = buscarBicicletaPorId(removedId);
+                    if (!bici) return;
+
+                    // Verifica si la bici sigue seleccionada en alguno de los selects
+                    let sigueSeleccionada = false;
+                    ['2', '3'].forEach(id => {
+                        if (id !== slotId) {
+                            const select = document.getElementById("select" + id);
+                            const selectedOption = select.querySelector("option:checked");
+                            if (selectedOption && selectedOption.value === removedId) {
+                                sigueSeleccionada = true;
+                            }
+                        }
+                    });
+
+                    if (!sigueSeleccionada) {
+                        // Restaurar en todos los selects excepto el actual
+                        ['2', '3'].forEach(id => {
+                            if (id !== slotId) {
+                                const select = document.getElementById("select" + id);
+                                const exists = Array.from(select.options).some(opt => opt.value === removedId);
+                                if (!exists) {
+                                    const option = document.createElement("option");
+                                    option.value = removedId;
+                                    option.text = bici.nombreCompleto;
+                                    select.appendChild(option);
+                                }
+                            }
+                        });
+                    }
+                }
+
+
 
                 function buscarBicicletaPorId(id) {
                     const idNum = parseInt(id); // asegura que ambos lados sean números
