@@ -5,10 +5,13 @@ import com.example.comparador.Entity.BicicletaComponente;
 import com.example.comparador.Entity.Componente;
 import com.example.comparador.Service.BicicletaService;
 import com.example.comparador.Service.BicicletaServiceImpl;
+import com.fasterxml.jackson.core.JsonProcessingException;
+import com.fasterxml.jackson.databind.ObjectMapper;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
+
 import java.util.Arrays;
 import java.util.Comparator;
 import java.util.List;
@@ -84,7 +87,7 @@ public class BicicletaController {
     // Comparador de bicicletas
     // GET http://localhost:8080/comparar/{id}
     @GetMapping("/comparar/{id}")
-    public String getBicicletaComparador(@PathVariable Long id, Model model, RedirectAttributes redirectAttributes) {
+    public String getBicicletaComparador(@PathVariable Long id, Model model, RedirectAttributes redirectAttributes) throws JsonProcessingException {
         Optional<Bicicleta> bicicleta = service.findById(id);
         if (bicicleta.isPresent() && !bicicleta.get().getComponentes().isEmpty()) {
 
@@ -95,7 +98,16 @@ public class BicicletaController {
             if (!listaBicicletas.isEmpty()) {
                 listaBicicletas.remove(bicicleta.get()); // Elimina de la lista la bici por la que has entrado en el comparador.
                 model.addAttribute("bicicletas", listaBicicletas);
+                // Código para poder tener acceso a las bicicletas desde el JS para los selects.
+
+                List<BicicletaComparadorDTO> bicicletaDTOs = listaBicicletas.stream()
+                        .map(BicicletaComparadorDTO::new)
+                        .collect(Collectors.toList());
+                ObjectMapper mapper = new ObjectMapper();
+                String bicicletasJson = mapper.writeValueAsString(bicicletaDTOs);
+                model.addAttribute("bicicletasJson", bicicletasJson);  // Se serializa automáticamente con th:inline="javascript"
             }
+
             return "comparador";
         } else {
             redirectAttributes.addFlashAttribute("message", "Bicicleta no encontrada");
@@ -103,6 +115,7 @@ public class BicicletaController {
             return "redirect:/";
         }
     }
+
     public static List<String> ordenDeseado(String tipoBicicleta) {
         List<String> ordenDeseado = null;
         switch (tipoBicicleta) {

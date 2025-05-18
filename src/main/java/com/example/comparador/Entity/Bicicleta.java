@@ -3,6 +3,7 @@ package com.example.comparador.Entity;
 import com.example.comparador.Entity.ENUM.MaterialCuadro;
 import com.example.comparador.Entity.ENUM.TipoBicicleta;
 import com.example.comparador.Entity.ENUM.TipoCambio;
+import com.fasterxml.jackson.annotation.JsonManagedReference;
 import jakarta.persistence.*;
 
 import java.math.BigDecimal;
@@ -42,6 +43,7 @@ public class Bicicleta {
 
 
     @OneToMany(mappedBy = "bicicleta", cascade = CascadeType.ALL, orphanRemoval = true)
+    @JsonManagedReference //
     private List<BicicletaComponente> componentes = new ArrayList<>();
 
     // Constructores, getters y setters

@@ -1,4 +1,6 @@
 package com.example.comparador.Entity;
+import com.fasterxml.jackson.annotation.JsonBackReference;
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import jakarta.persistence.*;
 
 @Entity
@@ -10,6 +12,8 @@ public class BicicletaComponente {
 
     @ManyToOne
     @JoinColumn(name = "bicicletaid")
+    @JsonBackReference
+    @JsonIgnore
     private Bicicleta bicicleta;
 
     @ManyToOne

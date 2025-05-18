@@ -53,8 +53,8 @@
                         class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg block w-full p-2.5"
                         onchange="mostrarBici('2')">
                     <option selected disabled>Selecciona una bicicleta</option>
-                    <option th:each="bicicleta, i : ${bicicletas}"
-                            th:value="${i.index}"
+                    <option th:each="bicicleta : ${bicicletas}"
+                            th:value="${bicicleta.getId()}"
                             th:text="${bicicleta.getNombreCompleto()}"
                             th:data-id="${bicicleta.getId()}"
                     >
@@ -70,8 +70,8 @@
 
                 <!-- CONTENEDOR DE IMÁGENES -->
                 <div id="imagenes2" class="relative mt-2">
-                    <img th:each="bicicleta, i : ${bicicletas}"
-                         th:id="'img-bici-2-' + ${i.index}"
+                    <img th:each="bicicleta : ${bicicletas}"
+                         th:id="'img-bici-2-' + ${bicicleta.getId()}"
                          th:src="${bicicleta.getImagenUrl()}"
                          th:data-id="${bicicleta.getId()}"
                          class="w-[300px] h-[250px] object-contain shadow-lg mx-auto hidden"
@@ -86,9 +86,10 @@
                         class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg block w-full p-2.5"
                         onchange="mostrarBici('3')">
                     <option selected disabled>Selecciona una bicicleta</option>
-                    <option th:each="bicicleta, i : ${bicicletas}"
-                            th:value="${i.index}"
-                            th:text="${bicicleta.getNombreCompleto()}">
+                    <option th:each="bicicleta : ${bicicletas}"
+                            th:value="${bicicleta.getId()}"
+                            th:text="${bicicleta.getNombreCompleto()}"
+                            th:data-id="${bicicleta.getId()}">
                     </option>
                 </select>
 
@@ -101,8 +102,8 @@
 
                 <!-- CONTENEDOR DE IMÁGENES -->
                 <div id="imagenes3" class="relative mt-2">
-                    <img th:each="bicicleta, i : ${bicicletas}"
-                         th:id="'img-bici-3-' + ${i.index}"
+                    <img th:each="bicicleta : ${bicicletas}"
+                         th:id="'img-bici-3-' + ${bicicleta.getId()}"
                          th:src="${bicicleta.getImagenUrl()}"
                          class="w-[300px] h-[250px] object-contain shadow-lg mx-auto hidden"
                          alt="Bicicleta"
@@ -135,16 +136,16 @@
             </tr>
 
             <!-- Filas dinámicas de componentes -->
-            <tr th:each="nombreComponente : ${componentesOrdenados}">
-                <!-- Nombre del componente con ancho fijo -->
+            <tr th:each="nombreComponente : ${componentesOrdenados}" class="hover:bg-gray-100 transition-colors duration-300">
+                <!-- Nombre del componente -->
                 <td class="w-40 align-top font-inter text-lg font-medium text-gray-900"
                     th:text="${nombreComponente}"></td>
 
                 <!-- Descripción de la bicicleta 1 -->
-                <td class="align-top max-w-xs whitespace-normal break-words"
-                    th:each="comp : ${bicicleta.getComponentes()}"
-                    th:if="${comp.componente.tipo.getNombre()} == ${nombreComponente}"
-                    th:text="${comp.componente.getDescripcion()}">
+                <td class="align-top max-w-xs whitespace-normal break-words">
+                     <span th:each="comp : ${bicicleta.getComponentes()}"
+                           th:if="${comp.componente.tipo.getNombre()} == ${nombreComponente}"
+                           th:text="${comp.componente.getDescripcion()}">-</span>
                 </td>
 
                 <!-- Descripción para bicicleta 2 -->
@@ -167,19 +168,29 @@
                 <td id="masinfo2"></td>
                 <td id="masinfo3"></td>
             </tr>
+            <script th:inline="javascript">
+                const bicicletasData = JSON.parse(/*[[${bicicletasJson}]]*/ "[]");
+            </script>
+
             <script>
-                const bicicletasData = [];
-                console.log("BicicletasData: " + bicicletasData)
 
                 function mostrarBici(slotId) {  // Se le pasa la columna de la bici ya sea la 2 o la 3
                     const select = document.getElementById("select" + slotId);
-                    const selectedIndex = select.value;
-                    console.log("Valor del select: " + select.value)
-                    const bici = bicicletasData[selectedIndex];
+                    const selectedOption = select.options[select.selectedIndex];
+                    console.log("SelectedOption: " + selectedOption);
+                    const selectedId = selectedOption.getAttribute("data-id");
+                    console.log("SelectedID:" + selectedId)
+
+
+                    const bici = buscarBicicletaPorId(selectedId);
+                    if (!bici) {
+                        console.error("Bicicleta no encontrada con id:", selectedId);
+                        return;
+                    }
 
                     // Mostrar imagen
                     document.querySelectorAll(`#img-bici-${slotId} img`).forEach(img => img.classList.add("hidden"));
-                    document.getElementById("img-bici-" + slotId + "-" + selectedIndex).classList.remove("hidden");
+                    document.getElementById("img-bici-" + slotId + "-" + selectedId).classList.remove("hidden");
 
                     // Mostrar botón cerrar
                     document.getElementById("btn-cerrar-" + slotId).classList.remove("hidden");
@@ -188,22 +199,22 @@
                     select.classList.add("hidden");
 
                     // Quita de la lista de bicicletas disponibles las que ya están seleccionadas
-                    actualizarOpcionesDisponibles(slotId, selectedIndex);
+                    actualizarOpcionesDisponibles(slotId, selectedId);
 
                     // // Llenar datos básicos
-                    // document.getElementById("modelo" + slotId).innerText = bici.modelo + " / " + bici.precio + "€";
-                    // document.getElementById("tipo" + slotId).innerText = bici.tipo;
-                    // document.getElementById("familia" + slotId).innerText = bici.familia;
-                    // document.getElementById("masinfo" + slotId).innerHTML = `<a href="${bici.masInfoUrl}" class="inline-block px-4 py-2 text-white bg-blue-600 rounded-lg hover:bg-blue-700 transition duration-200 shadow" target="_blank">Más Info</a>`;
+                    document.getElementById("modelo" + slotId).innerText = bici.modelo + " / " + bici.precio + "€";
+                    document.getElementById("tipo" + slotId).innerText = bici.tipo;
+                    document.getElementById("familia" + slotId).innerText = bici.familia;
+                    document.getElementById("masinfo" + slotId).innerHTML = `<a href="${bici.masInfoUrl}" class="inline-block px-4 py-2 text-white bg-blue-600 rounded-lg hover:bg-blue-700 transition duration-200 shadow" target="_blank">Más Info</a>`;
 
 
                     // // Llenar componentes
-                    // bici.componentes.forEach(comp => {
-                    //     const td = document.getElementById(`componente${slotId}-${comp.componente.tipo}`);
-                    //     if (td) {
-                    //         td.innerText = comp.componente.nombre;
-                    //     }
-                    // });
+                    bici.componentes.forEach(comp => {
+                        const td = document.getElementById(`componente${slotId}-${comp.tipo}`);
+                        if (td) {
+                            td.innerText = comp.descripcion;
+                        }
+                    });
                 }
 
                 function quitarBici(slotId) {
@@ -215,46 +226,56 @@
                     select.classList.remove("hidden");
                     select.selectedIndex = 0;
 
-                    // document.getElementById("modelo" + slotId).innerText = "";
-                    // document.getElementById("tipo" + slotId).innerText = "";
-                    // document.getElementById("familia" + slotId).innerText = "";
-                    // document.getElementById("masinfo" + slotId).innerHTML = "";
-                    //
-                    // document.querySelectorAll(`[id^=componente${slotId}-]`).forEach(td => td.innerText = "");
-                    //  restaurarOpcion(slotId, select.value);
+                    document.getElementById("modelo" + slotId).innerText = "";
+                    document.getElementById("tipo" + slotId).innerText = "";
+                    document.getElementById("familia" + slotId).innerText = "";
+                    document.getElementById("masinfo" + slotId).innerHTML = "";
+
+                    document.querySelectorAll(`[id^=componente${slotId}-]`).forEach(td => td.innerText = "");
+                    restaurarOpcion(slotId, select.value);
 
                 }
 
-                // function actualizarOpcionesDisponibles(slotId, selectedIndex) {
-                //     document.addEventListener("DOMContentLoaded", () => {           // Espera a que se cargue el DOM(estructura en HTML) y ejecuta la función
-                //         const bicicleta1Nombre = document.querySelector("#bicicleta1 img").alt;
-                //         ['2', '3'].forEach(id => {
-                //             const select = document.getElementById("select" + id);
-                //             const options = Array.from(select.options);
-                //             options.forEach(option => {
-                //                 if (option.text === bicicleta1Nombre) {
-                //                     option.remove();
-                //                 }
-                //             });
-                //         });
-                //     });
-                // }
+                function actualizarOpcionesDisponibles(slotId, selectedIndex) {
 
-                // function restaurarOpcion(slotId, selectedIndex) {
-                //     const bici = bicicletasData[selectedIndex];
-                //     ['2', '3'].forEach(id => {
-                //         if (id !== slotId) {
-                //             const select = document.getElementById("select" + id);
-                //             const exists = Array.from(select.options).some(opt => opt.value === selectedIndex);
-                //             if (!exists) {
-                //                 const option = document.createElement("option");
-                //                 option.value = selectedIndex;
-                //                 option.text = bici.nombreCompleto || bici.modelo; // Usa lo que tengas
-                //                 select.appendChild(option);
-                //             }
-                //         }
-                //     });
-                // }
+                    const bicicleta1Nombre = document.querySelector("#bicicleta1 img").alt;
+                    ['2', '3'].forEach(id => {
+                        const select = document.getElementById("select" + id);
+                        const options = Array.from(select.options);
+                        options.forEach(option => {
+                            if (option.text === bicicleta1Nombre) {
+                                option.remove();
+                            }
+                        });
+                    });
+
+                }
+
+                function restaurarOpcion(slotId, selectedIndex) {
+                    const bici = bicicletasData[selectedIndex];
+                    ['2', '3'].forEach(id => {
+                        if (id !== slotId) {
+                            const select = document.getElementById("select" + id);
+                            const exists = Array.from(select.options).some(opt => opt.value === selectedIndex);
+                            if (!exists) {
+                                const option = document.createElement("option");
+                                option.value = selectedIndex;
+                                option.text = bici.nombreCompleto; // Usa lo que tengas
+                                select.appendChild(option);
+                            }
+                        }
+                    });
+                }
+
+                function buscarBicicletaPorId(id) {
+                    const idNum = parseInt(id); // asegura que ambos lados sean números
+                    for (let i = 0; i < bicicletasData.length; i++) {
+                        if (parseInt(bicicletasData[i].id) === idNum) {
+                            return bicicletasData[i];
+                        }
+                    }
+                    return null;
+                }
 
 
             </script>
