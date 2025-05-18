@@ -41,6 +41,8 @@ public class App {
         componentesGrizl5.add(new BicicletaComponente(grizl5, datos.getComponente("Shimano Dura-Ace CS-R9200 - 12 piñones, relación 11-30.", TipoComponente.Cassette)));
         componentesGrizl5.add(new BicicletaComponente(grizl5, datos.getComponente("Canyon SP0064 - Tija de sillín aerodinámica de carbono con retroceso de 20 mm y peso de 70 g.", TipoComponente.Tija_Sillin)));
         componentesGrizl5.add(new BicicletaComponente(grizl5, datos.getComponente("Fizik Antares R3", TipoComponente.Sillin)));
+        componentesGrizl5.add(new BicicletaComponente(grizl5, datos.getComponente("Schwalbe G-One Bite Performance, 45mm", TipoComponente.Cubiertas)));
+        componentesGrizl5.add(new BicicletaComponente(grizl5, datos.getComponente("Shimano CUES U6030", TipoComponente.Manetas_Cambio)));
 
         bicicletaComponenteRepository.saveAll(componentesGrizl5);
 
@@ -61,6 +63,7 @@ public class App {
         componentesUltimateCfrDi2Aero.add(new BicicletaComponente(ultimateCfrDi2Aero, datos.getComponente("Selle Italia SLR", TipoComponente.Sillin)));
         componentesUltimateCfrDi2Aero.add(new BicicletaComponente(ultimateCfrDi2Aero, datos.getComponente("Shimano Dura-Ace Di2 R9270, 12-speed - 2 pistones, 332 g.", TipoComponente.Manetas_Cambio)));
         componentesUltimateCfrDi2Aero.add(new BicicletaComponente(ultimateCfrDi2Aero, datos.getComponente("Shimano Dura-Ace Di2 ", TipoComponente.Desviador)));
+        componentesUltimateCfrDi2Aero.add(new BicicletaComponente(ultimateCfrDi2Aero, datos.getComponente("Schwalbe Pro One TT Evo 25mm", TipoComponente.Cubiertas)));
 
         bicicletaComponenteRepository.saveAll(componentesUltimateCfrDi2Aero);
 
@@ -153,13 +156,20 @@ public class App {
         componentesOrcaM11eLTDPWR.add(new BicicletaComponente(orcaM11eLTDPWR, datos.getComponente("Orbea Orca Carbon OMX Disc", TipoComponente.Cuadro)));
         componentesOrcaM11eLTDPWR.add(new BicicletaComponente(orcaM11eLTDPWR, datos.getComponente("Orca OMX Carbon fork", TipoComponente.Horquilla)));
         componentesOrcaM11eLTDPWR.add(new BicicletaComponente(orcaM11eLTDPWR, datos.getComponente("SRAM Red eTap AXS", TipoComponente.Cambio_Trasero)));
-        componentesOrcaM11eLTDPWR.add(new BicicletaComponente(orcaM11eLTDPWR, datos.getComponente("SRAM Red eTap AXS", TipoComponente.Frenos)));
+        componentesOrcaM11eLTDPWR.add(new BicicletaComponente(orcaM11eLTDPWR, datos.getComponente("SRAM Red AXS", TipoComponente.Frenos)));
         componentesOrcaM11eLTDPWR.add(new BicicletaComponente(orcaM11eLTDPWR, datos.getComponente("Orca OMX Vision Carbon 35 TLR", TipoComponente.Ruedas)));
         componentesOrcaM11eLTDPWR.add(new BicicletaComponente(orcaM11eLTDPWR, datos.getComponente("SRAM Red Power Meter DUB 48/35t", TipoComponente.Bielas)));
         componentesOrcaM11eLTDPWR.add(new BicicletaComponente(orcaM11eLTDPWR, datos.getComponente("SRAM Red XG-1290 10-33t", TipoComponente.Cassette)));
         componentesOrcaM11eLTDPWR.add(new BicicletaComponente(orcaM11eLTDPWR, datos.getComponente("Fizik Antares R3", TipoComponente.Sillin)));
         componentesOrcaM11eLTDPWR.add(new BicicletaComponente(orcaM11eLTDPWR, datos.getComponente("OC Performance XP10-S Carbon, 27.2mm, Setback 20", TipoComponente.Tija_Sillin)));
         componentesOrcaM11eLTDPWR.add(new BicicletaComponente(orcaM11eLTDPWR, datos.getComponente("SRAM RED AXS E1, sistema de cambio electrónico.", TipoComponente.Desviador)));
+        componentesOrcaM11eLTDPWR.add(new BicicletaComponente(orcaM11eLTDPWR, datos.getComponente("Vision Metron 5D ACR EVO Integrated, Reach 80mm, Drop 125", TipoComponente.Manillar)));
+        componentesOrcaM11eLTDPWR.add(new BicicletaComponente(orcaM11eLTDPWR, datos.getComponente("SRAM Red AXS", TipoComponente.Manetas_Cambio)));
+        componentesOrcaM11eLTDPWR.add(new BicicletaComponente(orcaM11eLTDPWR, datos.getComponente("Sram Red 12-Speed", TipoComponente.Cadena)));
+        componentesOrcaM11eLTDPWR.add(new BicicletaComponente(orcaM11eLTDPWR, datos.getComponente("Vittoria Corsa Pro Speed G2.0 TLR 700x26c", TipoComponente.Cubiertas)));
+
+
+
 
         bicicletaComponenteRepository.saveAll(componentesOrcaM11eLTDPWR);
 
@@ -229,6 +239,7 @@ public class App {
         componentesMadoneSLR9.add(new BicicletaComponente(madoneSLR9, datos.getComponente("Trek Madone Gen 8 OCLV 900", TipoComponente.Cuadro)));
         componentesMadoneSLR9.add(new BicicletaComponente(madoneSLR9, datos.getComponente("Madone Gen 8 carbono", TipoComponente.Horquilla)));
         componentesMadoneSLR9.add(new BicicletaComponente(madoneSLR9, datos.getComponente("SRAM RED AXS E1", TipoComponente.Manetas_Cambio)));
+        componentesMadoneSLR9.add(new BicicletaComponente(madoneSLR9, datos.getComponente("SRAM RED AXS E1", TipoComponente.Frenos)));
         componentesMadoneSLR9.add(new BicicletaComponente(madoneSLR9, datos.getComponente("SRAM RED AXS E1", TipoComponente.Desviador)));
         componentesMadoneSLR9.add(new BicicletaComponente(madoneSLR9, datos.getComponente("SRAM RED AXS E1", TipoComponente.Cambio_Trasero)));
         componentesMadoneSLR9.add(new BicicletaComponente(madoneSLR9, datos.getComponente("SRAM RED AXS E1 con potenciómetro, 48/35, DUB", TipoComponente.Bielas)));
@@ -305,6 +316,7 @@ public class App {
         componentesRevoltAdvanced2.add(new BicicletaComponente(revoltAdvanced2, datos.getComponente("Giant Contact XR D-Fuse", TipoComponente.Manillar)));
         componentesRevoltAdvanced2.add(new BicicletaComponente(revoltAdvanced2, datos.getComponente("Giant D-Fuse SL", TipoComponente.Tija_Sillin)));
         componentesRevoltAdvanced2.add(new BicicletaComponente(revoltAdvanced2, datos.getComponente("", TipoComponente.Sillin)));
+        componentesRevoltAdvanced2.add(new BicicletaComponente(revoltAdvanced2, datos.getComponente("KMC X12L-1",TipoComponente.Cadena)));
 
         bicicletaComponenteRepository.saveAll(componentesRevoltAdvanced2);
 
@@ -325,6 +337,7 @@ public class App {
         componentesBeladorRedAxs.add(new BicicletaComponente(beladorRedAxs, datos.getComponente("CS XG 1290 E1 10-36", TipoComponente.Cassette)));
         componentesBeladorRedAxs.add(new BicicletaComponente(beladorRedAxs, datos.getComponente("SRAM RED AXS E1", TipoComponente.Frenos)));
         componentesBeladorRedAxs.add(new BicicletaComponente(beladorRedAxs, datos.getComponente("Ceramic Speed SRAM DUB T47 Bottom Bracket", TipoComponente.Pedalier)));
+        componentesBeladorRedAxs.add(new BicicletaComponente(beladorRedAxs, datos.getComponente("CN RED E1 116LINK", TipoComponente.Cadena)));
 
         bicicletaComponenteRepository.saveAll(componentesBeladorRedAxs);
 
@@ -357,8 +370,14 @@ public class App {
         componentesGrailCFSLX8AXS.add(new BicicletaComponente(grailCFSLX8AXS, datos.getComponente("SRAM Force", TipoComponente.Frenos)));
         componentesGrailCFSLX8AXS.add(new BicicletaComponente(grailCFSLX8AXS, datos.getComponente("DT Swiss G1800", TipoComponente.Ruedas)));
         componentesGrailCFSLX8AXS.add(new BicicletaComponente(grailCFSLX8AXS, datos.getComponente("Canyon CP07 Gravelcockpit CF", TipoComponente.Manillar)));
-        componentesGrailCFSLX8AXS.add(new BicicletaComponente(grailCFSLX8AXS, datos.getComponente("", TipoComponente.Sillin)));
-        componentesGrailCFSLX8AXS.add(new BicicletaComponente(grailCFSLX8AXS, datos.getComponente("", TipoComponente.Tija_Sillin)));
+        componentesGrailCFSLX8AXS.add(new BicicletaComponente(grailCFSLX8AXS, datos.getComponente("Canyon SP0072", TipoComponente.Tija_Sillin)));
+        componentesGrailCFSLX8AXS.add(new BicicletaComponente(grailCFSLX8AXS, datos.getComponente("Fizik Vento Argo X3", TipoComponente.Sillin)));
+        componentesGrailCFSLX8AXS.add(new BicicletaComponente(grailCFSLX8AXS, datos.getComponente("SRAM Force AXS HRD D2", TipoComponente.Manetas_Cambio)));
+        componentesGrailCFSLX8AXS.add(new BicicletaComponente(grailCFSLX8AXS, datos.getComponente("SRAM Force D1 12s", TipoComponente.Cadena)));
+        componentesGrailCFSLX8AXS.add(new BicicletaComponente(grailCFSLX8AXS, datos.getComponente("SRAM Force XPLR XG-1271, 12-speed, 10-44", TipoComponente.Cassette)));
+        componentesGrailCFSLX8AXS.add(new BicicletaComponente(grailCFSLX8AXS, datos.getComponente("SRAM Force", TipoComponente.Bielas)));
+        componentesGrailCFSLX8AXS.add(new BicicletaComponente(grailCFSLX8AXS, datos.getComponente("Canyon EP1839-01 Blind Plate", TipoComponente.Desviador)));
+        componentesGrailCFSLX8AXS.add(new BicicletaComponente(grailCFSLX8AXS, datos.getComponente("Pirelli Cinturato Gravel RC", TipoComponente.Cubiertas)));
 
         bicicletaComponenteRepository.saveAll(componentesGrailCFSLX8AXS);
 

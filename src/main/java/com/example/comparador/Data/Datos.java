@@ -206,6 +206,7 @@ public class Datos {
             new Componente("Enve SES 4.5, llanta de carbono Hookless, TLR, buje Innerdrive, ancho interno 29mm, altura 49-55mm, Center Lock, peso: 1432gr.", TipoComponente.Ruedas),
             new Componente("Vittoria Corsa PRO, 28-622, plegable, Tubeless Ready, completamente negro, Graphene 2.0.", TipoComponente.Cubiertas),
             new Componente("SRAM RED AXS E1 Shift-Brake System, sistema de cambio electrónico.", TipoComponente.Manetas_Cambio),
+            new Componente("SRAM RED AXS E1 Shift-Brake System, sistema de cambio electrónico.", TipoComponente.Frenos),
             new Componente("SRAM RED AXS E1 12s, sistema de cambio electrónico.", TipoComponente.Cambio_Trasero),
             new Componente("SRAM RED AXS E1, sistema de cambio electrónico.", TipoComponente.Desviador),
             new Componente("SRAM RED AXS E1 POWER METER, juego de bielas 48/35 T CARBONO, tamaños 170-172,5-175.", TipoComponente.Bielas),
@@ -392,10 +393,32 @@ public class Datos {
             new Componente("Bravo BR 6, XCO WC Racing Geometry BGC", TipoComponente.Cuadro),
             new Componente("Bottom Bracket PF92 DUB WIDE MTB", TipoComponente.Bujes),
             new Componente("Bottom Bracket PF92 SH MTB", TipoComponente.Bujes),
-            new Componente("Fox Transfer SL Factory Kashima, 27.2/30.9/31.6mm, Recorrido 50-125mm", TipoComponente.Tija_Sillin)
+            new Componente("Fox Transfer SL Factory Kashima, 27.2/30.9/31.6mm, Recorrido 50-125mm", TipoComponente.Tija_Sillin),
+            new Componente("Schwalbe Pro One TT Evo 25mm", TipoComponente.Cubiertas),
+            new Componente("Vision Metron 5D ACR EVO Integrated, Reach 80mm, Drop 125", TipoComponente.Manillar),
+            new Componente("Vision Metron 5D ACR EVO Integrated, Reach 80mm, Drop 125", TipoComponente.Manetas_Cambio),
+            new Componente("SRAM Red AXS", TipoComponente.Manetas_Cambio),
+            new Componente("SRAM Red AXS", TipoComponente.Frenos),
+            new Componente("Sram Red 12-Speed", TipoComponente.Cadena),
+            new Componente("Sram Red AXS 12s", TipoComponente.Cambio_Trasero),
+            new Componente("Vittoria Corsa Pro Speed G2.0 TLR 700x26c", TipoComponente.Cubiertas),
+            new Componente("CN RED E1 116LINK", TipoComponente.Cadena),
+            new Componente("Canyon SP0072",TipoComponente.Tija_Sillin),
+            new Componente("Fizik Vento Argo X3",TipoComponente.Sillin),
+            new Componente("SRAM Force AXS HRD D2",TipoComponente.Manetas_Cambio),
+            new Componente("SRAM Force D1 12s",TipoComponente.Cadena),
+            new Componente("SRAM Force XPLR XG-1271, 12-speed, 10-44",TipoComponente.Cassette),
+            new Componente("SRAM Force",TipoComponente.Bielas),
+            new Componente("Canyon EP1839-01 Blind Plate",TipoComponente.Desviador),
+            new Componente("Pirelli Cinturato Gravel RC",TipoComponente.Cubiertas),
+            new Componente("KMC X12L-1",TipoComponente.Cadena),
+            new Componente("Schwalbe G-One Bite Performance, 45mm", TipoComponente.Cubiertas),
+            new Componente("Shimano CUES U6030", TipoComponente.Manetas_Cambio)
 
 
-            );
+
+
+    );
 
     public Componente getComponente(String descripcion, TipoComponente tipoComponente) {
         Componente componente = ComponentesList.stream()
@@ -448,7 +471,7 @@ public class Datos {
                     TipoBicicleta.CARRETERA,
                     MaterialCuadro.CARBONO,
                     TipoCambio.MECANICO,
-                    new BigDecimal("8.5"),  
+                    new BigDecimal("8.5"),
                     "https://www.orbea.com/img/products/product/over/large/S107TTCC-AJ-SIDE-ORCA_M30_DV_M_over.jpg",
                     "https://www.orbea.com/es-es/bicicletas/carretera/orca/cat/orca-m30",
                     "Orbea"
@@ -479,7 +502,7 @@ public class Datos {
                     TipoBicicleta.CARRETERA,
                     MaterialCuadro.CARBONO,
                     TipoCambio.ELECTRONICO,
-                    new BigDecimal("6.8"),  
+                    new BigDecimal("6.8"),
                     "https://www.orbea.com/img/products/product/over/large/S123TTCC-AN-SIDE-ORCA_M11eLTD_PWR_over.jpg",
                     "https://www.orbea.com/es-es/bicicletas/carretera/orca/cat/orca-m11eltd-pwr",
                     "Orbea"
