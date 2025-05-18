@@ -413,11 +413,8 @@ public class Datos {
             new Componente("Pirelli Cinturato Gravel RC",TipoComponente.Cubiertas),
             new Componente("KMC X12L-1",TipoComponente.Cadena),
             new Componente("Schwalbe G-One Bite Performance, 45mm", TipoComponente.Cubiertas),
-            new Componente("Shimano CUES U6030", TipoComponente.Manetas_Cambio)
-
-
-
-
+            new Componente("Shimano CUES U6030", TipoComponente.Manetas_Cambio),
+            new Componente("SRAM RED AXS E1 12s", TipoComponente.Cambio_Trasero)
     );
 
     public Componente getComponente(String descripcion, TipoComponente tipoComponente) {

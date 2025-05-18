@@ -251,6 +251,7 @@ public class App {
         componentesMadoneSLR9.add(new BicicletaComponente(madoneSLR9, datos.getComponente("Aeolus RSL, raíles carbono", TipoComponente.Sillin)));
         componentesMadoneSLR9.add(new BicicletaComponente(madoneSLR9, datos.getComponente("Tija integrada Madone", TipoComponente.Tija_Sillin)));
         componentesMadoneSLR9.add(new BicicletaComponente(madoneSLR9, datos.getComponente("Trek Aero RSL Carretera", TipoComponente.Manillar)));
+        componentesMadoneSLR9.add(new BicicletaComponente(madoneSLR9, datos.getComponente("SRAM RED AXS E1", TipoComponente.Frenos)));
 
         bicicletaComponenteRepository.saveAll(componentesMadoneSLR9);
 
