@@ -18,6 +18,7 @@ public class BicicletaComparadorDTO {
     public String masInfoUrl;
     public String nombreCompleto;
     public BigDecimal peso;
+    public BigDecimal calificacion;
     public List<ComponenteDTO> componentes;
 
     public BicicletaComparadorDTO(Bicicleta bici) {
@@ -35,6 +36,7 @@ public class BicicletaComparadorDTO {
         this.masInfoUrl = bici.getMasInfoUrl();
         this.nombreCompleto = bici.getNombreCompleto();
         this.peso = bici.getPeso();
+        this.calificacion=bici.getCalificacion();
         this.componentes = bici.getComponentes().stream()
                 .map(ComponenteDTO::new)
                 .collect(Collectors.toList());

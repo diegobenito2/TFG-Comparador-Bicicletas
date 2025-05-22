@@ -40,8 +40,8 @@ public class BicicletaController {
     }
 
     // Ver detalles de una bicicleta específica
-    // GET http://localhost:8080/{id}
-    @GetMapping("/{id}")
+    // GET http://localhost:8080/bike{id}
+    @GetMapping("/bike/{id}")
     public String getBicicleta(@PathVariable Long id, Model model, RedirectAttributes redirectAttributes) {
         Optional<Bicicleta> bicicleta = service.findById(id);
         if (bicicleta.isPresent()) {
