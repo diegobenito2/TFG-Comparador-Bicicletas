@@ -303,7 +303,7 @@
         </h1>
     </div>
 
-    <div class="max-w-7xl mx-auto p-6 bg-white rounded-2xl shadow-lg overflow-x-auto">
+    <div class="max-w-7xl mx-auto p-6 bg-white rounded-2xl shadow-lg overflow-visible">
         <!-- Tabla Comparador -->
         <table class="w-full table-auto text-sm text-center">
             <thead>
@@ -380,7 +380,7 @@
                 </div>
             </th>
             </thead>
-            <tbody class="bg-white divide-y divide-gray-200 rounded-2xl overflow-hidden shadow-md">
+            <tbody class="bg-white divide-y divide-gray-200 rounded-2xl overflow-visible shadow-md">
             <tr class="bg-gray-100 text-gray-700 text-base font-semibold  hover:bg-gray-50 transition duration-300">
                 <td class="font-inter text-lg font-medium text-gray-900 px-4 py-3">Marca</td>
                 <td th:text="${bicicleta.getMarcaNombre()}" class="px-4 py-3"
@@ -440,8 +440,15 @@
                 class="  text-gray-700 text-base font-semibold hover:bg-gray-50 transition duration-300 px-4 py-3">
 
                 <!-- Nombre del componente -->
-                <td id="nombreComponente" class="w-40 align-top font-inter text-lg font-medium text-gray-900 px-4 py-3
-                " th:text="${nombreComponente}"></td>
+                <td id="nombreComponente" class="w-40 align-top font-inter text-lg font-medium text-gray-900 px-4 py-3 relative group cursor-help">
+                    <span th:text="${nombreComponente}"></span>
+
+                    <!--                    Explicación del componente-->
+                    <span class="absolute top-full top-1/2 -translate-y-1/2 mt-2 w-48 rounded-md bg-gray-800 text-white text-xs px-3 py-2 opacity-0 group-hover:opacity-100 transition-opacity duration-300 pointer-events-none z-50" th:text="${T(com.example.comparador.Entity.ENUM.TipoComponente).obtenerDescripcionPorNombre(nombreComponente)}">
+
+
+                    </span>
+                </td>
 
                 <!-- Descripción de la bicicleta 1 -->
                 <td class="align-top max-w-xs whitespace-normal break-words px-4 py-3"
@@ -519,7 +526,8 @@
                 ></td>
             </tr>
             <script th:inline="javascript">
-                const bicicletasData = JSON.parse(/*[[${bicicletasJson}]]*/ "[]"); /** Accede la clase BicicletaComparadorDTO para pasar los objetos Bicicleta a JSON para poder acceder a ellos desde JavaScript
+                const bicicletasData = JSON.parse(/*[[${bicicletasJson}]]*/ "[]");
+                /** Accede la clase BicicletaComparadorDTO para pasar los objetos Bicicleta a JSON para poder acceder a ellos desde JavaScript
                  y poder seleccionarlos con los select
                  **/
                 console.log(bicicletasData)
