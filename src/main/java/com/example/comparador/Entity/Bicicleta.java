@@ -41,7 +41,7 @@ public class Bicicleta {
     private String imagenUrl;
     private String masInfoUrl;
 
-    private BigDecimal calificacion;
+    private int calificacion;
 
 
     @OneToMany(mappedBy = "bicicleta", cascade = CascadeType.ALL, orphanRemoval = true)
@@ -50,7 +50,7 @@ public class Bicicleta {
 
     // Constructores, getters y setters
 
-    public Bicicleta(String modelo, BigDecimal precio, TipoBicicleta tipo, MaterialCuadro materialCuadro, TipoCambio tipoCambio, BigDecimal peso, String imagenUrl, String masInfoUrl, String marcaNombre, BigDecimal calificacion, List<BicicletaComponente> componentes) {
+    public Bicicleta(String modelo, BigDecimal precio, TipoBicicleta tipo, MaterialCuadro materialCuadro, TipoCambio tipoCambio, BigDecimal peso, String imagenUrl, String masInfoUrl, String marcaNombre, int calificacion, List<BicicletaComponente> componentes) {
         this.modelo = modelo;
         this.precio = precio;
         this.tipo = tipo;
@@ -63,9 +63,10 @@ public class Bicicleta {
         this.componentes = componentes;
         this.nombreCompleto = getMarcaNombre() + " " + getModelo();
         obtenerFamilia();
+        this.calificacion = calificacion;
     }
 
-    public Bicicleta(String modelo, BigDecimal precio, TipoBicicleta tipo, MaterialCuadro materialCuadro, TipoCambio tipoCambio, BigDecimal peso, String imagenUrl, String masInfoUrl, String marcaNombre, BigDecimal calificacion) {
+    public Bicicleta(String modelo, BigDecimal precio, TipoBicicleta tipo, MaterialCuadro materialCuadro, TipoCambio tipoCambio, BigDecimal peso, String imagenUrl, String masInfoUrl, String marcaNombre, int calificacion) {
         this.modelo = modelo;
         this.precio = precio;
         this.tipo = tipo;
@@ -196,11 +197,11 @@ public class Bicicleta {
         }
     }
 
-    public BigDecimal getCalificacion() {
+    public int getCalificacion() {
         return calificacion;
     }
 
-    public void setCalificacion(BigDecimal calificacion) {
+    public void setCalificacion(int calificacion) {
         this.calificacion = calificacion;
     }
 }

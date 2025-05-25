@@ -1,7 +1,4 @@
-package com.example.comparador.Controller;
-
-import com.example.comparador.Entity.Bicicleta;
-import com.example.comparador.Entity.BicicletaComponente;
+package com.example.comparador.Entity;
 
 import java.math.BigDecimal;
 import java.util.List;
@@ -18,7 +15,7 @@ public class BicicletaComparadorDTO {
     public String masInfoUrl;
     public String nombreCompleto;
     public BigDecimal peso;
-    public BigDecimal calificacion;
+    public int calificacion;
     public List<ComponenteDTO> componentes;
 
     public BicicletaComparadorDTO(Bicicleta bici) {

@@ -1,8 +1,7 @@
 package com.example.comparador.Controller;
 
 import com.example.comparador.Entity.Bicicleta;
-import com.example.comparador.Entity.BicicletaComponente;
-import com.example.comparador.Entity.Componente;
+import com.example.comparador.Entity.BicicletaComparadorDTO;
 import com.example.comparador.Service.BicicletaService;
 import com.example.comparador.Service.BicicletaServiceImpl;
 import com.fasterxml.jackson.core.JsonProcessingException;
@@ -29,7 +28,7 @@ public class BicicletaController {
     @GetMapping
     public String findAll(Model model) {
         List<Bicicleta> bicicletas = this.service.findAll();
-        bicicletas.sort(Comparator.comparing(Bicicleta::getPrecio).reversed());
+        bicicletas.sort(Comparator.comparing(Bicicleta::getCalificacion).reversed());
         model.addAttribute("bicicletas", bicicletas);
         return "index";
     }
@@ -59,7 +58,7 @@ public class BicicletaController {
     @GetMapping("/categoria/{tipo}")
     public String findByTipo(@PathVariable String tipo, Model model) {
         List<Bicicleta> bicicletas = service.findByTipo(tipo);
-        bicicletas.sort(Comparator.comparing(Bicicleta::getPrecio).reversed());
+        bicicletas.sort(Comparator.comparing(Bicicleta:: getCalificacion).reversed());
         model.addAttribute("bicicletas", bicicletas);
         return "index";
     }
@@ -77,7 +76,7 @@ public class BicicletaController {
         if (resultados.isEmpty()) {
             model.addAttribute("mensaje", "No hay bicicletas con la búsqueda: " + marcaymodelo);
         } else {
-            resultados.sort(Comparator.comparing(Bicicleta::getPrecio).reversed());
+            resultados.sort(Comparator.comparing(Bicicleta:: getCalificacion).reversed());
         }
         model.addAttribute("bicicletas", resultados);
 
