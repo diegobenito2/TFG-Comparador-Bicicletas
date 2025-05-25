@@ -41,14 +41,16 @@ public class Bicicleta {
     private String imagenUrl;
     private String masInfoUrl;
 
+    private int calificacion;
+
 
     @OneToMany(mappedBy = "bicicleta", cascade = CascadeType.ALL, orphanRemoval = true)
-    @JsonManagedReference //
+    @JsonManagedReference
     private List<BicicletaComponente> componentes = new ArrayList<>();
 
     // Constructores, getters y setters
 
-    public Bicicleta(String modelo, BigDecimal precio, TipoBicicleta tipo, MaterialCuadro materialCuadro, TipoCambio tipoCambio, BigDecimal peso, String imagenUrl, String masInfoUrl, String marcaNombre, List<BicicletaComponente> componentes) {
+    public Bicicleta(String modelo, BigDecimal precio, TipoBicicleta tipo, MaterialCuadro materialCuadro, TipoCambio tipoCambio, BigDecimal peso, String imagenUrl, String masInfoUrl, String marcaNombre, int calificacion, List<BicicletaComponente> componentes) {
         this.modelo = modelo;
         this.precio = precio;
         this.tipo = tipo;
@@ -61,9 +63,10 @@ public class Bicicleta {
         this.componentes = componentes;
         this.nombreCompleto = getMarcaNombre() + " " + getModelo();
         obtenerFamilia();
+        this.calificacion = calificacion;
     }
 
-    public Bicicleta(String modelo, BigDecimal precio, TipoBicicleta tipo, MaterialCuadro materialCuadro, TipoCambio tipoCambio, BigDecimal peso, String imagenUrl, String masInfoUrl, String marcaNombre) {
+    public Bicicleta(String modelo, BigDecimal precio, TipoBicicleta tipo, MaterialCuadro materialCuadro, TipoCambio tipoCambio, BigDecimal peso, String imagenUrl, String masInfoUrl, String marcaNombre, int calificacion) {
         this.modelo = modelo;
         this.precio = precio;
         this.tipo = tipo;
@@ -75,6 +78,7 @@ public class Bicicleta {
         this.marcaNombre = marcaNombre;
         this.nombreCompleto = getMarcaNombre() + " " + getModelo();
         obtenerFamilia();
+        this.calificacion = calificacion;
     }
 
     public Bicicleta() {
@@ -191,6 +195,14 @@ public class Bicicleta {
         } else {
             this.familia = getModelo();
         }
+    }
+
+    public int getCalificacion() {
+        return calificacion;
+    }
+
+    public void setCalificacion(int calificacion) {
+        this.calificacion = calificacion;
     }
 }
 

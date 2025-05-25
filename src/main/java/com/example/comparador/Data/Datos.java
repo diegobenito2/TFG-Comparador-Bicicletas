@@ -403,15 +403,15 @@ public class Datos {
             new Componente("Sram Red AXS 12s", TipoComponente.Cambio_Trasero),
             new Componente("Vittoria Corsa Pro Speed G2.0 TLR 700x26c", TipoComponente.Cubiertas),
             new Componente("CN RED E1 116LINK", TipoComponente.Cadena),
-            new Componente("Canyon SP0072",TipoComponente.Tija_Sillin),
-            new Componente("Fizik Vento Argo X3",TipoComponente.Sillin),
-            new Componente("SRAM Force AXS HRD D2",TipoComponente.Manetas_Cambio),
-            new Componente("SRAM Force D1 12s",TipoComponente.Cadena),
-            new Componente("SRAM Force XPLR XG-1271, 12-speed, 10-44",TipoComponente.Cassette),
-            new Componente("SRAM Force",TipoComponente.Bielas),
-            new Componente("Canyon EP1839-01 Blind Plate",TipoComponente.Desviador),
-            new Componente("Pirelli Cinturato Gravel RC",TipoComponente.Cubiertas),
-            new Componente("KMC X12L-1",TipoComponente.Cadena),
+            new Componente("Canyon SP0072", TipoComponente.Tija_Sillin),
+            new Componente("Fizik Vento Argo X3", TipoComponente.Sillin),
+            new Componente("SRAM Force AXS HRD D2", TipoComponente.Manetas_Cambio),
+            new Componente("SRAM Force D1 12s", TipoComponente.Cadena),
+            new Componente("SRAM Force XPLR XG-1271, 12-speed, 10-44", TipoComponente.Cassette),
+            new Componente("SRAM Force", TipoComponente.Bielas),
+            new Componente("Canyon EP1839-01 Blind Plate", TipoComponente.Desviador),
+            new Componente("Pirelli Cinturato Gravel RC", TipoComponente.Cubiertas),
+            new Componente("KMC X12L-1", TipoComponente.Cadena),
             new Componente("Schwalbe G-One Bite Performance, 45mm", TipoComponente.Cubiertas),
             new Componente("Shimano CUES U6030", TipoComponente.Manetas_Cambio),
             new Componente("SRAM RED AXS E1 12s", TipoComponente.Cambio_Trasero)
@@ -441,7 +441,7 @@ public class Datos {
                     new BigDecimal("11.50"),
                     "https://www.orbea.com/img/products/product/over/large/R213TTCC-N6-SIDE-ALMA_H20_over.jpg",
                     "https://www.orbea.com/es-es/bicicletas/montana/alma/cat/alma-h20",
-                    "Orbea"
+                    "Orbea", 3
             ), new Bicicleta(
                     "Alma M50",
                     new BigDecimal("1999.00"),
@@ -451,7 +451,7 @@ public class Datos {
                     new BigDecimal("10.10"),
                     "https://www.orbea.com/img/products/product/over/large/S217TTCC-F8-SIDE-ALMA_M50_over.jpg",
                     "https://www.orbea.com/es-es/bicicletas/montana/alma/cat/alma-m50",
-                    "Orbea"
+                    "Orbea", 4
             ), new Bicicleta(
                     "Alma M LTD",
                     new BigDecimal("7999.00"),
@@ -461,7 +461,7 @@ public class Datos {
                     new BigDecimal("8.30"),
                     "https://www.orbea.com/img/products/product/over/large/S222TTCC-F8-SIDE-ALMA_MLTD_over.jpg",
                     "https://www.orbea.com/es-es/bicicletas/montana/alma/cat/alma-m-ltd",
-                    "Orbea"
+                    "Orbea",5
             ), new Bicicleta(
                     "Orca M30",
                     new BigDecimal("2599.00"),
@@ -471,7 +471,7 @@ public class Datos {
                     new BigDecimal("8.5"),
                     "https://www.orbea.com/img/products/product/over/large/S107TTCC-AJ-SIDE-ORCA_M30_DV_M_over.jpg",
                     "https://www.orbea.com/es-es/bicicletas/carretera/orca/cat/orca-m30",
-                    "Orbea"
+                    "Orbea", 4
             ), new Bicicleta(
                     "Grizl 5",
                     new BigDecimal("1499.00"),
@@ -481,7 +481,7 @@ public class Datos {
                     new BigDecimal("10.70"),
                     "https://www.canyon.com/dw/image/v2/BCML_PRD/on/demandware.static/-/Sites-canyon-master/default/dw72f8b5b5/images/full/2025_FULL_/2025/2025_FULL_grizl_5_4020_R075_P08.jpg?sw=1300&sfrm=png&q=90&bgcolor=F2F2F2",
                     "https://www.canyon.com/es-es/bicicletas-gravel/adventure/grizl/al/grizl-5/4020.html",
-                    "Canyon"
+                    "Canyon", 3
             ), new Bicicleta(
                     "Grail CF SLX 8 AXS",
                     new BigDecimal("4899.00"),
@@ -491,7 +491,7 @@ public class Datos {
                     new BigDecimal("8.14"),
                     "https://www.canyon.com/dw/image/v2/BCML_PRD/on/demandware.static/-/Sites-canyon-master/default/dwf7520706/images/full/full_2023_/2023/full_2023_grail_3580_grail-cf-slx-8-etap_P02_P5.jpg?sw=1300&sfrm=png&q=90&bgcolor=F2F2F2",
                     "https://www.canyon.com/es-es/bicicletas-gravel/performance/grail/cf-slx/grail-cf-slx-8-axs/3580.html",
-                    "Canyon"
+                    "Canyon", 5
             )
             , new Bicicleta(
                     "Orca M11eLTD PWR",
@@ -502,7 +502,7 @@ public class Datos {
                     new BigDecimal("6.8"),
                     "https://www.orbea.com/img/products/product/over/large/S123TTCC-AN-SIDE-ORCA_M11eLTD_PWR_over.jpg",
                     "https://www.orbea.com/es-es/bicicletas/carretera/orca/cat/orca-m11eltd-pwr",
-                    "Orbea"
+                    "Orbea", 5
             ), new Bicicleta(
                     "Oiz M LTD",
                     new BigDecimal("10499.00"),
@@ -512,8 +512,9 @@ public class Datos {
                     new BigDecimal("9.20"),
                     "https://www.orbea.com/img/products/product/over/large/S244TTCC-KU-SIDE-OIZ_MLTD_over.jpg",
                     "https://www.orbea.com/es-es/bicicletas/montana/oiz/cat/oiz-m-ltd",
-                    "Orbea"
-            ), new Bicicleta(
+                    "Orbea", 5
+            ),
+            new Bicicleta(
                     "Oiz M PRO",
                     new BigDecimal("6299.00"),
                     TipoBicicleta.MONTANA,
@@ -522,8 +523,8 @@ public class Datos {
                     new BigDecimal("9.80"),
                     "https://www.orbea.com/img/products/product/over/large/S241TTCC-KT-SIDE-OIZ_MPRO_over.jpg",
                     "https://www.orbea.com/es-es/bicicletas/montana/oiz/cat/oiz-m-pro",
-                    "Orbea"
-            ), new Bicicleta(
+                    "Orbea", 4),
+            new Bicicleta(
                     "Oiz M21",
                     new BigDecimal("4599.00"),
                     TipoBicicleta.MONTANA,
@@ -532,8 +533,8 @@ public class Datos {
                     new BigDecimal("10.20"),
                     "https://www.orbea.com/img/products/product/over/large/S236TTCC-KR-SIDE-OIZ_M21_over.jpg",
                     "https://www.orbea.com/es-es/bicicletas/montana/oiz/cat/oiz-m21",
-                    "Orbea"
-            ), new Bicicleta(
+                    "Orbea", 4),
+            new Bicicleta(
                     "Madone SLR 9 AXS Gen 8",
                     new BigDecimal("16899.00"),
                     TipoBicicleta.CARRETERA,
@@ -542,8 +543,8 @@ public class Datos {
                     new BigDecimal("7.10"),
                     "https://media.trekbikes.com/image/upload/f_auto,fl_progressive:semi,q_auto,w_1920,h_1440,c_pad/MadoneSLR9AXS-25-46151-G-Primary",
                     "https://www.trekbikes.com/es/es_ES/bicicletas/bicicletas-de-carretera/bicicletas-de-carretera-de-rendimiento/madone/madone-slr/madone-slr-9-axs-gen-8/p/46151/",
-                    "Trek"
-            ), new Bicicleta(
+                    "Trek", 5),
+            new Bicicleta(
                     "Supercaliber SLR 9.9 XX AXS Gen 2",
                     new BigDecimal("11499.00"),
                     TipoBicicleta.MONTANA,
@@ -552,8 +553,8 @@ public class Datos {
                     new BigDecimal("9.71"),
                     "https://media.trekbikes.com/image/upload/f_auto,fl_progressive:semi,q_auto,w_1920,h_1440,c_pad/SupercaliberSLR99XXAXS-25-47319-E-Primary",
                     "https://www.trekbikes.com/es/es_ES/bicicletas/bicicletas-de-monta%C3%B1a/bicicletas-de-monta%C3%B1a-de-cross-country/supercaliber/supercaliber-slr-9-9-xx-axs-gen/p/47319/",
-                    "Trek"
-            ), new Bicicleta(
+                    "Trek", 5),
+            new Bicicleta(
                     "Revolt Advanced 2",
                     new BigDecimal("2799.00"),
                     TipoBicicleta.GRAVEL,
@@ -562,8 +563,8 @@ public class Datos {
                     new BigDecimal("9.30"),
                     "https://images2.giant-bicycles.com/b_white%2Cc_pad%2Ch_850%2Cq_80/gnq3y5ykgdu6mgfehcf2/MY25RevoltAdvanced2_ColorACarbonSmoke(1).jpg",
                     "https://www.giant-bicycles.com/es/revolt-advanced-2-2024",
-                    "Giant"
-            ), new Bicicleta(
+                    "Giant", 4),
+            new Bicicleta(
                     "Belador BR RED AXS PWM",
                     new BigDecimal("10999.00"),
                     TipoBicicleta.CARRETERA,
@@ -572,8 +573,8 @@ public class Datos {
                     new BigDecimal("6.5"),
                     "https://berriabikes.com/cdn/shop/files/download_14585b77-7ada-40b8-b0a9-e2c7109dda67.jpg?v=1721117600&width=1100",
                     "https://berriabikes.com/products/belador-br-red-axs-pwm?variant=42521808896099",
-                    "Berria"
-            ), new Bicicleta(
+                    "Berria", 5),
+            new Bicicleta(
                     "Ultimate CFR Di2 Aero",
                     new BigDecimal("8629"),
                     TipoBicicleta.CARRETERA,
@@ -582,8 +583,8 @@ public class Datos {
                     new BigDecimal("6.64"),
                     "https://www.canyon.com/dw/image/v2/BCML_PRD/on/demandware.static/-/Sites-canyon-master/default/dwa0285dac/images/full/full_2023_/2023/full_2023_3564_ultimate-cfr-di2_P04_P5.jpg?sw=1300&sfrm=png&q=90&bgcolor=F2F2F2",
                     "https://www.canyon.com/es-es/bicicletas-de-carretera/bicicletas-carreras/ultimate/cfr/ultimate-cfr-di2-aero/3564.html?dwvar_3564_pv_rahmenfarbe=R102_P04",
-                    "Canyon"
-            ), new Bicicleta(
+                    "Canyon", 5),
+            new Bicicleta(
                     "Grand Canyon 7",
                     new BigDecimal("999"),
                     TipoBicicleta.MONTANA,
@@ -592,8 +593,8 @@ public class Datos {
                     new BigDecimal("14.08"),
                     "https://www.canyon.com/dw/image/v2/BCML_PRD/on/demandware.static/-/Sites-canyon-master/default/dwb7b68a42/images/full/full_2023_/2023/full_2023_3271_grand-canyon-7_rd_P5.jpg?sw=1300&sfrm=png&q=90&bgcolor=F2F2F2",
                     "https://www.canyon.com/es-es/bicicletas-de-montana/trail-bikes/grand-canyon/grand-canyon/grand-canyon-7/3271.html?dwvar_3271_pv_rahmenfarbe=RD",
-                    "Canyon"
-            ), new Bicicleta(
+                    "Canyon", 2),
+            new Bicicleta(
                     "Lux World Cup CFR AXS",
                     new BigDecimal("8649"),
                     TipoBicicleta.MONTANA,
@@ -602,8 +603,8 @@ public class Datos {
                     new BigDecimal("10.56"),
                     "https://www.canyon.com/dw/image/v2/BCML_PRD/on/demandware.static/-/Sites-canyon-master/default/dw3173f9b0/images/full/2025_FULL_/2025/2025_FULL_lux-wc_cfr-sram_4002_M116_P15.jpg?sw=1300&sfrm=png&q=90&bgcolor=F2F2F2",
                     "https://www.canyon.com/es-es/bicicletas-de-montana/cross-country-bikes/lux/cfr/lux-world-cup-cfr-axs/4002.html?dwvar_4002_pv_rahmenfarbe=M116_P15",
-                    "Canyon"
-            ), new Bicicleta(
+                    "Canyon", 4),
+            new Bicicleta(
                     "ALLROAD HPR ELITE APEX",
                     new BigDecimal("1499"),
                     TipoBicicleta.GRAVEL,
@@ -612,8 +613,7 @@ public class Datos {
                     new BigDecimal("8.33"),
                     "https://berriabikes.com/cdn/shop/files/ALLROAD_HPR_ELITE_APEX_1FRONTAL_bd39722c-0196-4ba1-a50c-9cb3c20bcc1b.jpg?v=1721255333&width=823",
                     "https://berriabikes.com/products/allroad-hpr-elite-apex",
-                    "Berria"
-            ),
+                    "Berria", 3),
             new Bicicleta(
                     "MAKO BR XX-SL",
                     new BigDecimal("11999.00"),
@@ -623,8 +623,7 @@ public class Datos {
                     new BigDecimal("9.95"),
                     "https://berriabikes.com/cdn/shop/files/MAKO_BR_XX-SL_FA_C1_1FRONTAL_NAKEDCARBON-WHITEPEARL.jpg?v=1721125110",
                     "https://berriabikes.com/products/mako-br-xx-sl",
-                    "Berria"
-            ),
+                    "Berria", 5),
             new Bicicleta(
                     "MAKO PRO GX AXS",
                     new BigDecimal("5499.00"),
@@ -634,8 +633,7 @@ public class Datos {
                     new BigDecimal("10.43"),
                     "https://berriabikes.com/cdn/shop/files/download_8fbfe946-5116-431f-bd04-1017d800c07b.jpg?v=1721117600",
                     "https://berriabikes.com/products/mako-pro-gx-axs",
-                    "Berria"
-            ),
+                    "Berria", 4),
             new Bicicleta(
                     "MAKO ELITE XT",
                     new BigDecimal("3699.00"),
@@ -645,8 +643,7 @@ public class Datos {
                     new BigDecimal("11.11"),
                     "https://berriabikes.com/cdn/shop/files/download_d8d13538-a0e0-4433-9640-6507dd90491d.jpg?v=1721117599",
                     "https://berriabikes.com/products/mako-elite-xt",
-                    "Berria"
-            ),
+                    "Berria", 3),
             new Bicicleta(
                     "BRAVO PRO GX AXS",
                     new BigDecimal("4299.00"),
@@ -656,8 +653,7 @@ public class Datos {
                     new BigDecimal("10.05"),
                     "https://berriabikes.com/cdn/shop/files/download_723a8afc-81e0-4434-bf85-5d882aa11f29.jpg?v=1721117599",
                     "https://berriabikes.com/products/bravo-pro-gx-axs",
-                    "Berria"
-            ),
+                    "Berria", 4),
             new Bicicleta(
                     "BRAVO ELITE XT",
                     new BigDecimal("1999.00"),
@@ -667,8 +663,7 @@ public class Datos {
                     new BigDecimal("11.40"),
                     "https://berriabikes.com/cdn/shop/files/download_2ef0e5f5-0f8f-4716-88bf-b4a17b4da537.jpg?v=1721117600",
                     "https://berriabikes.com/products/bravo-elite-xt",
-                    "Berria"
-            ),
+                    "Berria", 3),
             new Bicicleta(
                     "BRAVO BR XX SL",
                     new BigDecimal("7999.00"),
@@ -678,7 +673,7 @@ public class Datos {
                     new BigDecimal("9.20"),
                     "https://berriabikes.com/cdn/shop/files/download_f75ef6bf-5d8e-44cd-86a7-651ff957feec.jpg?v=1721117599",
                     "https://berriabikes.com/products/bravo-br-xx-sl",
-                    "Berria"
+                    "Berria",5
             )
     );
 

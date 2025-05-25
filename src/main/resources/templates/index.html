@@ -330,7 +330,7 @@
             <div class="mb-4">
                 <label class="block text-sm font-medium" for="ordenar">Ordenar por precio:</label>
                 <select id="ordenar" class="w-full mt-1 p-2 border rounded" onchange="filtrar()">
-                    <option value="desc">Defecto</option>
+                    <option value="cal">Defecto</option>
                     <option value="asc">Menor a Mayor</option>
                     <option value="desc">Mayor a Menor</option>
                 </select>
@@ -358,15 +358,15 @@
         <!-- Lista de bicicletas -->
         <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6" id="lista-bicicletas">
             <div class="bg-white rounded-lg shadow-lg overflow-hidden motion-safe:hover:scale-105" th:each="bicicleta : ${bicicletas}"
-                 th:attr="data-precio=${bicicleta.getPrecio()},data-material=${bicicleta.getMaterialCuadro()},data-cambio=${bicicleta.getTipoCambio()},data-tipo=${bicicleta.getTipo()}">
+                 th:attr="data-precio=${bicicleta.getPrecio()},data-material=${bicicleta.getMaterialCuadro()},data-cambio=${bicicleta.getTipoCambio()},data-tipo=${bicicleta.getTipo()},data-calificacion=${bicicleta.getCalificacion()}">
                 <!-- Se crean los atributos data-* para poder acceder a ellos desde JavaScript.-->
-                <a th:href="@{/{id}(id=${bicicleta.id})}">
+                <a th:href="@{/bike/{id}(id=${bicicleta.id})}">
 
                     <img th:src="${bicicleta.getImagenUrl()}" alt="Bicicleta"
                          th:classappend="${bicicleta.getMarcaNombre() == 'Canyon' || bicicleta.getMarcaNombre() == 'Trek' ? 'w-full h-80 p-2 object-fill' : 'w-full h-80 p-2 object-cover'}">
                 </a>
                 <div class="p-4">
-                    <a th:href="@{/{id}(id=${bicicleta.id})}">
+                    <a th:href="@{/bike/{id}(id=${bicicleta.id})}">
                         <h2 class="text-xl font-semibold"
                             th:text="${bicicleta.getMarcaNombre()} + ' ' + ${bicicleta.getModelo()}"></h2>
                     </a>
@@ -458,6 +458,13 @@
 
                 return ordenar === 'asc' ? precioA - precioB : precioB - precioA;
             });
+        }else{
+            bicicletasFiltradas.sort((a,b) =>{
+                const calificacionA= parseFloat(a.getAttribute('data-calificacion'));
+                const calificacionB= parseFloat(b.getAttribute('data-calificacion'));
+                return calificacionB - calificacionA;
+            })
+
         }
 
         // Mostrar y reorganizar las bicicletas filtradas

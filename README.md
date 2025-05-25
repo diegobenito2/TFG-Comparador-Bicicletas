@@ -9,7 +9,7 @@ El proyecto estará basado en un **back-end de Spring Boot** utilizando **Thymel
 ## Funcionalidades
 
 - **Filtrado de bicicletas**: Los usuarios podrán filtrar bicicletas por uso (Carretera, Montaña, Gravel), tipo de freno, tipo de cambio y material.
-- **Comparación de bicicletas**: Los usuarios podrán comparar bicicletas de diferentes marcas y modelos.
+- **Comparación de bicicletas**: Los usuarios podrán comparar bicicletas de diferentes marcas y modelos pudiendo ver sus componentes,precios y calificación.
 - **Especificaciones detalladas**: Cada bicicleta mostrará sus especificaciones principales y tendrá un enlace que llevará al usuario a la página original para obtener más detalles o ver variantes de componentes y precios.
 - **Interfaz intuitiva**: Al ingresar a la página, los usuarios verán todas las bicicletas ordenadas por precio de mayor a menor, podiendo hacer clic en la imagen de la bicicleta para obtener más detalles y un botón de **"Comparar"** para comparar.
 
