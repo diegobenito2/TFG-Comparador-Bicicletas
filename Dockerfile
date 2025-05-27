@@ -6,6 +6,6 @@ RUN mvn clean package -DskipTests
 
 # Etapa 2: Imagen final mínima
 FROM eclipse-temurin:17-jdk-alpine
-COPY --from=build /app/target/*.jar app.jar
+COPY --from=build /app/target/*.jar bikecomparator.jar
 EXPOSE 8080
-ENTRYPOINT ["java", "-jar", "app.jar"]
+ENTRYPOINT ["java", "-jar", "bikecomparator.jar"]
