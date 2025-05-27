@@ -9,23 +9,12 @@
         <relativePath/> <!-- lookup parent from repository -->
     </parent>
     <groupId>com.example</groupId>
-    <artifactId>Comparador</artifactId>
-    <version>0.0.1-SNAPSHOT</version>
-    <name>TFG</name>
-    <description>TFG</description>
+    <artifactId>bike_comparator</artifactId>
+    <version>0.0.1</version>
+    <name>bike_comparator</name>
+    <description>TFG Bike Comparator</description>
     <url/>
-    <licenses>
-        <license/>
-    </licenses>
-    <developers>
-        <developer/>
-    </developers>
-    <scm>
-        <connection/>
-        <developerConnection/>
-        <tag/>
-        <url/>
-    </scm>
+
     <properties>
         <java.version>17</java.version>
     </properties>

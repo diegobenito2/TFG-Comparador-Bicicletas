@@ -1,41 +1,39 @@
-# To better understand this file read this:
-# https://docs.ionos.space/docs/github-actions-customization/
-
-name: "Deploy Now: Execute Build"
+name: Build and Test with MySQL
 
 on:
-  workflow_call:
-    inputs:
-      site-url:
-        required: true
-        type: string
-      branch-id:
-        required: true
-        type: string
-
-env:
-  DEPLOYMENT_FOLDER: java -Dspring.profiles.active=prod -jar Comparador-0.0.1-SNAPSHOT.jar
+  push:
+    branches: [ "main" ]
 
 jobs:
-# Please do not rename this job
-  build-project:
-    name: build TFG-Comparador-Bicicletas
+  build:
     runs-on: ubuntu-latest
-    steps:
-      - name: checkout
-        uses: actions/checkout@v4
-        with:
-          submodules: 'recursive'
 
-# Please do not touch the following action
-      - name: Store deployment content
-        uses: ionos-deploy-now/artifact-action@v1
+    services:
+      mysql:
+        image: mysql:8.0
+        env:
+          MYSQL_ROOT_PASSWORD: root
+          MYSQL_DATABASE: testdb
+        ports:
+          - 3306:3306
+        options: >-
+          --health-cmd="mysqladmin ping --silent"
+          --health-interval=10s
+          --health-timeout=5s
+          --health-retries=3
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v3
+
+      - name: Set up JDK 17
+        uses: actions/setup-java@v3
         with:
-          api-key: ${{ secrets.IONOS_API_KEY }}
-          service-host: api-eu.ionos.space
-          project-id: adc86811-2a7a-4537-9cfa-7e67236d7c7e
-          branch-id: ${{ inputs.branch-id }}
-          version: ${{ github.sha }}
-          folder: ${{ env.DEPLOYMENT_FOLDER }}
-          config-file: .deploy-now/TFG-Comparador-Bicicletas/config.yaml
-          action: upload
+          java-version: '17'
+          distribution: 'temurin'
+
+      - name: Build with Maven (dev profile)
+        run: mvn clean package -Dspring.profiles.active=dev
+
+      - name: Run app
+        run: java -Dspring.profiles.active=dev -jar target/Comparador-0.0.1-SNAPSHOT.jar
