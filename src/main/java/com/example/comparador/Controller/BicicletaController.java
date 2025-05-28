@@ -119,7 +119,7 @@ public class BicicletaController {
             return "redirect:/";
         }
     }
-
+  // Método que devuelve el orden en que se mostrarán los componentes dependiendo del tipo de bici que elijas
     public static List<String> ordenDeseado(String tipoBicicleta) {
         List<String> ordenDeseado = null;
         switch (tipoBicicleta) {
