@@ -267,24 +267,6 @@
             <span>Filtros</span>
         </button>
 
-        <!--        Tipos de bicis-->
-        <div class="flex items-center justify-between mb-2 gap-2 px-4 py-2 border rounded-xl shadow-lg bg-white/90 backdrop-blur-md transition-all duration-300 w-fit space-x-3 mx-auto">
-            <a th:href="@{/categoria/Montaña}">
-                <button class="px-3 py-1.5 bg-blue-100 text-blue-800 font-medium rounded-lg hover:bg-blue-200 transition">
-                    <span>Montaña</span>
-                </button>
-            </a>
-            <a th:href="@{/categoria/Carretera}">
-                <button class="px-3 py-1.5 bg-blue-100 text-blue-800 font-medium rounded-lg hover:bg-blue-200 transition">
-                    <span>Carretera</span>
-                </button>
-            </a>
-            <a th:href="@{/categoria/Gravel}">
-                <button class="px-3 py-1.5 bg-blue-100 text-blue-800 font-medium rounded-lg hover:bg-blue-200 transition">
-                    <span>Gravel</span>
-                </button>
-            </a>
-        </div>
 
 
         <!-- Botón Buscador -->
@@ -332,6 +314,20 @@
                     <option value="desc">Defecto</option>
                     <option value="asc">Menor a Mayor</option>
                     <option value="desc">Mayor a Menor</option>
+                </select>
+            </div>
+            <div class="mb-4">
+                <label class="block text-sm font-medium" for="tipos">Categoría:</label>
+                <select id="tipos" class="w-full mt-1 p-2 border rounded">
+                    <option th:href="@{/categoria/Montaña}" value="Montaña">
+                        <span>Montaña</span>
+                    </option>
+                    <option th:href="@{/categoria/Carretera}" value="Carretera">
+                        <span>Carretera</span>
+                    </option>
+                    <option th:href="@{/categoria/Gravel}" value="Gravel">
+                        <span>Gravel</span>
+                    </option>
                 </select>
             </div>
             <div class="mb-4">

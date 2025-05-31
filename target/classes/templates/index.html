@@ -359,26 +359,14 @@
             <div class="mb-4">
                 <label class="block text-sm font-medium" for="tipos">Categoría:</label>
                 <select id="tipos" class="w-full mt-1 p-2 border rounded">
-                    <option value="Montaña">
-                        <a th:href="@{/categoria/Montaña}">
-                            <button class="px-3 py-1.5 bg-blue-100 text-blue-800 font-medium rounded-lg hover:bg-blue-200 transition">
-                                <span>Montaña</span>
-                            </button>
-                        </a>
+                    <option th:href="@{/categoria/Montaña}" value="Montaña">
+                        <span>Montaña</span>
                     </option>
-                    <option value="Carretera">
-                        <a th:href="@{/categoria/Carretera}">
-                            <button class="px-3 py-1.5 bg-blue-100 text-blue-800 font-medium rounded-lg hover:bg-blue-200 transition">
-                                <span>Carretera</span>
-                            </button>
-                        </a>
+                    <option th:href="@{/categoria/Carretera}" value="Carretera">
+                        <span>Carretera</span>
                     </option>
-                    <option value="Gravel">
-                        <a th:href="@{/categoria/Gravel}">
-                            <button class="px-3 py-1.5 bg-blue-100 text-blue-800 font-medium rounded-lg hover:bg-blue-200 transition">
-                                <span>Gravel</span>
-                            </button>
-                        </a>
+                    <option th:href="@{/categoria/Gravel}" value="Gravel">
+                        <span>Gravel</span>
                     </option>
                 </select>
             </div>

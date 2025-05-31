@@ -309,7 +309,7 @@
             <thead>
             <th></th>
             <th class="p-2 text-center" id="bicicleta1">
-                <img class=" w-[300px] h-[250px] object-contain shadow-lg mx-auto"
+                <img class="w-full max-w-[300px] h-48 object-contain shadow-lg mx-auto hidden"
                      th:src="${bicicleta.getImagenUrl()}"
                      th:alt="${bicicleta.getNombreCompleto()}"
                      th:data-id="${bicicleta.getId()}"
@@ -338,14 +338,13 @@
                 </button>
 
                 <!-- CONTENEDOR DE IMÁGENES -->
-                <div id="imagenes2" class="relative mt-2">
+                <div id="imagenes2" class="relative mt-2 mx-auto">
                     <img th:each="bicicleta : ${bicicletas}"
                          th:id="'img-bici-2-' + ${bicicleta.getId()}"
                          th:src="${bicicleta.getImagenUrl()}"
                          th:data-id="${bicicleta.getId()}"
-                         class="w-[300px] h-[250px] object-contain shadow-lg mx-auto hidden"
-                         alt="Bicicleta"
-                         th:classappend="${bicicleta.getMarcaNombre() == 'Canyon' || bicicleta.getMarcaNombre() == 'Trek' ? 'object-fill' : 'object-cover'}">
+                         class="w-full max-w-[300px] h-48 object-contain shadow-lg mx-auto hidden"
+                         alt="Bicicleta">
                 </div>
             </th>
 
@@ -374,9 +373,9 @@
                     <img th:each="bicicleta : ${bicicletas}"
                          th:id="'img-bici-3-' + ${bicicleta.getId()}"
                          th:src="${bicicleta.getImagenUrl()}"
-                         class="w-[300px] h-[250px] object-contain shadow-lg mx-auto hidden"
+                         class="w-full max-w-[300px] h-48 object-contain shadow-lg mx-auto hidden"
                          alt="Bicicleta"
-                         th:classappend="${bicicleta.getMarcaNombre() == 'Canyon' || bicicleta.getMarcaNombre() == 'Trek' ? 'object-fill' : 'object-cover'}">
+                         >
                 </div>
             </th>
             </thead>
