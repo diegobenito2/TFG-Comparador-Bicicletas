@@ -78,7 +78,7 @@ npm test
 
 ### 🔝 Volver arriba
 
-[⬆ Volver al inicio](https://github.com/diegobenito2/TFG-Comparador-Bicicletas/edit/main/README.md)
+[⬆ Volver al inicio](https://github.com/diegobenito2/TFG-Comparador-Bicicletas/README.md)
 
 ## Enlace Proyecto Web
 [Enlace](https://tfg-comparador-bicicletas.onrender.com)
