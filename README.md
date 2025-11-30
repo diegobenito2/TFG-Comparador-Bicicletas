@@ -88,6 +88,3 @@ npm test
 ## Excel Seguimiento de Tareas y Horas
 [Enlace](https://1drv.ms/x/c/9560136bb87fc02b/Ef6ibfbxfx1CiXshixMoyBIB_9ZP7-RxEzJk1DXOAEHE-w?e=a3RuAN)
 
-### 🔝 Volver arriba
-
-[⬆ Volver al inicio](https://github.com/diegobenito2/TFG-Comparador-Bicicletas/blob/main/README.md)
